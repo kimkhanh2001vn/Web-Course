@@ -1,0 +1,334 @@
+﻿
+@{
+    ViewBag.Title = "Thuê Căn Hộ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var thue = (List<thue>)ViewBag.thue;
+}
+    <link href="~/css/thue/thue.css" rel="stylesheet" />
+<section class="page-title">
+    <div class="auto-container">
+        <div class="clearfix">
+            <div class="pull-left">
+                <h1>Thuê</h1>
+            </div>
+            <div class="pull-right">
+                <ul class="page-breadcrumb"><li><a href="../../../index.html">Thuê</a></li><li>Thuê Căn Hộ</li></ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ds dự án -->
+<section class="bl-padding-rewrite sec-tb sec-h-5 bg-white group-ef lazy-hidden">
+    <div class="container">
+        <div>
+            <div>
+                <b style="padding-bottom:2px;border-bottom:2px solid #fbb908"><span style="color:#fbb908;font-size:30px">Thuê</span>&nbsp<span style="font-size:22px">Căn Hộ</span></b>
+            </div>
+            <div class="list-duan row" style="margin-top: 20px">
+                @{ foreach (var th in thue)
+                    {
+                        if (th.LoaiThue.Equals("canho"))
+                        {
+                            <div class="col-6">
+                                <div class="group-item">
+                                    <div class="item t-item">
+                                        <a class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" src="@th.Image" alt="Jamila Khang Điền"> <span class="count">12 hình</span> </a>
+                                        <div class="divtext">
+                                            <h3 class="title"><a>@th.Name</a></h3>
+                                            <div class="imeta-3">@th.Content</div>
+                                            <div class="imeta-3"><span>Tiến độ: <strong>Sắp mở bán</strong></span></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- listing of rent -->
+                                    <div class="group-tag">
+                                        <div class="owl-carousel s-auto" paramowl="margin=0">
+                                            <div class="item">
+                                                <h3 class="title"> <a href="thue/can-ho/hcm/quan-9/id170540.html">Chính chủ cho thuê căn hộ mới, 2 phòng ngủ trong Chung Cư Jamila, Song Hành Cao Tốc, phường Phú Hữu, Quận 9.</a> </h3>
+                                                <div class="wcontent">
+                                                    <a href="thue/can-ho/hcm/quan-9/id170540.html" class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" data-lazy-src="https://cdn.propzy.vn/listing/thumbnail/map/2020/06/06/listing_f80687840ff0695f3e7a0bc8ac9e492aa49afb5458a6f75ab8bd7dc0dc8fef08.jpg" alt="Chính chủ cho thuê căn hộ mới, 2 phòng ngủ trong Chung Cư Jamila, Song Hành Cao Tốc, phường Phú Hữu, Quận 9."> <span class="count">8 hình</span> </a>
+                                                    <div class="divtext">
+                                                        <div class="imeta-3"> <span><i class="icon-compass"></i> <strong>Không xác định</strong></span> <span><i class="icon-bed"></i> <strong>2</strong></span> <span><i class="icon-tub"></i> <strong>1</strong></span> </div>
+                                                        <div class="label"> <span class="label-1">Thuê</span> </div>
+                                                        <div class="imeta-2">
+                                                            <span>11 triệu</span> <span>65 m²</span>
+                                                            <div class="price2">169,2 ngàn/m²</div>
+                                                        </div>
+                                                        <a href="du-an/hcm/quan-9/jamila-khang-dien-id343/thue.html" class="viewall">Xem tất cả <i class="icon-arrow-2"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="wlike">
+                                                    <div link="/thue/can-ho/hcm/quan-9/id170540" listingid="170540" object='{"id":170540 }' class="btnlike  save-listing save-listing-170540"> <span><i class="icon-like-1"></i></span> </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <h3 class="title"> <a href="thue/can-ho/hcm/quan-9/id157452.html">Cho thuê căn Shophouse 1 trệt 1 lầu ở Chung cư Jamila Khang Điền, Phường Hiệp Phú, Quận 9. </a> </h3>
+                                                <div class="wcontent">
+                                                    <a href="thue/can-ho/hcm/quan-9/id157452.html" class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" data-lazy-src="https://cdn.propzy.vn/listing/thumbnail/map/2020/05/08/listing_95196eebf8937d7316af09c991ed7537ecdaff48b6f13c9ea3c726f946c7e710.jpg" alt="Cho thuê căn Shophouse 1 trệt 1 lầu ở Chung cư Jamila Khang Điền, Phường Hiệp Phú, Quận 9. "> <span class="count">7 hình</span> </a>
+                                                    <div class="divtext">
+                                                        <div class="imeta-3"> <span><i class="icon-compass"></i> <strong>Không xác định</strong></span> <span><i class="icon-bed"></i> <strong>0</strong></span> <span><i class="icon-tub"></i> <strong>1</strong></span> </div>
+                                                        <div class="label"> <span class="label-1">Thuê</span> </div>
+                                                        <div class="imeta-2">
+                                                            <span>28 triệu</span> <span>138 m²</span>
+                                                            <div class="price2">202,9 ngàn/m²</div>
+                                                        </div>
+                                                        <a href="du-an/hcm/quan-9/jamila-khang-dien-id343/thue.html" class="viewall">Xem tất cả <i class="icon-arrow-2"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="wlike">
+                                                    <div link="/thue/can-ho/hcm/quan-9/id157452" listingid="157452" object='{"id":157452 }' class="btnlike  save-listing save-listing-157452"> <span><i class="icon-like-1"></i></span> </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <h3 class="title"> <a href="thue/can-ho/hcm/quan-9/id143391.html">Cho thuê căn hộ 2 phòng ngủ tại Jamila Khang Điền, Phường Phú Hữu, Quận 9.</a> </h3>
+                                                <div class="wcontent">
+                                                    <a href="thue/can-ho/hcm/quan-9/id143391.html" class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" data-lazy-src="https://cdn.propzy.vn/listing/thumbnail/map/2020/03/25/listing_bb0611ed52028de5da2fd312fbb412ce2e162022897ef395c702cd2aa3cd4185.jpg" alt="Cho thuê căn hộ 2 phòng ngủ tại Jamila Khang Điền, Phường Phú Hữu, Quận 9."> <span class="count">7 hình</span> </a>
+                                                    <div class="divtext">
+                                                        <div class="imeta-3"> <span><i class="icon-compass"></i> <strong>Không xác định</strong></span> <span><i class="icon-bed"></i> <strong>2</strong></span> <span><i class="icon-tub"></i> <strong>2</strong></span> </div>
+                                                        <div class="label"> <span class="label-1">Thuê</span> </div>
+                                                        <div class="imeta-2">
+                                                            <span>17 triệu</span> <span>81 m²</span>
+                                                            <div class="price2">209,9 ngàn/m²</div>
+                                                        </div>
+                                                        <a href="du-an/hcm/quan-9/jamila-khang-dien-id343/thue.html" class="viewall">Xem tất cả <i class="icon-arrow-2"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="wlike">
+                                                    <div link="/thue/can-ho/hcm/quan-9/id143391" listingid="143391" object='{"id":143391 }' class="btnlike  save-listing save-listing-143391"> <span><i class="icon-like-1"></i></span> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+
+                }
+
+
+
+
+
+
+
+
+                @*<div class="col-6">
+            <div class="group-item">
+                <div class="item t-item">
+                    <a class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" src="/wp-content/uploads/2020/02/image-1.jpg" alt="Sài Gòn Gateway"> <span class="count">8 hình</span> </a>
+                    <div class="divtext">
+                        <h3 class="title"><a href="du-an/hcm/quan-9/sai-gon-gateway-id361.html">Sài Gòn Gateway</a></h3>
+                        <div class="imeta-1">
+                            <p class="ward-district">Số 11 KM9, Xa lộ Hà Nội, phường Hiệp Phú, quận 9, Hồ Chí Minh</p>
+                        </div>
+                        <div class="imeta-3"> <span>Năm xây dựng: <strong>2017</strong></span> </div>
+                        <div class="imeta-3"> <span>Giá từ: <strong class="cl1">1,9 tỷ</strong></span> </div>
+                        <div class="imeta-3"> <span> <a href="du-an/hcm/quan-9/sai-gon-gateway-id361/ban.html"> Bán: <strong class="cl1">64</strong> </a> - <a href="du-an/hcm/quan-9/sai-gon-gateway-id361/thue.html"> Thuê: <strong class="cl1">107</strong> </a> </span> </div>
+                        <div class="imeta-3"><span>Tiến độ: <strong>Đã hoàn thành</strong></span></div>
+                    </div>
+                </div>
+
+                 listing of rent
+                <div class="group-tag">
+                    <div class="owl-carousel s-auto" paramowl="margin=0">
+                        <div class="item">
+                            <h3 class="title"> <a href="thue/can-ho/hcm/quan-9/id162656.html">Cho thuê căn hộ full nội thất tại Chung cư Sài Gòn Gateway, Phường Hiệp Phú, Quận 9.</a> </h3>
+                            <div class="wcontent">
+                                <a href="thue/can-ho/hcm/quan-9/id162656.html" class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" data-lazy-src="https://cdn.propzy.vn/listing/thumbnail/map/2020/05/20/listing_aa06517b0248e535b5056d68e699b3873b88bdd7eaf9132a4cbbfacff81cfdf6.jpg" alt="Cho thuê căn hộ full nội thất tại Chung cư Sài Gòn Gateway, Phường Hiệp Phú, Quận 9."> <span class="count">4 hình</span> </a>
+                                <div class="divtext">
+                                    <div class="imeta-3"> <span><i class="icon-compass"></i> <strong>Không xác định</strong></span> <span><i class="icon-bed"></i> <strong>2</strong></span> <span><i class="icon-tub"></i> <strong>2</strong></span> </div>
+                                    <div class="label"> <span class="label-1">Thuê</span> </div>
+                                    <div class="imeta-2">
+                                        <span>12 triệu</span> <span>70 m²</span>
+                                        <div class="price2">171,4 ngàn/m²</div>
+                                    </div>
+                                    <a href="du-an/hcm/quan-9/sai-gon-gateway-id361/thue.html" class="viewall">Xem tất cả <i class="icon-arrow-2"></i></a>
+                                </div>
+                            </div>
+                            <div class="wlike">
+                                <div link="/thue/can-ho/hcm/quan-9/id162656" listingid="162656" object='{"id":162656 }' class="btnlike  save-listing save-listing-162656"> <span><i class="icon-like-1"></i></span> </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <h3 class="title"> <a href="thue/can-ho/hcm/quan-9/id154103.html">Cho thuê căn hộ full nội thất tại Chung cư Sài Gòn Gateway, Phường Hiệp Phú, Quận 9.</a> </h3>
+                            <div class="wcontent">
+                                <a href="thue/can-ho/hcm/quan-9/id154103.html" class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" data-lazy-src="https://cdn.propzy.vn/listing/thumbnail/map/2020/04/28/listing_76f5b42d8e7cbd9197ca2dca258093b0446cfacfd9353f77e5fc18796b683cdd.jpg" alt="Cho thuê căn hộ full nội thất tại Chung cư Sài Gòn Gateway, Phường Hiệp Phú, Quận 9."> <span class="count">12 hình</span> </a>
+                                <div class="divtext">
+                                    <div class="imeta-3"> <span><i class="icon-compass"></i> <strong>Không xác định</strong></span> <span><i class="icon-bed"></i> <strong>2</strong></span> <span><i class="icon-tub"></i> <strong>2</strong></span> </div>
+                                    <div class="label"> <span class="label-1">Thuê</span> </div>
+                                    <div class="imeta-2">
+                                        <span>9 triệu</span> <span>65,9m²</span>
+                                        <div class="price2">136,7 ngàn/m²</div>
+                                    </div>
+                                    <a href="du-an/hcm/quan-9/sai-gon-gateway-id361/thue.html" class="viewall">Xem tất cả <i class="icon-arrow-2"></i></a>
+                                </div>
+                            </div>
+                            <div class="wlike">
+                                <div link="/thue/can-ho/hcm/quan-9/id154103" listingid="154103" object='{"id":154103 }' class="btnlike  save-listing save-listing-154103"> <span><i class="icon-like-1"></i></span> </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <h3 class="title"> <a href="thue/can-ho/hcm/quan-9/id151354.html">Cho thuê căn Shophouse - Chung cư Saigon Gateway, Phường Hiệp Phú, Quận 9. </a> </h3>
+                            <div class="wcontent">
+                                <a href="thue/can-ho/hcm/quan-9/id151354.html" class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" data-lazy-src="https://cdn.propzy.vn/listing/thumbnail/map/2020/04/20/listing_acdb0e88f5f0f0f6a5bcf17b1f876f383e436fabfdf292c65aa2bde19fec3ac4.jpg" alt="Cho thuê căn Shophouse - Chung cư Saigon Gateway, Phường Hiệp Phú, Quận 9. "> <span class="count">6 hình</span> </a>
+                                <div class="divtext">
+                                    <div class="imeta-3"> <span><i class="icon-compass"></i> <strong>Không xác định</strong></span> <span><i class="icon-bed"></i> <strong>0</strong></span> <span><i class="icon-tub"></i> <strong>1</strong></span> </div>
+                                    <div class="label"> <span class="label-1">Thuê</span> </div>
+                                    <div class="imeta-2">
+                                        <span>20 triệu</span> <span>65,9m²</span>
+                                        <div class="price2">303,4 ngàn/m²</div>
+                                    </div>
+                                    <a href="du-an/hcm/quan-9/sai-gon-gateway-id361/thue.html" class="viewall">Xem tất cả <i class="icon-arrow-2"></i></a>
+                                </div>
+                            </div>
+                            <div class="wlike">
+                                <div link="/thue/can-ho/hcm/quan-9/id151354" listingid="151354" object='{"id":151354 }' class="btnlike  save-listing save-listing-151354"> <span><i class="icon-like-1"></i></span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="group-item">
+                <div class="item t-item">
+                    <a class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" src="/wp-content/uploads/2020/02/image-1.jpg" alt="Osimi Tower"> <span class="count">6 hình</span> </a>
+                    <div class="divtext">
+                        <h3 class="title"><a href="du-an/hcm/quan-go-vap/osimi-tower-id484.html">Osimi Tower</a></h3>
+                        <div class="imeta-1">
+                            <p class="ward-district">688/57 Đường Lê Đức Thọ, phường 15, Gò Vấp, Hồ Chí Minh, Việt Nam</p>
+                        </div>
+                        <div class="imeta-3"> <span>Năm xây dựng: <strong>2017</strong></span> </div>
+                        <div class="imeta-3"> <span>Giá từ: <strong class="cl1">18 triệu/m2</strong></span> </div>
+                        <div class="imeta-3"> <span> <a href="du-an/hcm/quan-go-vap/osimi-tower-id484/ban.html"> Bán: <strong class="cl1">2</strong> </a> - <a href="du-an/hcm/quan-go-vap/osimi-tower-id484/thue.html"> Thuê: <strong class="cl1">4</strong> </a> </span> </div>
+                        <div class="imeta-3"><span>Tiến độ: <strong>Đã hoàn thành</strong></span></div>
+                    </div>
+                </div>
+
+                 listing of rent
+                <div class="group-tag">
+                    <div class="owl-carousel s-auto" paramowl="margin=0">
+                        <div class="item">
+                            <h3 class="title"> <a href="thue/can-ho/hcm/quan-go-vap/id109655.html">Cần cho thuê Chung cư/Căn hộ Quận Gò Vấp</a> </h3>
+                            <div class="wcontent">
+                                <a href="thue/can-ho/hcm/quan-go-vap/id109655.html" class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" data-lazy-src="https://cdn.propzy.vn/images/listing/default_detail.jpg" alt="Cần cho thuê Chung cư/Căn hộ Quận Gò Vấp"> <span class="count">1 hình</span> </a>
+                                <div class="divtext">
+                                    <div class="imeta-3"> <span><i class="icon-compass"></i> <strong>Không xác định</strong></span> <span><i class="icon-bed"></i> <strong>2</strong></span> <span><i class="icon-tub"></i> <strong>2</strong></span> </div>
+                                    <div class="label"> <span class="label-2">Đã thuê</span> </div>
+                                    <div class="imeta-2">
+                                        <span>10 triệu</span> <span>68 m²</span>
+                                        <div class="price2">147,1 ngàn/m²</div>
+                                    </div>
+                                    <a href="du-an/hcm/quan-go-vap/osimi-tower-id484/thue.html" class="viewall">Xem tất cả <i class="icon-arrow-2"></i></a>
+                                </div>
+                            </div>
+                            <div class="wlike">
+                                <div link="/thue/can-ho/hcm/quan-go-vap/id109655" listingid="109655" object='{"id":109655 }' class="btnlike  hidden save-listing save-listing-109655"> <span><i class="icon-like-1"></i></span> </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <h3 class="title"> <a href="thue/can-ho/hcm/quan-go-vap/id83893.html">Cần cho thuê Chung cư/Căn hộ Quận Gò Vấp</a> </h3>
+                            <div class="wcontent">
+                                <a href="thue/can-ho/hcm/quan-go-vap/id83893.html" class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" data-lazy-src="https://cdn.propzy.vn/images/listing/default_detail.jpg" alt="Cần cho thuê Chung cư/Căn hộ Quận Gò Vấp"> <span class="count">1 hình</span> </a>
+                                <div class="divtext">
+                                    <div class="imeta-3"> <span><i class="icon-compass"></i> <strong>Không xác định</strong></span> <span><i class="icon-bed"></i> <strong>2</strong></span> <span><i class="icon-tub"></i> <strong>2</strong></span> </div>
+                                    <div class="label"> <span class="label-2">Đã thuê</span> </div>
+                                    <div class="imeta-2">
+                                        <span>7 triệu</span> <span>53 m²</span>
+                                        <div class="price2">132,1 ngàn/m²</div>
+                                    </div>
+                                    <a href="du-an/hcm/quan-go-vap/osimi-tower-id484/thue.html" class="viewall">Xem tất cả <i class="icon-arrow-2"></i></a>
+                                </div>
+                            </div>
+                            <div class="wlike">
+                                <div link="/thue/can-ho/hcm/quan-go-vap/id83893" listingid="83893" object='{"id":83893 }' class="btnlike  hidden save-listing save-listing-83893"> <span><i class="icon-like-1"></i></span> </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <h3 class="title"> <a href="thue/can-ho/hcm/quan-go-vap/id78235.html">Cho thuê chung cư Quận Gò Vấp , khu dân cư an ninh</a> </h3>
+                            <div class="wcontent">
+                                <a href="thue/can-ho/hcm/quan-go-vap/id78235.html" class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" data-lazy-src="https://cdn.propzy.vn/images/listing/default_detail.jpg" alt="Cho thuê chung cư Quận Gò Vấp , khu dân cư an ninh"> <span class="count">1 hình</span> </a>
+                                <div class="divtext">
+                                    <div class="imeta-3"> <span><i class="icon-compass"></i> <strong>Không xác định</strong></span> <span><i class="icon-bed"></i> <strong>2</strong></span> <span><i class="icon-tub"></i> <strong>2</strong></span> </div>
+                                    <div class="label"> <span class="label-2">Đã thuê</span> </div>
+                                    <div class="imeta-2">
+                                        <span>7 triệu</span> <span>70 m²</span>
+                                        <div class="price2">100 ngàn/m²</div>
+                                    </div>
+                                    <a href="du-an/hcm/quan-go-vap/osimi-tower-id484/thue.html" class="viewall">Xem tất cả <i class="icon-arrow-2"></i></a>
+                                </div>
+                            </div>
+                            <div class="wlike">
+                                <div link="/thue/can-ho/hcm/quan-go-vap/id78235" listingid="78235" object='{"id":78235 }' class="btnlike  hidden save-listing save-listing-78235"> <span><i class="icon-like-1"></i></span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="group-item">
+                <div class="item t-item">
+                    <a class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" src="/wp-content/uploads/2020/02/image-1.jpg" alt="Chung Cư Khang Gia"> <span class="count">1 hình</span> </a>
+                    <div class="divtext">
+                        <h3 class="title"><a href="du-an/hcm/quan-8/chung-cu-khang-gia-id520.html">Chung Cư Khang Gia</a></h3>
+                        <div class="imeta-1">
+                            <p class="ward-district">59 Đường Hồ Thành Biên, phường 4, Quận 8, Hồ Chí Minh, Việt Nam</p>
+                        </div>
+                        <div class="imeta-3"> <span>Năm xây dựng: <strong>2017</strong></span> </div>
+                        <div class="imeta-3"> <span>Giá từ: <strong class="cl1">780 triệu/căn</strong></span> </div>
+                        <div class="imeta-3"> <span> <a href="du-an/hcm/quan-8/chung-cu-khang-gia-id520/ban.html"> Bán: <strong class="cl1">1</strong> </a> - <a href="du-an/hcm/quan-8/chung-cu-khang-gia-id520/thue.html"> Thuê: <strong class="cl1">2</strong> </a> </span> </div>
+                        <div class="imeta-3"><span>Tiến độ: <strong>Đã hoàn thành</strong></span></div>
+                    </div>
+                </div>
+
+                 listing of rent
+                <div class="group-tag">
+                    <div class="owl-carousel s-auto" paramowl="margin=0">
+                        <div class="item">
+                            <h3 class="title"> <a href="thue/can-ho/hcm/quan-8/id110957.html">Cho thuê căn hộ tầng 5 chưng cư Khang Gia phường 4 Quận 8</a> </h3>
+                            <div class="wcontent">
+                                <a href="thue/can-ho/hcm/quan-8/id110957.html" class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" data-lazy-src="https://cdn.propzy.vn/images/listing/default_detail.jpg" alt="Cho thuê căn hộ tầng 5 chưng cư Khang Gia phường 4 Quận 8"> <span class="count">1 hình</span> </a>
+                                <div class="divtext">
+                                    <div class="imeta-3"> <span><i class="icon-compass"></i> <strong>Không xác định</strong></span> <span><i class="icon-bed"></i> <strong>1</strong></span> <span><i class="icon-tub"></i> <strong>1</strong></span> </div>
+                                    <div class="label"> <span class="label-2">Đã thuê</span> </div>
+                                    <div class="imeta-2">
+                                        <span>6 triệu</span> <span>60,5m²</span>
+                                        <div class="price2">99,2 ngàn/m²</div>
+                                    </div>
+                                    <a href="du-an/hcm/quan-8/chung-cu-khang-gia-id520/thue.html" class="viewall">Xem tất cả <i class="icon-arrow-2"></i></a>
+                                </div>
+                            </div>
+                            <div class="wlike">
+                                <div link="/thue/can-ho/hcm/quan-8/id110957" listingid="110957" object='{"id":110957 }' class="btnlike  hidden save-listing save-listing-110957"> <span><i class="icon-like-1"></i></span> </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <h3 class="title"> <a href="thue/can-ho/hcm/quan-8/id103217.html">Cho thuê căn hộ tầng 5 chưng cư Khang Gia phường 4 Quận 8</a> </h3>
+                            <div class="wcontent">
+                                <a href="thue/can-ho/hcm/quan-8/id103217.html" class="img tRes_83"> <img class="lazy-hidden" data-lazy-type="image" data-lazy-src="https://cdn.propzy.vn/listing/thumbnail/map/2019/11/06/listing_6ede1547bb812f251f3cf44371278ddc164d388600138c731d4ed231694b39ea.jpg" alt="Cho thuê căn hộ tầng 5 chưng cư Khang Gia phường 4 Quận 8"> <span class="count">15 hình</span> </a>
+                                <div class="divtext">
+                                    <div class="imeta-3"> <span><i class="icon-compass"></i> <strong>Không xác định</strong></span> <span><i class="icon-bed"></i> <strong>2</strong></span> <span><i class="icon-tub"></i> <strong>1</strong></span> </div>
+                                    <div class="label"> <span class="label-2">Đã thuê</span> </div>
+                                    <div class="imeta-2">
+                                        <span>7 triệu</span> <span>56 m²</span>
+                                        <div class="price2">125 ngàn/m²</div>
+                                    </div>
+                                    <a href="du-an/hcm/quan-8/chung-cu-khang-gia-id520/thue.html" class="viewall">Xem tất cả <i class="icon-arrow-2"></i></a>
+                                </div>
+                            </div>
+                            <div class="wlike">
+                                <div link="/thue/can-ho/hcm/quan-8/id103217" listingid="103217" object='{"id":103217 }' class="btnlike  hidden save-listing save-listing-103217"> <span><i class="icon-like-1"></i></span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,127 @@
+﻿@model IEnumerable<TMDT.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="~/js/jquery-2.2.3.min.js"></script>
+<section class="content" data-category=@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CustomerName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CustomerAddress)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CustomerEmail)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CustomerMobile)
+                        </th>
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.CustomerMessage)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PaymentMethod)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreatedDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreatedBy)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PaymentStatus)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomerId)*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomerAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomerEmail)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomerMobile)
+                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.CustomerMessage)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PaymentMethod)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreatedBy)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PaymentStatus)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CustomerId)
+                                </td>*@
+                            @*<td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                </td>*@
+
+                            <td class="text-center btn-active" data-id="@item.ID" style="cursor:pointer">
+                                @if (item.Status == true)
+                                {
+                                    <span class="label label-success">Actived</span>
+                                }
+                                else
+                                {
+                                    <span class="label label-danger">Locked</span>
+                                }
+
+                            </td>
+                        </tr>
+
+                    }
+
+                </table>
+
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+    <!-- /.row -->
+</section>
+@section scripts{
+    <script>
+        $('#search-table').DataTable();
+    </script>
+
+    <script src="~/Areas/Admin/Resources/js/ChangesStatus/ChangeHomeFlag.js"></script>
+    <script src="~/Areas/Admin/Resources/js/ChangesStatus/ChangeStatus.js"></script>
+}

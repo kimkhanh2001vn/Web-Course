@@ -1,0 +1,11 @@
+﻿@model IEnumerable<LibraryCate>
+<ul class="treeview-menu">
+    <li><a href="/Admin/LibraryCates"><i class="fa fa-circle-o"></i>Danh mục</a></li>
+</ul>
+@foreach (var item in Model)
+{
+    var link = "/Admin/" + item.Alias + "-" + item.ID;
+    <ul class="treeview-menu">
+        <li><a href="@link"><i class="fa fa-circle-o"></i>@item.Name</a></li>
+    </ul>
+}

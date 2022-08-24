@@ -1,0 +1,832 @@
+﻿
+@{
+    ViewBag.Title = "Trang Chủ";
+    var TinTuc = (List<TinTucNew>)ViewBag.TinTucnew;
+    var top = (List<Topmenu>)ViewBag.Topmenu;
+    var khach = (List<Khachhang>)ViewBag.khachhang;
+    var duan = (List<duanganday>)ViewBag.duanganday;
+    var taisao = (List<taisaochontoi>)ViewBag.taisaochontoi;
+    var dichvu = (List<dichvuchinh>)ViewBag.dichvuchinh;
+    var hinh = (List<Hinhtruot>)ViewBag.hinhtruot;
+    var dacsac = (List<dacsac>)ViewBag.dacsac;
+}
+
+<html lang="en-US">
+
+<!-- Mirrored from wp.efforttech.net/newwp/konstructo/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2020 05:30:09 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="http://themebunch.com/newwp/konstructo/wp-content/themes/konstructo/images/favicon.ico" type="image/x-icon">
+    @*<link rel="icon" href="http://themebunch.com/newwp/konstructo/wp-content/themes/konstructo/images/favicon.ico" type="image/x-icon">*@
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>Chào mừng đến với công ty phần mềm ewon</title>
+
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+        <!-- Main Header-->
+        <!--End Main Header -->
+        <div class="kc_clfw"></div>
+        <section class="kc-elm kc-css-395675 kc_row">
+            <div class="kc-row-container">
+                <div class="kc-wrap-columns">
+                    <div class="kc-elm kc-css-322587 kc_col-sm-12 kc_column kc_col-sm-12">
+                        <div class="kc-col-container">
+                            <!--Main Slider-->
+                            
+                            <section class="main-slider">
+                               
+                                        <!-- START Home REVOLUTION SLIDER 6.1.5 -->
+                                        <p class="rs-p-wp-fix"></p>
+                                        <rs-module-wrap id="rev_slider_1_1_wrapper" data-source="gallery" style="background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+                                            
+                                                    <rs-module id="rev_slider_1_1" style="display:none;" data-version="6.1.5">
+                                                        <rs-slides>
+                                                            @{  int count = 0;
+                                                                    foreach (var hh in hinh)
+                                                                    {
+                                                                    <rs-slide data-key="rs-@count" data-title="Slide" data-thumb="//wp.efforttech.net/newwp/konstructo/wp-content/uploads/2018/04/image-1-100x50.jpg" data-anim="ei:d;eo:d;s:d;r:0;t:fade;sl:d;">
+                                                                        <img src="@hh.Images" title="Homepage One" class="rev-slidebg" data-no-retina>
+
+                                                                        <rs-layer id="slider-1-slide-@count-layer-@count"
+                                                                                  data-type="text"
+                                                                                  data-rsp_ch="on"
+                                                                                  data-xy="x:r,r,c,c;xo:10px,8px,0,0;yo:270px,230px,304px,187px;"
+                                                                                  data-text="w:normal;s:48,48,48,36;l:58,58,58,46;fw:600;a:right,right,center,center;"
+                                                                                  data-frame_0="y:100%;"
+                                                                                  data-frame_0_mask="u:t;"
+                                                                                  data-frame_1="sp:1500;"
+                                                                                  data-frame_1_mask="u:t;"
+                                                                                  data-frame_999="o:0;st:w;"
+                                                                                  style="z-index:8;font-family:Montserrat;">
+                                                                            @hh.Name
+                                                                        </rs-layer>
+                                                                        <rs-layer id="slider-1-slide-@count-layer-@count"
+                                                                                  data-type="text"
+                                                                                  data-rsp_ch="on"
+                                                                                  data-xy="x:r,r,c,c;xo:10px,17px,0,0;yo:410px,379px,447px,305px;"
+                                                                                  data-text="w:normal;s:20,18,18,16;l:30,30,30,26;a:right,right,center,center;"
+                                                                                  data-dim="w:700px,597px,453px,460px;"
+                                                                                  data-frame_0="x:-100%;"
+                                                                                  data-frame_0_mask="u:t;"
+                                                                                  data-frame_1="sp:2000;"
+                                                                                  data-frame_1_mask="u:t;"
+                                                                                  data-frame_999="o:0;st:w;"
+                                                                                  style="z-index:9;font-family:Arimo;">
+                                                                            @hh.Content
+
+                                                                        </rs-layer>
+                                                                        <rs-layer id="slider-1-slide-@count-layer-@count"
+                                                                                  class="rev-btn"
+                                                                                  data-type="button"
+                                                                                  data-rsp_ch="on"
+                                                                                  data-xy="x:r;xo:10px,17px,222px,80px;yo:516px,490px,582px,429px;"
+                                                                                  data-text="w:normal;s:17,17,17,16;l:48;fw:600;a:right,right,center,center;"
+                                                                                  data-dim="w:180px,170px,160px,150px;minh:0px,none,none,none;"
+                                                                                  data-padding="r:25,21,16,10;l:25,21,16,10;"
+                                                                                  data-border="bos:solid;boc:#fbb908;bow:2px,2px,2px,2px;"
+                                                                                  data-frame_0="x:-175%;o:1;"
+                                                                                  data-frame_0_mask="u:t;x:100%;"
+                                                                                  data-frame_1="e:Power3.easeOut;sp:2500;"
+                                                                                  data-frame_1_mask="u:t;"
+                                                                                  data-frame_999="o:0;st:w;"
+                                                                                  data-frame_hover="bgc:#0a0000;boc:#fbb908;bor:0px,0px,0px,0px;bos:solid;bow:2px,2px,2px,2px;bri:120%;"
+                                                                                  style="z-index:11;background-color:#fbb908;font-family:Montserrat;">
+                                                                            Dịch vụ
+                                                                        </rs-layer>
+                                                                        <rs-layer id="slider-1-slide-@count-layer-@count"
+                                                                                  class="rev-btn"
+                                                                                  data-type="button"
+                                                                                  data-rsp_ch="on"
+                                                                                  data-xy="x:r;xo:210px,207px,403px,248px;yo:516px,490px,582px,429px;"
+                                                                                  data-text="w:normal;s:17,17,17,16;l:48;fw:600;a:right,right,center,center;"
+                                                                                  data-dim="w:180px,170px,160px,150px;minh:0px,none,none,none;"
+                                                                                  data-padding="r:25,21,16,10;l:25,21,16,10;"
+                                                                                  data-border="bos:solid;boc:#ffffff;bow:2px,2px,2px,2px;"
+                                                                                  data-frame_0="x:175%;o:1;"
+                                                                                  data-frame_0_mask="u:t;x:-100%;"
+                                                                                  data-frame_1="e:Power3.easeOut;sp:3000;"
+                                                                                  data-frame_1_mask="u:t;"
+                                                                                  data-frame_999="o:0;st:w;"
+                                                                                  data-frame_hover="bgc:#0a0000;boc:#fbb908;bor:0px,0px,0px,0px;bos:solid;bow:2px,2px,2px,2px;bri:120%;"
+                                                                                  style="z-index:10;background-color:rgba(251,185,8,0);font-family:Montserrat;">
+                                                                            Liên hệ
+                                                                        </rs-layer>
+
+                                                                    </rs-slide>
+                                                                    count = count + 1;
+                                                                    if (count == 4)
+                                                                    {
+                                                                        count = 0;
+                                                                    }
+                                                                }
+                                                            }
+                                                        </rs-slides>
+                                                        <rs-progress class="rs-bottom" style="visibility: hidden !important;"></rs-progress>
+                                                    </rs-module>
+                                                
+                                            <script type="text/javascript">
+                                                setREVStartSize({ c: 'rev_slider_1_1', rl: [1240, 1024, 778, 480], el: [800, 768, 960, 720], gw: [1200, 1024, 778, 480], gh: [800, 768, 960, 720], layout: 'fullwidth', mh: "0" });
+                                                var revapi1,
+                                                    tpj;
+                                                jQuery(function () {
+                                                    tpj = jQuery;
+                                                    if (tpj("#rev_slider_1_1").revolution == undefined) {
+                                                        revslider_showDoubleJqueryError("#rev_slider_1_1");
+                                                    } else {
+                                                        revapi1 = tpj("#rev_slider_1_1").show().revolution({
+                                                            jsFileLocation: "//wp.efforttech.net/newwp/konstructo/wp-content/plugins/revslider/public/assets/js/",
+                                                            sliderLayout: "fullwidth",
+                                                            visibilityLevels: "1240,1024,778,480",
+                                                            gridwidth: "1200,1024,778,480",
+                                                            gridheight: "800,768,960,720",
+                                                            minHeight: "",
+                                                            spinner: "spinner0",
+                                                            editorheight: "800,768,960,720",
+                                                            responsiveLevels: "1240,1024,778,480",
+                                                            disableProgressBar: "on",
+                                                            navigation: {
+                                                                mouseScrollNavigation: false,
+                                                                onHoverStop: false,
+                                                                arrows: {
+                                                                    enable: true,
+                                                                    style: "custom",
+                                                                    hide_onmobile: true,
+                                                                    hide_under: "768px",
+                                                                    left: {
+
+                                                                    },
+                                                                    right: {
+
+                                                                    }
+                                                                },
+                                                                bullets: {
+                                                                    enable: true,
+                                                                    tmp: "",
+                                                                    style: "hesperiden"
+                                                                }
+                                                            },
+                                                            fallbacks: {
+                                                                allowHTML5AutoPlayOnAndroid: true
+                                                            },
+                                                        });
+                                                    }
+
+                                                });
+                                            </script>
+                                            <script>
+                                                var htmlDivCss = unescape("%23rev_slider_1_1_wrapper%20.custom.tparrows%20%7B%0A%09cursor%3Apointer%3B%0A%09background%3A%23000%3B%0A%09background%3Argba%280%2C0%2C0%2C0.5%29%3B%0A%09width%3A40px%3B%0A%09height%3A40px%3B%0A%09position%3Aabsolute%3B%0A%09display%3Ablock%3B%0A%09z-index%3A1000%3B%0A%7D%0A%23rev_slider_1_1_wrapper%20.custom.tparrows%3Ahover%20%7B%0A%09background%3A%23000%3B%0A%7D%0A%23rev_slider_1_1_wrapper%20.custom.tparrows%3Abefore%20%7B%0A%09font-family%3A%20%27revicons%27%3B%0A%09font-size%3A15px%3B%0A%09color%3A%23fff%3B%0A%09display%3Ablock%3B%0A%09line-height%3A%2040px%3B%0A%09text-align%3A%20center%3B%0A%7D%0A%23rev_slider_1_1_wrapper%20.custom.tparrows.tp-leftarrow%3Abefore%20%7B%0A%09content%3A%20%27%5Ce824%27%3B%0A%7D%0A%23rev_slider_1_1_wrapper%20.custom.tparrows.tp-rightarrow%3Abefore%20%7B%0A%09content%3A%20%27%5Ce825%27%3B%0A%7D%0A%0A%0A%23rev_slider_1_1_wrapper%20.hesperiden.tp-bullets%20%7B%0A%7D%0A%23rev_slider_1_1_wrapper%20.hesperiden.tp-bullets%3Abefore%20%7B%0A%09content%3A%27%20%27%3B%0A%09position%3Aabsolute%3B%0A%09width%3A100%25%3B%0A%09height%3A100%25%3B%0A%09background%3Atransparent%3B%0A%09padding%3A10px%3B%0A%09margin-left%3A-10px%3Bmargin-top%3A-10px%3B%0A%09box-sizing%3Acontent-box%3B%0A%20%20%20border-radius%3A8px%3B%0A%20%20%0A%7D%0A%23rev_slider_1_1_wrapper%20.hesperiden%20.tp-bullet%20%7B%0A%09width%3A12px%3B%0A%09height%3A12px%3B%0A%09position%3Aabsolute%3B%0A%09background%3A%20%23999999%3B%20%2F%2A%20old%20browsers%20%2A%2F%0A%20%20%20%20background%3A%20-moz-linear-gradient%28top%2C%20%20%23999999%200%25%2C%20%23e1e1e1%20100%25%29%3B%20%2F%2A%20ff3.6%2B%20%2A%2F%0A%20%20%20%20background%3A%20-webkit-linear-gradient%28top%2C%20%20%23999999%200%25%2C%23e1e1e1%20100%25%29%3B%20%2F%2A%20chrome10%2B%2Csafari5.1%2B%20%2A%2F%0A%20%20%20%20background%3A%20-o-linear-gradient%28top%2C%20%20%23999999%200%25%2C%23e1e1e1%20100%25%29%3B%20%2F%2A%20opera%2011.10%2B%20%2A%2F%0A%20%20%20%20background%3A%20-ms-linear-gradient%28top%2C%20%20%23999999%200%25%2C%23e1e1e1%20100%25%29%3B%20%2F%2A%20ie10%2B%20%2A%2F%0A%20%20%20%20background%3A%20linear-gradient%28to%20bottom%2C%20%20%23999999%200%25%2C%23e1e1e1%20100%25%29%3B%20%2F%2A%20w3c%20%2A%2F%0A%20%20%20%20filter%3A%20progid%3Adximagetransform.microsoft.gradient%28%20%0A%20%20%20%20startcolorstr%3D%27%23999999%27%2C%20endcolorstr%3D%27%23e1e1e1%27%2Cgradienttype%3D0%20%29%3B%20%2F%2A%20ie6-9%20%2A%2F%0A%09border%3A3px%20solid%20%23e5e5e5%3B%0A%09border-radius%3A50%25%3B%0A%09cursor%3A%20pointer%3B%0A%09box-sizing%3Acontent-box%3B%0A%7D%0A%23rev_slider_1_1_wrapper%20.hesperiden%20.tp-bullet%3Ahover%2C%0A%23rev_slider_1_1_wrapper%20.hesperiden%20.tp-bullet.selected%20%7B%0A%09background%3A%23666666%3B%0A%7D%0A%23rev_slider_1_1_wrapper%20.hesperiden%20.tp-bullet-image%20%7B%0A%7D%0A%23rev_slider_1_1_wrapper%20.hesperiden%20.tp-bullet-title%20%7B%0A%7D%0A%0A");
+                                                var htmlDiv = document.getElementById('rs-plugin-settings-inline-css');
+                                                if (htmlDiv) {
+                                                    htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+                                                } else {
+                                                    var htmlDiv = document.createElement('div');
+                                                    htmlDiv.innerHTML = '<style>' + htmlDivCss + '</style>';
+                                                    document.getElementsByTagName('head')[0].appendChild(htmlDiv.childNodes[0]);
+                                                }
+                                            </script>
+                                            <script>
+                                                var htmlDivCss = unescape("%0A%0A%0A%0A%0A%0A");
+                                                var htmlDiv = document.getElementById('rs-plugin-settings-inline-css');
+                                                if (htmlDiv) {
+                                                    htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+                                                } else {
+                                                    var htmlDiv = document.createElement('div');
+                                                    htmlDiv.innerHTML = '<style>' + htmlDivCss + '</style>';
+                                                    document.getElementsByTagName('head')[0].appendChild(htmlDiv.childNodes[0]);
+                                                }
+                                            </script>
+                                        </rs-module-wrap>
+                                        <!-- END REVOLUTION SLIDER -->
+                                  
+                            </section>
+                                    <!--End Main Slider-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Dịch Vụ Chính-->
+        <section class="kc-elm kc-css-882897 kc_row">
+            <div class="kc-row-container  kc-container">
+                <div class="kc-wrap-columns">
+                    <div class="kc-elm kc-css-697762 kc_col-sm-12 kc_column kc_col-sm-12">
+                        <div class="kc-col-container">
+
+                            <!--Services Section-->
+                            <section class="services-section">
+                                <div class="auto-container">
+                                    <div class="sec-title">
+                                        <div class="title"></div>
+                                        <h2><span class="theme_color">Dịch vụ</span> Chính</h2>
+                                    </div>
+
+                                    <div class="three-item-carousel owl-carousel owl-theme">
+                                        <!--Services Block-->
+                                        @{ foreach (var dv in dichvu)
+                                            {
+                                                <div class="services-block">
+                                                    <div class="inner-box">
+                                                        <div class="image">
+                                                            <a href="design-and-build/index.html"><img width="370" height="240" src="@dv.Images" class="attachment-konstructo_370x240 size-konstructo_370x240 wp-post-image" alt="" srcset="http://wp.efforttech.net/newwp/konstructo/wp-content/uploads/2018/04/services-1.jpg 370w, http://wp.efforttech.net/newwp/konstructo/wp-content/uploads/2018/04/services-1-300x195.jpg 300w" sizes="(max-width: 370px) 100vw, 370px" /></a>
+                                                        </div>
+                                                        <div class="lower-content">
+                                                            <div class="upper-box">
+                                                                <div class="icon-box">
+                                                                    <span class="icon flaticon-drawing"></span>
+                                                                </div>
+                                                                <h3><a href="/Dao-Tao">@dv.Name</a></h3>
+                                                            </div>
+                                                            <div class="text">@dv.Content</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                        }
+
+
+                                    </div>
+                                </div>
+                            </section>
+                            <!--End Services Section-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Tại sao Chọn Chúng Tôi-->
+        <section class="kc-elm kc-css-12378 kc_row">
+            <div class="kc-row-container">
+                <div class="kc-wrap-columns">
+                    <div class="kc-elm kc-css-578101 kc_col-sm-12 kc_column kc_col-sm-12">
+                        <div class="kc-col-container">
+                            <!--Fluid Section One-->
+                            <section class="fluid-section-one">
+                                <div class="outer-container clearfix">
+                                    <!--Image Column-->
+                                    <div class="image-column" style="background-image:url('/wp-content/uploads/2020/02/image-1.jpg');">
+                                        <figure class="image-box"><img src="~/wp-content/uploads/2020/02/image-1.jpg" alt=""></figure>
+                                    </div>
+                                    <!--Content Column-->
+                                    <div class="content-column">
+                                        <div class="inner-box">
+                                            <div class="sec-title">
+                                                <div class="title">Chúng Tôi Cung Cấp Dịch Vụ Tốt Nhất &amp; Các Giải Pháp</div>
+                                                <h2><span class="theme_color">Tại Sao </span> Chọn Chúng Tôi </h2>
+                                            </div>
+
+                                            <div class="text">
+                                                @taisao[0].Introduce
+                                            </div>
+
+                                            <ul class="list-style-one clearfix">
+                                                @{ foreach (var ts in taisao)
+                                                    {
+                                                        <li class="col-md-6 col-sm-6 col-xs-12"><span class="icon flaticon-briefcase-1"></span>@ts.Name</li>
+                                                    }
+
+                                                }
+
+                                            </ul>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!--End Fluid Section One-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Dự Án Gần Đây-->
+        <section class="kc-elm kc-css-211059 kc_row">
+            <div class="kc-row-container  kc-container">
+                <div class="kc-wrap-columns">
+                    <div class="kc-elm kc-css-797633 kc_col-sm-12 kc_column kc_col-sm-12">
+                        <div class="kc-col-container">
+
+                            <!--Project Section-->
+                            <section class="project-section">
+                                <div class="auto-container">
+                                    <div class="sec-title centered">
+                                        <div class="title">
+                                            Công trình tốt nhất của chúng tôi
+                                        </div>
+                                        <h2><span class="theme_color">Chúng Tôi</span> Dự án gần đây</h2>
+                                    </div>
+
+                                    <!--MixitUp Galery-->
+                                    <div class="mixitup-gallery">
+
+                                        <!--Filter-->
+                                        <div class="filters clearfix">
+                                            <ul class="filter-tabs filter-btns clearfix">
+                                                <li class="active filter" data-role="button" data-filter="all">Hiển Thị Tất Cả</li>
+
+                                                @*<li class="filter" data-role="button" data-filter=".architecture" >@sb.Title</li>
+                                                <li class="filter" data-role="button" data-filter=".builder">Người Xây Dựng</li>
+                                                <li class="filter" data-role="button" data-filter=".electric">Điện</li>
+                                                <li class="filter" data-role="button" data-filter=".painting">Bức Vẽ</li>*@
+                                            </ul>
+                                        </div>
+
+                                        <div class="filter-list row clearfix">
+                                            @{foreach (var du in duan)
+                                                {
+                                                    <div class="gallery-item mix all architecture  col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                                        <div class="inner-box">
+                                                            <figure class="image-box">
+                                                                <img width="370" height="270" src="@du.Images" class="attachment-konstructo_370x270 size-konstructo_370x270 wp-post-image" alt="" />
+                                                                <!--Overlay Box-->
+                                                                <div class="overlay-box">
+                                                                    <div class="overlay-inner">
+                                                                        <ul>
+                                                                            <li><a href="building-renovation/index.html" class="image-link"><span class="icon fa fa-link"></span></a></li>
+                                                                            <li><a href="wp-content/uploads/2018/04/1.jpg" class="link lightbox-image"><span class="icon flaticon-picture-gallery"></span></a></li>
+                                                                        </ul>
+                                                                        <div class="content">
+                                                                            <h3><a href="building-renovation/index.html">@du.Name</a></h3>
+
+                                                                            <div class="category">@du.Major</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+
+                                                }
+                                            }
+                                            <!--Gallery Item-->
+                                            <!--Gallery Item-->
+                                            @*<div class="gallery-item mix all builder  col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                                <div class="inner-box">
+                                                    <figure class="image-box">
+                                                        <img width="370" height="270" src="~/wp-content/uploads/2018/04/2.jpg" class="attachment-konstructo_370x270 size-konstructo_370x270 wp-post-image" alt="" />						Overlay Box
+                                                        <div class="overlay-box">
+                                                            <div class="overlay-inner">
+                                                                <ul>
+                                                                    <li><a href="building-renovation/index.html" class="image-link"><span class="icon fa fa-link"></span></a></li>
+                                                                    <li><a href="wp-content/uploads/2018/04/2.jpg" class="link lightbox-image"><span class="icon flaticon-picture-gallery"></span></a></li>
+                                                                </ul>
+                                                                <div class="content">
+                                                                    <h3><a href="building-renovation/index.html">Xây Dựng Cải Tạo</a></h3>
+
+                                                                    <div class="category">Người Xây Dựng</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                </div>
+                                            </div>
+
+                                            Gallery Item
+                                            <div class="gallery-item mix all electric  col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                                <div class="inner-box">
+                                                    <figure class="image-box">
+                                                        <img width="370" height="270" src="~/wp-content/uploads/2018/04/12.jpg" class="attachment-konstructo_370x270 size-konstructo_370x270 wp-post-image" alt="" />						Overlay Box
+                                                        <div class="overlay-box">
+                                                            <div class="overlay-inner">
+                                                                <ul>
+                                                                    <li><a href="building-renovation/index.html" class="image-link"><span class="icon fa fa-link"></span></a></li>
+                                                                    <li><a href="wp-content/uploads/2018/04/12.jpg" class="link lightbox-image"><span class="icon flaticon-picture-gallery"></span></a></li>
+                                                                </ul>
+                                                                <div class="content">
+                                                                    <h3><a href="building-renovation/index.html">Xây Dựng Cải Tạo</a></h3>
+
+                                                                    <div class="category">Điện</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                </div>
+                                            </div>
+
+                                            Gallery Item
+                                            <div class="gallery-item mix all painting  col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                                <div class="inner-box">
+                                                    <figure class="image-box">
+                                                        <img width="370" height="270" src="~/wp-content/uploads/2018/04/pic1.jpg" class="attachment-konstructo_370x270 size-konstructo_370x270 wp-post-image" alt="" />						Overlay Box
+                                                        <div class="overlay-box">
+                                                            <div class="overlay-inner">
+                                                                <ul>
+                                                                    <li><a href="building-renovation/index.html" class="image-link"><span class="icon fa fa-link"></span></a></li>
+                                                                    <li><a href="wp-content/uploads/2018/04/pic1.jpg" class="link lightbox-image"><span class="icon flaticon-picture-gallery"></span></a></li>
+                                                                </ul>
+                                                                <div class="content">
+                                                                    <h3><a href="building-renovation/index.html">Xây Dựng Cải Tạo</a></h3>
+
+                                                                    <div class="category">Bức Vẽ</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                </div>
+                                            </div>
+
+                                            Gallery Item
+                                            <div class="gallery-item mix all architecture builder  col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                                <div class="inner-box">
+                                                    <figure class="image-box">
+                                                        <img width="370" height="270" src="~/wp-content/uploads/2018/04/bg2.jpg" class="attachment-konstructo_370x270 size-konstructo_370x270 wp-post-image" alt="" />						Overlay Box
+                                                        <div class="overlay-box">
+                                                            <div class="overlay-inner">
+                                                                <ul>
+                                                                    <li><a href="building-renovation/index.html" class="image-link"><span class="icon fa fa-link"></span></a></li>
+                                                                    <li><a href="wp-content/uploads/2018/04/bg2.jpg" class="link lightbox-image"><span class="icon flaticon-picture-gallery"></span></a></li>
+                                                                </ul>
+                                                                <div class="content">
+                                                                    <h3><a href="building-renovation/index.html">Xây Dựng Cải Tạo</a></h3>
+
+                                                                    <div class="category">Kiến Trúc, Xây Dựng</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                </div>
+                                            </div>
+
+                                            Gallery Item
+                                            <div class="gallery-item mix all electric painting  col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                                <div class="inner-box">
+                                                    <figure class="image-box">
+                                                        <img width="370" height="270" src="~/wp-content/uploads/2018/04/6.jpg" class="attachment-konstructo_370x270 size-konstructo_370x270 wp-post-image" alt="" />						Overlay Box
+                                                        <div class="overlay-box">
+                                                            <div class="overlay-inner">
+                                                                <ul>
+                                                                    <li><a href="building-renovation/index.html" class="image-link"><span class="icon fa fa-link"></span></a></li>
+                                                                    <li><a href="wp-content/uploads/2018/04/6.jpg" class="link lightbox-image"><span class="icon flaticon-picture-gallery"></span></a></li>
+                                                                </ul>
+                                                                <div class="content">
+                                                                    <h3><a href="building-renovation/index.html">Xây Dựng Cải Tạo</a></h3>
+
+                                                                    <div class="category">Điện, Bức Vẽ</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                </div>
+                                            </div>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!--End Project Section-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="kc-elm kc-css-312988 kc_row">
+            <div class="kc-row-container">
+                <div class="kc-wrap-columns">
+                    <div class="kc-elm kc-css-491586 kc_col-sm-12 kc_column kc_col-sm-12">
+                        <div class="kc-col-container">
+                            <!--Call To Action-->
+                            <section class="call-to-action-section" style="background-image:url('/wp-content/uploads/2020/02/2.jpg')">
+                                <div class="auto-container">
+                                    <div class="row clearfix">
+                                        <!--Text Column-->
+                                        <div class="text-column col-md-9 col-sm-12 col-xs-12">
+                                            <div class="text">Chúng Tôi Cung Cấp Kinh Nghiệm &amp; <span class="theme_color">Thi Công Cao Cấp</span> Giải Quyết Cho Bạn !!</div>
+                                        </div>
+                                        <!--Btn Column-->
+                                        <div class="btn-column col-md-3 col-sm-12 col-xs-12">
+                                            <a href="#" class="theme-btn btn-style-three">Bắt Đầu Dự Án</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!--End Call To Action-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- đặcsắc -->
+        <section class="kc-elm kc-css-531939 kc_row">
+            <div class="kc-row-container  kc-container">
+                <div class="kc-wrap-columns">
+                    <div class="kc-elm kc-css-935999 kc_col-sm-12 kc_column kc_col-sm-12">
+                        <div class="kc-col-container">
+                            <!--Featured Section-->
+                            <section class="featured-section">
+                                <div class="auto-container">
+                                    <div class="row clearfix">
+
+                                        <!--Content Column-->
+                                        <div class="content-column col-md-6 col-sm-12 col-xs-12">
+                                            <div class="inner-column">
+                                                @{ foreach (var sb in dacsac)
+                                                    {
+                                                        <div class="sec-title">
+                                                            <div class="title">Kiểm Tra Video Của Chúng Tôi Cho</div>
+                                                            <h2><span class="theme_color">Đặc Sắc</span> @sb.Name</h2>
+                                                        </div>
+
+                                                        <div class="text">
+                                                            <p>@sb.content</p>
+                                                        </div>
+                                                    }
+
+                                                }
+                                                <div class="text">
+                                                    <p></p>
+                                                </div>
+                                                <a href="~/Tu-Van" class="theme-btn btn-style-four">Cố Vấn</a>
+                                            </div>
+                                        </div>
+
+                                        <!--Video Column-->
+                                        <div class="video-column col-md-6 col-sm-12 col-xs-12">
+                                            <div class="inner-column">
+                                                <div class="video-box">
+                                                    <figure class="image">
+                                                        <img src="~/wp-content/uploads/2018/04/video-img.jpg" alt="">
+                                                        <a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image overlay-box"><span class="flaticon-arrow"></span></a>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </section>
+                            <!--End Featured Section-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--khách hàng -->
+        <section class="kc-elm kc-css-665790 kc_row">
+            <div class="kc-row-container">
+                <div class="kc-wrap-columns">
+                    <div class="kc-elm kc-css-598962 kc_col-sm-12 kc_column kc_col-sm-12">
+                        <div class="kc-col-container">
+
+
+                            <!--Testimonial Section-->
+                            <section class="testimonial-section" style="background-image:url('wp-content/uploads/2018/04/patern-1.png')">
+                                <div class="auto-container">
+                                    <div class="row clearfix">
+
+                                        <!--Image Column-->
+                                        <div class="image-column col-md-5 col-sm-5 col-xs-12">
+                                            <div class="image">
+                                                <img src="~/wp-content/uploads/2018/04/testimonial.jpg" alt="" />
+                                            </div>
+                                        </div>
+                                        <!--Carousel Column-->
+
+                                        <div class="carousel-column col-md-7 col-sm-12 col-xs-12">
+                                            <div class="inner-column">
+                                                <div class="sec-title">
+                                                    <div class="title">Lời Chứng Thực</div>
+                                                    <h2><span class="theme_color">Khách Hàng </span> Nói</h2>
+                                                </div>
+
+                                                <div class="single-item-carousel owl-carousel owl-theme">
+                                                    <!--Testimonial Block-->
+                                                    @{ foreach (var kh in khach)
+                                                        {
+                                                            <div class="testimonial-block">
+                                                                <div class="inner-box">
+                                                                    <div class="text">
+                                                                        @kh.Introduce
+                                                                    </div>
+                                                                    <div class="author-info">
+                                                                        <div class="author-inner">
+                                                                            <div class="image">
+                                                                                <img width="80" height="80" src="~/wp-content/uploads/2018/04/author-1.jpg" class="attachment-konstructo_80x80 size-konstructo_80x80 wp-post-image" alt="" />
+                                                                            </div>
+                                                                            <h3>@kh.Name</h3>
+                                                                            <div class="designation">@kh.Major</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    }
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </section>
+                            <!--End Testimonial Section-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Tin Mới Nhất-->
+        <section class="kc-elm kc-css-274440 kc_row">
+            <div class="kc-row-container  kc-container">
+                <div class="kc-wrap-columns">
+                    <div class="kc-elm kc-css-234940 kc_col-sm-12 kc_column kc_col-sm-12">
+                        <div class="kc-col-container">
+                            <!--News Section-->
+                            <section class="news-section">
+                                <div class="auto-container">
+                                    <div class="sec-title centered">
+                                        <div class="title">Blog Gần Đây</div>
+                                        <h2><span class="theme_color">Tin</span>  Mới Nhất</h2>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <!--News Block-->
+                                        @{foreach (var tin in TinTuc)
+                                            {
+                                                <div class="news-block col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="inner-box">
+                                                        <div class="image">
+                                                            <a><img width="370" height="270" src="@tin.Images" class="attachment-konstructo_370x270 size-konstructo_370x270 wp-post-image" alt="" /></a>
+                                                            <div class="post-date">Mới Nhất</div>
+                                                            <a class="overlay-box">
+                                                                <span class="icon fa fa-link"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="lower-content">
+                                                            <h3><a>@tin.Title</a></h3>
+                                                            <div class="text">
+                                                                @tin.Content
+                                                            </div>
+                                                            <ul class="options clearfix">
+                                                                <li><a><span class="icon fa fa-comments-o"></span>&ensp; 3 bình luận</a></li>
+                                                                <li><a>Đọc Thêm <span class="icon fa fa-angle-double-right"></span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                        }
+
+
+                                    </div>
+                                </div>
+                            </section>
+                            <!--End News Section-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="kc-elm kc-css-405825 kc_row">
+            <div class="kc-row-container">
+                <div class="kc-wrap-columns">
+                    <div class="kc-elm kc-css-467489 kc_col-sm-12 kc_column kc_col-sm-12">
+                        <div class="kc-col-container">
+                            <!--Clients Section-->
+                            <section class="clients-section ">
+                                <div class="auto-container">
+
+                                    <div class="sponsors-outer">
+                                        <!--Sponsors Carousel-->
+                                        <ul class="sponsors-carousel owl-carousel owl-theme">
+                                            <li class="slide-item"><figure class="image-box"><a href="#"><img src="~/wp-content/uploads/2018/04/1.png" alt=""></a></figure></li>
+                                            <li class="slide-item"><figure class="image-box"><a href="#"><img src="~/wp-content/uploads/2018/04/2.png" alt=""></a></figure></li>
+                                            <li class="slide-item"><figure class="image-box"><a href="#"><img src="~/wp-content/uploads/2018/04/3.png" alt=""></a></figure></li>
+                                            <li class="slide-item"><figure class="image-box"><a href="#"><img src="~/wp-content/uploads/2018/04/4.png" alt=""></a></figure></li>
+                                            <li class="slide-item"><figure class="image-box"><a href="#"><img src="~/wp-content/uploads/2018/04/5.png" alt=""></a></figure></li>
+                                            <li class="slide-item"><figure class="image-box"><a href="#"><img src="~/wp-content/uploads/2018/04/1.png" alt=""></a></figure></li>
+                                            <li class="slide-item"><figure class="image-box"><a href="#"><img src="~/wp-content/uploads/2018/04/2.png" alt=""></a></figure></li>
+                                            <li class="slide-item"><figure class="image-box"><a href="#"><img src="~/wp-content/uploads/2018/04/3.png" alt=""></a></figure></li>
+                                            <li class="slide-item"><figure class="image-box"><a href="#"><img src="~/wp-content/uploads/2018/04/4.png" alt=""></a></figure></li>
+                                            <li class="slide-item"><figure class="image-box"><a href="#"><img src="~/wp-content/uploads/2018/04/5.png" alt=""></a></figure></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </section>
+                            <!--End Clients Section-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--From Topmenu-->
+        <section class="kc-elm kc-css-551306 kc_row">
+            <div class="kc-row-container">
+                <div class="kc-wrap-columns">
+                    <div class="kc-elm kc-css-785519 kc_col-sm-12 kc_column kc_col-sm-12">
+                        <div class="kc-col-container">
+                            <!--Contact Info Section-->
+                            <section class="contact-info-section">
+                                <!--Map Section-->
+                                <div class="map-section">
+                                    <!--Map Outer-->
+                                    <div class="map-outer">
+                                        <!--Map Canvas-->
+                                        <div class="map-canvas"
+                                             data-zoom="10"
+                                             data-lat="-37.817085"
+                                             data-lng="144.955631"
+                                             data-type="roadmap"
+                                             data-hue="#ffc400"
+                                             data-title="Envato"
+                                             data-icon-path="wp-content/uploads/2018/04/map-marker.png"
+                                             data-content="Melbourne VIC 3000, Australia<br><a href='mailto:mailto:info@youremail.com'>mailto:info@youremail.com</a>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Map Section-->
+
+                                <div class="auto-container">
+                                    <div class="inner-container">
+                                        <div class="row clearfix">
+                                            <!--Info Column-->
+                                            @{foreach (var sb in top)
+                                                {
+                                                    <div class="info-column col-md-4 col-sm-12 col-xs-12">
+                                                        <div class="inner-column">
+                                                            <ul class="list-style-two">
+                                                                <li><span class="icon flaticon-home-1"></span><strong>@sb.tenduong</strong>@sb.diachi</li>
+                                                                <li><span class="icon flaticon-envelope-1"></span><strong>Gửi Email Của Bạn Tới:</strong>@sb.Email</li>
+                                                                <li><span class="icon flaticon-technology-2"></span><strong>Điện Thoại:</strong>@sb.hotline</li>
+                                                                <li><span class="icon flaticon-clock-1"></span><strong>Giờ làm việc:</strong>@sb.giolamviec</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+                                            <!--Form Column-->
+                                            <div class="form-column col-md-8 col-sm-12 col-xs-12">
+                                                <div class="inner-column">
+                                                    <h2>Cố Vấn</h2>
+                                                    <!--Contact Form-->
+                                                    <div class="contact-form">
+                                                        <div role="form" class="wpcf7" id="wpcf7-f132-p8-o1" lang="en-US" dir="ltr">
+                                                            <div class="screen-reader-response"></div>
+                                                            <form action="http://wp.efforttech.net/newwp/konstructo/#wpcf7-f132-p8-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+                                                                <div style="display: none;">
+                                                                    <input type="hidden" name="_wpcf7" value="132" />
+                                                                    <input type="hidden" name="_wpcf7_version" value="5.0.1" />
+                                                                    <input type="hidden" name="_wpcf7_locale" value="en_US" />
+                                                                    <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f132-p8-o1" />
+                                                                    <input type="hidden" name="_wpcf7_container_post" value="8" />
+                                                                </div>
+                                                                <div class="row clearfix">
+                                                                    <div class="form-group col-md-6 col-sm-6 co-xs-12">
+                                                                        <span class="wpcf7-form-control-wrap text-805"><input type="text" name="text-805" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Điền Tên" /></span>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6 col-sm-6 co-xs-12">
+                                                                        <span class="wpcf7-form-control-wrap email-401"><input type="email" name="email-401" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Điền Email" /></span>
+                                                                    </div>
+                                                                    <div class="form-group col-md-12 col-sm-12 co-xs-12">
+                                                                        <span class="wpcf7-form-control-wrap textarea-770"><textarea name="textarea-770" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Nội Dung"></textarea></span>
+                                                                    </div>
+                                                                    <div class="form-group col-md-12 col-sm-12 co-xs-12">
+                                                                        <input type="submit" value="Gửi Email" class="wpcf7-form-control wpcf7-submit theme-btn btn-style-one" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="wpcf7-response-output wpcf7-display-none"></div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <!--End Contact Form-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </section>
+                            <!--End Contact Info Section-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+
+
+    </div>
+    <!--End pagewrapper-->
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-double-up"></span></div>
+</body>
+
+<!-- Mirrored from wp.efforttech.net/newwp/konstructo/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2020 05:35:48 GMT -->
+</html>
+<!--Generated by Endurance Page Cache-->

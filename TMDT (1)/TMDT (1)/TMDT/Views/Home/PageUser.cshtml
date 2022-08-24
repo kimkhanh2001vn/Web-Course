@@ -1,0 +1,204 @@
+﻿@model Post
+@{
+    ViewBag.Title = "Home Page";
+    var posts = (List<Post>)ViewBag.Post;
+    var postCate = (List<PostCategory>)ViewBag.PostCate;
+    var Orders = (List<Order>)ViewBag.Orders;
+    var orderDet = (List<OrderDetail>)ViewBag.Orders;
+    var PostCatUsers = (IEnumerable<dynamic>)ViewBag.PostCatUser;
+    Layout = "~/Views/Shared/_DaoTao.cshtml";
+    
+}
+<script src="~/js/jquery-2.2.3.min.js"></script>
+
+<input type="hidden" id="Name" value="@ViewBag.StudentName"/>
+<script>
+    $(document).ready(function () {
+   
+        var value = $('input#Name').val();
+        localStorage.setItem('UserName', value);
+      if(document.URL.indexOf("#")==-1){
+        // Set the URL to whatever it was plus "#loaded".
+        url = document.URL;
+        location = "#";
+        //Reload the page using reload() method
+        location.reload(true);
+    }
+      //  localStorage.setItem('UserName', value);
+
+//alert($('input[name=zyx]').val());
+//alert($('input[type=hidden]').val());
+//alert($(':hidden#foo').val());
+//alert($('input:hidden[name=zyx]').val());
+        //run code that MUST be after initialize
+    });
+</script>
+
+<div class="container ">
+    <div class="block-service-opt1">
+        <div class="clearfix">
+            <div class="col-md-3 col-sm-6">
+                <div class="item">
+                    <span class="icon">
+                        <img src="~/Assets/Client/images/media/index1/service0.png" alt="service">
+                    </span>
+                    <strong class="title">Uy tín 100% </strong>
+                    <span>Đảm bảo kiến thức</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="item">
+                    <span class="icon">
+                        <img src="~/Assets/Client/images/media/index1/service2.png" alt="service">
+                    </span>
+                    <strong class="title">Học nhanh chóng</strong>
+                    <span>Tiết kiệm thời gian</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="item">
+                    <span class="icon">
+                        <img src="~/Assets/Client/images/media/index1/service3.png" alt="service">
+                    </span>
+                    <strong class="title">24/7 Hỗ trợ</strong>
+                    <span>Tư vấn trực tuyến</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="item">
+                    <span class="icon">
+                        <img src="~/Assets/Client/images/media/index1/service4.png" alt="service">
+                    </span>
+                    <strong class="title">Khóa học bảo đảm </strong>
+                    <span>Mua học an toàn</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin: 0 auto ; width:1200px;margin-left:92px">
+
+    <div class="col-lg-3">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" style="font-size:15px; border-bottom:2px solid red;font-weight:bold">Các Khóa Hoc Đã Mua Gần Đây</a>
+                <ul>
+                    <li>
+                        <div class="row">
+                            @{ foreach (var det in PostCatUsers)
+                                {
+                                    dynamic d = det;
+                                    var img = d.GetType().GetProperty("Image").GetValue(d, null);
+                                    var name = d.GetType().GetProperty("Name").GetValue(d, null);
+                                    var NewCost = d.GetType().GetProperty("NewCost").GetValue(d, null);
+                                    var OldCost = d.GetType().GetProperty("OldCost").GetValue(d, null);
+                                    var IDS = d.GetType().GetProperty("ID").GetValue(d, null);
+                                    <div class="col-sm-4">
+                                         <a href="/Home/UserDetails/@IDS">
+                                           <img src="@img" style="width:80px;height:80px" />
+                                         </a>
+                                    </div>
+
+                                    <div class="col-sm-8">
+                                        <a href="/Home/UserDetails/@IDS"><h5><b>@name</b></h5></a>
+                                        <div class="product-reviews-summary">
+                                            <div class="rating-summary" style="font-size:13px">
+                                                <div title="90%" class="rating-result">
+                                                    <span style="width:80%">
+                                                        <span><span>80</span>% of <span>100</span></span>
+                                                    </span>
+                                                </div>
+                                                <b style="padding-left:8px; padding-right:5px">4.3</b>"(3179)"
+                                            </div>
+                                        </div>
+                                        <span style="color:red">  @NewCost <del>@OldCost</del></span>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="font-size:20px; border-bottom:2px solid red;font-weight:bold">Lịch Sử Đã Mua</a>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <p style="border-bottom:1px solid #808080">Ngày Tháng</p>
+                    </div>
+                    <div class="col-sm-5">
+                        <p style="border-bottom:1px solid #808080">Đã Mua</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div style="">
+        <b style="font-size:18px;border-bottom:2px solid red">Các khóa học đã mua</b>
+    </div>
+    <div class="col-lg-9">
+        @{foreach (var ipost in PostCatUsers)
+            {
+                dynamic d = ipost;
+                var img = d.GetType().GetProperty("Image").GetValue(d, null);
+                var name = d.GetType().GetProperty("Name").GetValue(d, null);
+                var img2 = d.GetType().GetProperty("Image2").GetValue(d, null);
+                var Des = d.GetType().GetProperty("Description").GetValue(d, null);
+                var IDS = d.GetType().GetProperty("ID").GetValue(d, null);
+                var PFF = d.GetType().GetProperty("PFFPath").GetValue(d, null);
+
+                        <div class="col-lg-3 card">
+                            <a href="# @IDS">
+                                <img class="img-responsive" src=@img style="height:130px;width:100% ;border-radius:8px" />
+                            </a>
+                            <br />
+                            <span style="background-color:#17b99f;color:white;border-radius:8px ;margin-left:11px">&nbspMỚI&nbsp</span>
+
+                            <div class="col-md-12">
+                                <a><h7><b>@name</b></h7></a>
+
+                                <div class="clearfix">
+                                    <div class="product-item-price">
+                                        <span class="price" style="color:red ">
+                                            @String.Format("{0:0,0}", double.Parse(Des.ToString()))
+                                            <span style="text-decoration:underline">đ</span>
+                                        </span>
+                                        <del class="old-price">
+                                            @String.Format("{0:0,0}", double.Parse(img2 + ""))
+                                            <span style="text-decoration:underline">đ</span>
+                                        </del>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <a href="/Home/UserDetails/@IDS">
+                                            <input class="btn2 btn-danger btn-cart my-cart-btn" data-id="@IDS" data-name="@name" value="Xem" />
+                                        </a>
+                                    </div>
+
+                                    <div class="col-sm-5">
+                                        <a href="@PFF" download >
+                                            <input class="btn2 btn-danger btn-cart my-cart-btn" data-id="@IDS" data-name="@name" type="button" value="Download" />
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+
+
+                            </div>
+                        </div>
+            }
+        }
+  
+            </div>
+               
+
+</div>
+<script>
+    $("#fileRequest").click(function () {
+        // hope the server sets Content-Disposition: attachment!
+        window.location = 'file.doc';
+    });
+</script>
+

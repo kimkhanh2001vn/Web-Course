@@ -1,0 +1,311 @@
+﻿@model Post
+@{
+    var Chapters = (List<Chapter>)ViewBag.Chapters;
+    var ChapterDetails = ViewBag.ChapterDetails;
+    var posts = (List<Post>)ViewBag.Post;
+    var postCate = (List<PostCategory>)ViewBag.PostCate;
+    var Courses = (List<Course>)ViewBag.Course;
+        Layout = "~/Views/Shared/_DaoTao.cshtml";
+}
+
+<style>
+    a:hover {
+        cursor: pointer;
+    }
+
+    .underline {
+        text-decoration: none;
+        position: relative;
+    }
+
+    /*.underline:after {
+        position: absolute;
+        content: '';
+        height: 4px;
+        bottom: -8px;
+
+
+        margin: 0 auto;
+          left: 0;
+        right: 0;
+          width: 50%;
+          background: green;
+                  -o-transition:.5s;
+          -ms-transition:.5s;
+        -moz-transition:.5s;
+        -webkit-transition:.5s;
+        transition:.5s;
+    }*/
+
+
+    /* optional hover classes used with anmiation */
+    /*.underline:hover:after {
+          width: 100%;
+          background: orange;
+          cursor: pointer;
+    }*/
+    .default:after {
+        content: '';
+        height: 4px;
+        background-color: #df322f;
+        width: 40%;
+        position: absolute;
+        bottom: -10px;
+        left: 20px;
+    }
+
+    .underline:hover {
+        padding-bottom: 10px;
+        border-bottom: 4px solid #df322f;
+    }
+
+    .sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        /*left: 10px;*/
+        /*right: 20px;*/
+        /*bottom: 10px;*/
+    }
+
+    .non-sticky {
+        position: sticky;
+        top: 100px;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<div style="margin-left:67%;margin-right:20%;width:300px;height:10px;" class="sticky" id="test">
+
+    <img src="/Resources/images/Icon/constructor.jpg" style="width:300px;height:500px">
+
+</div>
+@{ foreach (var sb in Courses)
+    {
+        <div class="card" style="margin-left:20%;margin-right:20%;width:46%;height:20%;padding-top:10px">
+
+            <div class="card-body">
+                <span style="padding-left:30px;font-family:'Open Sans';font-weight:bold;font-size:24px">@sb.CourseName</span>
+                @*<h6 class="card-subtitle mb-2 text-muted">Panel subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>
+                    <a href="#!" class="card-link">Card link</a>
+                    <a href="#!" class="card-link">Another link</a>*@
+                <br />
+                <br />
+                @*<div style="margin-left:10%">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="~/Resources/images/Icon/nhanvien.png" style="width:30px;height:30px" />  Lê Hải Hà
+                            </div>
+                            <div class="col-sm-4">
+
+                                <img src="~/Resources/images/Icon/studenticon.png" style="width:30px;height:30px" />
+
+                                <span style="color:#f5a623">160</span>  học viên
+                            </div>
+                            <div class="col-sm-4">
+                                <span style="background-color:#17b99f;color:white;border-radius:4px ;margin-left:11px">&nbspMỚI&nbsp</span>
+                            </div>
+                        </div>
+                    </div>*@
+                <br />
+            </div>
+
+        </div>
+        <div class="card" style="margin-left:20%;margin-right:20%;width:46%;height:10%;padding-top:10px;margin-top:5%">
+            <div style="margin-left:10%">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a href="#information" class="default">Thông tin chung</a>
+                    </div>
+                    <div class="col-sm-4">
+
+                        <a href="#GT" class="underline">Giáo trình</a>
+                    </div>
+                    <div class="col-sm-4">
+                        <a class="underline">Giảng viên</a>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+        </div>
+
+        <div class="card" style="margin-left:20%;margin-right:20%;width:46%;height:10%;padding-top:10px;margin-top:2%" id="information">
+            <div style="margin-left:5%;line-height:2">
+                <div style="margin-bottom:8px;font-size:20px;margin-top: 10px"><b>Thông Tin Giảng Dạy</b></div>
+                <p>
+                    @*- Khoá học là bật mí toàn bộ những điều mà thầy Dự đã kèm cặp học trò của mình năm 2018 vừa qua để họ thành công. Có một số học viên áp dụng xuất sắc đã cán mốc thu nhập 1 tỷ đồng/tháng, nhiều học viên khác vượt qua con số thu nhập 100 triệu đồng, Điều khó tin là những thành tựu này đến với họ trong vòng chưa đầy 1 năm. Tức là 1 năm trước, họ đang chưa phải là người phụ nữ kinh doanh online thành công. Vậy nên dù bạn đang ở mức thu nhập nào, thầy Dự tin chắc chắn bạn sẽ Vỡ oà với những chỉ dẫn chi tiết trong khoá học này. Bạn hoàn toàn có thể đột phá 2019.<br />
+
+                    - Bạn đừng so sánh khoá học này với bất kỳ khoá học nào khác về kinh doanh online, vì hầu hết những chiến lược ở đây đều đã được chứng minh hiệu quả bởi học trò thầy Hán Quang Dự.<br />
+
+                    - Đây là những chỉ dẫn vô cùng chi tiết để bất cứ người phụ nữ kinh doanh online nào cũng có thể tạo bước đột phá trong kinh doanh online 2019. Từ Chiến lược cho đến các bước thực hiện được liệt kê đầy đủ theo thứ tự để học viên có thể áp dụng ngay vào việc bán sản phẩm của mình.<br />
+
+                    - Đặc biệt, Có file kế hoạch hành động kèm theo để kết thúc khoá học, học viên sẽ dễ dàng thực hành theo.<br />*@
+                    @sb.Introduction
+                </p>
+            </div>
+            <br />
+
+        </div>
+    }
+
+}
+
+
+@{foreach(var sb in Courses)
+    {
+    <div class="card" style="margin-left:20%;margin-right:20%;width:46%;height:10%;padding-top:10px;margin-top:2%" id="GT">
+        <div class="row">
+            <div class="col-lg-6" style="margin-left:30px;margin-bottom:10px;font-size:20px;margin-top: 10px">
+                <b>Giáo Trình</b>
+            </div>
+            <div class="col-lg-5" style="text-align:right">
+                <a href="@sb.PFFPath" download>
+                    <img src="~/images/123tailieufree.com.png" style="width:20px;height:20px" />
+                    Tải về
+                </a>
+            </div>
+        </div>
+
+        <div class="wrapper center-block" style="width:666px;padding-bottom:2px">
+
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                @{ int count = 1;
+                    foreach (var ichapter in Chapters)
+                    {
+                        <div class="panel panel-default">
+                            <div class="panel-heading active" role="tab" id="heading-@count">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-@count" aria-expanded="true" aria-controls="collapse-@count">
+                                        @ichapter.ChapterName
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-@count" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-@count">
+
+                                @{ foreach (var ch in ChapterDetails)
+                                    {
+                                        dynamic d = ch;
+                                        var chapterID = d.GetType().GetProperty("ChapterID").GetValue(d, null);
+
+                                        if (int.Parse(chapterID + "") == ichapter.ChapterID)
+                                        {
+                                            string ChapterDetailsName = d.GetType().GetProperty("ChapterDetailsName").GetValue(d, null);
+
+                                            <div class="panel-body" style="background-color:#f4f7f8">
+
+                                                <div>@ChapterDetailsName</div>
+
+                                            </div>
+                                        }
+                                    }
+                                    count = count + 1;
+                                }
+                            </div>
+
+                        </div>
+
+
+                        @*<div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Chương 1: Giới thiệu
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body" style="background-color:#f4f7f8">
+                                        Bài 1: Giới thiệu
+                                    </div>
+
+                                    <div class="panel-body" style="background-color:#f4f7f8">
+                                        Bài 2: Nhập môn
+                                    </div>
+
+                                    <div class="panel-body" style="background-color:#f4f7f8">
+                                        Bài 3: Tài liệu học tập
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            Chương 1: Giới thiệu
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body" style="background-color:#f4f7f8">
+                                        Bài 1: Giới thiệu
+                                    </div>
+
+                                    <div class="panel-body" style="background-color:#f4f7f8">
+                                        Bài 2: Nhập môn
+                                    </div>
+
+                                    <div class="panel-body" style="background-color:#f4f7f8">
+                                        Bài 3: Tài liệu học tập
+                                    </div>
+
+                                </div>
+                            </div>*@
+                    }
+
+                }
+            </div>
+
+        </div>
+
+    </div>
+    }
+}
+
+
+<style>
+    .box ul {
+        max-height: 100px;
+        overflow: auto;
+        ...
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('.panel-collapse').on('show.bs.collapse', function () {
+            $(this).siblings('.panel-heading').addClass('active');
+        });
+
+        $('.panel-collapse').on('hide.bs.collapse', function () {
+            $(this).siblings('.panel-heading').removeClass('active');
+        });
+
+    });
+    function sticktothetop() {
+        var window_top = $(window).scrollTop();
+
+        if (window_top > 900) {
+            $('#test').removeClass('sticky');
+            $('#test').height(0);
+        }
+        else {
+            $('#test').addClass('sticky');
+
+        }
+        //var top = $('#stick-here').offset().top;
+        //if (window_top > top) {
+        //    $('#stickThis').addClass('stick');
+        //    $('#stick-here').height($('#stickThis').outerHeight());
+        //} else {
+        //    $('#stickThis').removeClass('stick');
+        //    $('#stick-here').height(0);
+        //}
+
+    }
+    $(function () {
+        $(window).scroll(sticktothetop);
+        sticktothetop();
+    });
+
+</script>

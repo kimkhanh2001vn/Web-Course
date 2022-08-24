@@ -1,0 +1,127 @@
+﻿@model IEnumerable<UserAdministrator>
+
+@{
+    ViewBag.Title = "Index";
+    TMDT.Models.CustomModel.UserInfo userInfo = (TMDT.Models.CustomModel.UserInfo)Session["UserInfo"];
+}
+
+<!-- Content Header (Page header) -->
+@section admin_section
+{
+<section class="content-header">
+    <h1>
+        Bảng quản lý thành viên
+        <small>@userInfo.FullName</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li class="active"><i class="fa fa-dashboard"></i> Quản lý thành viên</li>
+    </ol>
+</section>
+}
+<!-- Main content -->
+<section class="content" data-category="@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"></h3>
+                    <a href="@Url.Action("Create")" class="btn btn-success btn-lg" style="cursor: pointer">
+                        Thêm mới
+                        @*@Html.ActionLink("Thêm mới", "Create")*@
+                    </a>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="search-table" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    @Html.DisplayNameFor(model => model.Avatar)
+                                </th>
+                                <th class="text-center">
+                                    @Html.DisplayNameFor(model => model.UserName)
+                                </th>
+                                <th class="text-center">
+                                    @Html.DisplayNameFor(model => model.FullName)
+                                </th>
+                                <th class="text-center">
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </th>
+                                <th class="text-center">
+                                    @Html.DisplayNameFor(model => model.UserRole.Name)
+                                </th>
+                                <th class="text-center">
+                                    @Html.DisplayNameFor(model => model.Allowed)
+                                </th>
+                                <th class="text-center">
+                                    Ngày đăng ký
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="text-center">
+                                        <img src="@Html.DisplayFor(modelItem => item.Avatar)" id="img_@item.UserId" class="img-thumbnail" style="cursor:pointer" alt="Alternate Text" width="50" onclick="selectImage('UserAdministrators/ChangeImage/@item.UserId',this.id)" />
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UserName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FullName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td class="text-center">
+                                        @item.UserRole.Name
+                                    </td>
+                                    <td class="text-center btn-active" data-id="@item.UserId" style="cursor:pointer">
+                                        @if (item.Allowed == true)
+                                        {
+                                            <span class="label label-success">Actived</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="label label-danger">Locked</span>
+                                        }
+                                    </td>
+                                    <td class="text-center">
+                                        @item.CreatedDate.ToString("dd/MM/yyyy")
+                                    </td>
+                                    <td>
+                                        <a href="/Admin/UserAdministrators/Edit/@item.UserId" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-edit"></i></a> &nbsp;
+                                        <a href="/Admin/UserAdministrators/Details/@item.UserId" data-toggle="tooltip" data-placement="top" title="Chi tiết"><i class="fa fa-list-alt"></i></a> &nbsp;
+                                        <span class="Delete" data-id="@item.UserId" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="Xóa">
+                                            <i class="fa fa-times-circle"></i>
+                                        </span> &nbsp;
+                                        @if (userInfo.RoleID == 1)
+                                        {
+                                            <a href="/Admin/UserGrantPermissions/Index/@item.UserId" data-toggle="tooltip" data-placement="top" title="Cấp quyền"><i class="fa fa-user-plus"></i></a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+
+<!-- /.content -->
+<!-- page script -->
+@section scripts{
+<script>
+        $('#search-table').DataTable();
+</script>
+    }

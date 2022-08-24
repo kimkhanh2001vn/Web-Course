@@ -1,0 +1,104 @@
+﻿@model TMDT.FooterContent
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <!-- COLOR PALETTE -->
+    <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-tag"></i> Sửa
+            </h3>
+        </div>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @if (Model.ID == 7)
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        <img src="@Html.DisplayFor(model => model.Image)" style="cursor:pointer" alt="Chưa có hình ảnh" class="img-thumbnail" width="150" id="ImageSS" />
+                        @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control hidden" } })
+                        @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-3">
+                        <input class="btn btn-default" id="Browse" value="Chọn ảnh" />
+                        <p style="color:red">Chú ý:</p>
+                        <p style="color:red">Nếu không phải hình tạp chí thì không chọn ảnh. Nếu có chọn thì cũng không có gì xảy ra</p>
+                    </div>
+                </div>
+            }
+            <div class="form-group">
+                @Html.LabelFor(model => model.Link, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Status)
+                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                    <p class="btn btn-default">@Html.ActionLink("Cancel", "Index")</p>
+                </div>
+            </div>
+        </div>
+        }
+
+        <br />
+        <br />
+    </div>
+</section>
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#Browse").click(function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (fileUrl) {
+                    //Lấy file ảnh cuối cùng
+                    $("#Image").val(fileUrl);
+                    $("#ImageSS")[0].src = fileUrl;
+                };
+                finder.popup();
+            });
+            $("#Image").click(function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (fileUrl) {
+                    //Lấy file ảnh cuối cùng
+                    //fileUrl = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
+                    $("#Image").val(fileUrl);
+                    $("#ImageSS")[0].src = fileUrl;
+                };
+                finder.popup();
+            });
+        });
+
+    </script>
+}

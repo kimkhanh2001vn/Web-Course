@@ -1,0 +1,216 @@
+﻿@model TMDT.Post
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Post</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Alias)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Alias)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Image)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Content)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Content)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.HomeFlag)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.HomeFlag)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.HotFlag)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.HotFlag)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ViewCount)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ViewCount)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreatedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreatedBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UpdatedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UpdatedBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MetaKeyword)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MetaKeyword)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MetaDescription)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MetaDescription)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.BackgroundImage)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BackgroundImage)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Color)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Color)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.BackgroundColor)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BackgroundColor)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Author)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Author)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MagazineCategory)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MagazineCategory)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MinRead)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MinRead)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Image2)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Image2)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PostCategory.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PostCategory.Name)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+﻿@model TMDT.PostCategory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<section class="content">
+    <!-- COLOR PALETTE -->
+    <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-tag"></i> Xem chi tiết
+            </h3>
+        </div>
+        <br />
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.StoreID)
+                </dt>
+
+                <dd class="detailTable">
+                    @Html.DisplayFor(model => model.StoreID)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd class="detailTable">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Alias)
+                </dt>
+
+                <dd class="detailTable">
+                    @Html.DisplayFor(model => model.Alias)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd class="detailTable">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ParentID)
+                </dt>
+
+                <dd class="detailTable">
+                    @Html.DisplayFor(model => model.ParentID)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DisplayOrder)
+                </dt>
+
+                <dd class="detailTable">
+                    @Html.DisplayFor(model => model.DisplayOrder)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+
+                <dd class="detailTable">
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Image)
+                </dt>
+
+                <dd class="detailTable">
+                    @Html.DisplayFor(model => model.Image)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FreeCourseStatus)
+                </dt>
+
+                <dd class="detailTable">
+                    @Html.DisplayFor(model => model.FreeCourseStatus)
+                </dd>
+
+                @*<dt>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </dt>
+
+                <dd class="detailTable">
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </dd>*@
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </dt>
+
+                <dd class="detailTable">
+                    @Html.DisplayFor(model => model.CreatedBy)
+                </dd>
+
+                @*<dt>
+                    @Html.DisplayNameFor(model => model.UpdatedDate)
+                </dt>
+
+                <dd class="detailTable">
+                    @Html.DisplayFor(model => model.UpdatedDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UpdatedBy)
+                </dt>
+
+                <dd class="detailTable">
+                    @Html.DisplayFor(model => model.UpdatedBy)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MetaKeyword)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MetaKeyword)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MetaDescription)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MetaDescription)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FontAwesomeClass)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FontAwesomeClass)
+                </dd>*@
+
+            </dl>
+        </div>
+   
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-6">
+            <p class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.ID })</p>
+            <p class="btn btn-default">@Html.ActionLink("Back to List", "Index")</p>
+        </div>
+    </div>
+    <br /><br />
+    </div>
+</section>
+

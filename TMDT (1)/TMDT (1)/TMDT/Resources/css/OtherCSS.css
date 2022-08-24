@@ -1,0 +1,145 @@
+﻿
+.g {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    line-height: 1;
+    zoom: 1;
+}
+
+    .g img {
+        height: auto;
+    }
+
+.g-col {
+    position: relative;
+    float: left;
+}
+
+    .g-col:first-child {
+        margin-left: 0;
+    }
+
+    .g-col:last-child {
+        margin-right: 0;
+    }
+
+.g-1 {
+    margin: 0px;
+    width: auto;
+    height: auto;
+}
+
+.g-2 {
+    min-width: 0px;
+    max-width: 300px;
+}
+
+.g-5 {
+    margin: 0px;
+    width: auto;
+    height: auto;
+}
+
+@media only screen and (max-width: 480px) {
+    .g-col, .g-dyn, .g-single {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+
+span.post-cat a,
+span.archive-list-cat{
+    color: #ee0077;
+}
+
+#main-nav-wrap {
+    background: #ffffff;
+}
+
+
+.small-nav-wrap ul li a {
+    color: #333333;
+}
+
+@media screen and (max-width: 599px) {
+    .fly-but-wrap span {
+        background: #333333;
+    }
+
+    .fly-but-wrap {
+        background: #ffffff;
+    }
+}
+
+.archive-list-text a{
+    color: #333333;
+}
+
+
+.archive-list-text a,
+h1.post-title,
+.content-main blockquote p, .content-main h1,
+.content-main h2,
+.content-main h3,
+.content-main h4,
+.content-main h5,
+.content-main h6{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+h1.cat-head,
+h3.home-widget-head
+{
+    font-family: 'Playfair Display', sans-serif;
+}
+
+
+.archive-list-text p,
+
+.content-main
+{
+    font-family: 'PT Serif', sans-serif;
+}
+
+nav.main-menu ul li a,
+.small-nav-wrap ul li a{
+    font-family: 'Open Sans', sans-serif;
+}
+
+    
+    /*.small-nav-wrap ul li a:hover,
+    .archive-list-text a:hover,
+    #foot-wrap a:hover,
+    nav.main-menu ul li a:hover,
+     {
+        color: #ee0077;
+    }*/
+
+
+
+header {
+    height: auto;
+}
+
+#main-nav-wrap {
+    top: -70px;
+}
+
+
+@media screen and (max-width: 767px) {
+    #main-nav-wrap {
+        top: 0 !important;
+    }
+
+    header {
+        height: 0px;
+    }
+}
+
+.cke {
+    visibility: hidden;
+}

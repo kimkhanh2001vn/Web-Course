@@ -1,0 +1,74 @@
+﻿@model IEnumerable<TMDT.FooterContent>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content" data-category="@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body">
+                    <table id="search-table" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Title)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Image)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Link)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Status)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>
+                                <td>
+                                    <img src="@Html.DisplayFor(modelItem => item.Image)" id="img_@item.ID" class="img-thumbnail" style="cursor:pointer" alt="Alternate Text" width="100" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Link)
+                                </td>
+                                <td class="text-center btn-active" data-id="@item.ID" style="cursor:pointer">
+                                    @if (item.Status == true)
+                                    {
+                                        <span class="label label-success">Actived</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label label-danger">Locked</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="/Admin/FooterContents/Edit/@item.ID" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-edit"></i></a> &nbsp;
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+@section scripts{
+    <script>
+        $('#search-table').DataTable();
+    </script>
+}

@@ -1,0 +1,48 @@
+﻿@model TMDT.Chapter
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="content">
+    <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-tag"></i> Xem chi tiết
+            </h3>
+        </div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CourseID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CourseID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ChapterName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ChapterName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.id)
+            </dd>
+
+        </dl>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+                <p class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.ChapterID })</p>
+                <p class="btn btn-default">@Html.ActionLink("Back to List", "Index")</p>
+            </div>
+        </div>
+        <br /><br />
+    </div>
+</section>

@@ -1,0 +1,169 @@
+﻿@model IEnumerable<TMDT.SubscribedEmail>
+@{
+    ViewBag.Title = "Soạn Email";
+
+}
+@section styles{
+    <style>
+
+        input[name=receiveRadio] {
+            margin: 10px 0;
+        }
+
+        #send_who label {
+            margin-right: 10px
+        }
+    </style>
+}
+<section class="content" data-category="@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()">
+    <!-- COLOR PALETTE -->
+    <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-tag"></i> Soạn Email
+            </h3>
+        </div>
+        <br />
+        @using (Html.BeginForm("Send", "SubscribedEmails"))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="control-label col-md-2">Người nhận</label>
+                    <div class="col-md-10">
+                        <div class="col-md-12" id="send_who">
+                            <input id="allRadio" type="radio" name="receiveRadio" value="All" checked="checked" />
+                            <label for="allRadio">Tất cả</label>
+                            <input id="statusRadio" type="radio" name="receiveRadio" value="Status" />
+                            <label for="statusRadio">Theo trạng thái</label>
+                            <input id="choiceRadio" type="radio" name="receiveRadio" value="Choice" />
+                            <label for="choiceRadio">Cụ thể</label>
+                        </div>
+                        <div class="col-md-8">
+                            <table id="search-table" class="table compact table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="checkbox-part"></th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Name)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CreatedDate)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Status)
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="checkbox-part">
+                                                <input type="checkbox" name="recipients" value="@item.Email" />
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+                                            <td>
+                                                @item.CreatedDate.ToString("dd/MM/yyyy")
+                                            </td>
+                                            <td class="text-center btn-active" data-id="@item.ID" style="cursor:pointer">
+                                                @if (item.Status == true)
+                                                {
+                                                    <span class="label label-success">Actived</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="label label-danger">Locked</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                            <p class="btn btn-success checkbox-part" id="selectAll">Chọn tất cả</p>
+                            <p class="btn btn-default checkbox-part" id="deselectAll">Bỏ chọn tất cả</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Chủ đề</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" name="subject" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Nội dung</label>
+                    <div class="col-md-10">
+                        <textarea name="content" style="height:500px;width:700px"></textarea>
+                        <div class="col-md-12">
+                            <input type="radio" name="isDecode" value="false" id="normal_content" checked="checked" />
+                            <label for="normal_content">Thường</label>
+                            <input type="radio" name="isDecode" value="true" id="ck_content" />
+                            <label for="ck_content">HTML</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Gửi" class="btn btn-primary" />
+                        <a class="btn btn-default" href="@Url.Action("Index","SubcribedEmails")">Trở về</a>
+                    </div>
+                </div>
+            </div>
+        }
+        <br /><br />
+    </div>
+</section>
+
+@section scripts{
+    <script>
+        var tablebox = $('#search-table').parent();
+        tablebox.hide();
+        $('input[name=receiveRadio]').click(function () {
+            if ($(this).val() != 'All') {
+                tablebox.show();
+                if ($(this).val() == 'Status') {
+                    $('.checkbox-part').hide();
+                }
+                else {
+                    $('.checkbox-part').show();
+                }
+            }
+            else tablebox.hide();
+        })
+
+        $('#search-table').DataTable();
+        $('#selectAll').click(function () {
+            $('input[name="recipients[]"]').prop('checked', 'checked');
+        })
+        $('#deselectAll').click(function () {
+            $('input[name="recipients[]"]').prop('checked', false);
+        })
+        $('input[type=submit]').click(function () {
+            if ($('input[name=receiveRadio][checked=checked]').val() != 'Choice') {
+                $('input[name="recipients[]"]').prop('checked', false);
+            }
+        })
+        $('#normal_content').click(function () {
+            CKEDITOR.instances.content.destroy();
+        })
+        $('#ck_content').click(function () {
+            CKEDITOR.replace('content', {
+                htmlEncodeOutput: true,
+            });
+        })
+    </script>
+}

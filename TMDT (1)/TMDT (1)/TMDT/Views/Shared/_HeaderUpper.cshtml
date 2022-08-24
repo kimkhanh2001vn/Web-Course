@@ -1,0 +1,49 @@
+﻿@{ 
+    TapChiDB db = new TapChiDB();
+    var top = db.Topmenus.ToList();
+}
+
+
+
+<div class="header-upper">
+    <div class="auto-container">
+        <div class="clearfix">
+
+            <div class="pull-left logo-box">
+                <div class="logo"><a href="~/Trang-Chu"><img src="~/images/670.png" style="width:130px" alt="Ewon" title="Ewon"></a></div>
+            </div>
+            @{ foreach (var sb in top)
+                {
+
+                    <div class="pull-right upper-right clearfix">
+                        <!--Info Box-->
+                        <div class="upper-column info-box">
+                            <div class="icon-box"><span class="flaticon-home-1"></span></div>
+                            <ul>
+                                <li><strong>@sb.tenduong</strong><br>@sb.diachi</li>
+                            </ul>
+                        </div>
+
+                        <!--Info Box-->
+                        <div class="upper-column info-box">
+                            <div class="icon-box"><span class="flaticon-note"></span></div>
+                            <ul>
+                                <li><strong>Email</strong><br>@sb.Email</li>
+                            </ul>
+                        </div>
+
+                        <!--Info Box-->
+                        <div class="upper-column info-box">
+                            <div class="icon-box"><span class="flaticon-clock-1"></span></div>
+                            <ul>
+                                <li><strong>Giờ làm việc</strong><br>@sb.giolamviec</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+

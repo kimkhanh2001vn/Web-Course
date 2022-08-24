@@ -1,0 +1,146 @@
+﻿@model List<getSelectivePosts_Result>
+<style>
+    .result-item, .search-item-D {
+        cursor: pointer;
+    }
+       
+        .search-item-D:hover {
+            background: royalblue;
+            color: white;
+        }
+
+        .result-item .result-delete {
+            position: absolute;
+            left: 100%;
+            top: 49%;
+            cursor: pointer;
+        }
+
+        .search-item-D .result-delete {
+            display: none;
+        }
+
+    #search_result_container {
+        background: #e1ddee;
+        z-index: 2;
+        max-height: 300px;
+        position: absolute;
+        width: 100%;
+        overflow: auto;
+        padding: 10px;
+        left: -40px;
+    }
+</style>
+
+
+<section class="content">
+    <!-- COLOR PALETTE -->
+    <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+            <h1> @ViewBag.PostType </h1>
+        </div>
+        <br />
+        @using (Html.BeginForm("Save", "SelectivePosts"))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("currentLocation",HttpContext.Current.Request.RequestContext.RouteData.Values["Action"])
+            <div class="form-horizontal">                
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <input type="hidden" name="[@i].ID" value="@Model[i].ID" />
+                    <div class="form-group">
+                        <label class="col-md-2" for="post_@i">Bài viết @(i + 1)</label>
+                        <div class="col-md-6" style="position:relative">
+                            @if (Model[i].PostID == 0)
+                            {
+                                <div class="result-item" style="display:flex">
+
+                                </div>
+                                <input data-avatar-for="post_@i" type="text" class="search-box-D" />
+                            }
+                            else
+                            {
+                                <div class="result-item" style="display:flex">
+                                    <img style="max-width:60px;max-height:60px;margin-right:5px" src="@Model[i].Image" />
+                                    <div class="result-info col-md-8" style="position:relative">
+                                        <p>@Model[i].Name</p>
+                                        <p style="position:absolute;bottom:0;margin:0">@Model[i].CategoryName</p>
+                                    </div>
+                                    <div class="result-delete">x</div>
+                                </div>
+                                <input style="display:none;" data-avatar-for="post_@i" type="text" class="search-box-D" />
+                            }
+                        </div>
+                        <input type="hidden" name="[@i].PostID" id="post_@i" value="@Model[i].PostID" />
+                    </div>
+                }
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-6">
+                        <input type="submit" value="Lưu thay đổi" class="btn btn-success" />
+                        <p class="btn btn-default">@Html.ActionLink("Trở lại", "Index")</p>
+                    </div>
+                </div>
+            </div>
+        }
+        <br />
+        <br />
+    </div>
+</section>
+@section scripts{
+    <script>
+        $('.search-box-D').on('input', function () {
+            let that = this;
+            let thisSearchString = $(this).val();
+            setTimeout(function () {
+                if (thisSearchString === $(that).val()) {
+                    AjaxPostSearch(that, '@Url.Action("SearchResultAjax", "SelectivePosts")')
+                }                
+            }, 500)
+        });
+           
+            function AjaxPostSearch(elm,URL) {
+                let searchBox = $(elm);    
+                let searchString = searchBox.val();
+                if (searchString.length > 1) {                                    
+                    let resultItem = searchBox.prevAll('.result-item');
+                    let valueBox = $('#' + searchBox.data('avatar-for'));
+                    let token = $('input[name=__RequestVerificationToken]').val();
+                    $.ajax({
+                        url: URL,
+                        method: 'POST',
+                        data: { searchString: searchString, __RequestVerificationToken: token },
+                        dataType: 'html',
+                        success: function (res) {
+                            $('#search_result_container').remove();
+                            searchBox.after(res);
+                            $('.search-item-D').mousedown(function () {
+                                resultItem.html($(this).html()).show();
+                                valueBox.val($(this).data('post-id'));
+                                searchBox.hide();
+                                $('#search_result_container').hide();
+                                resultItem.children('.result-delete').click(function () {
+                                    searchBox.show().val('');
+                                    resultItem.html('').hide();
+                                    $('#' + searchBox.data('avatar-for')).val(0);
+                                })
+                            })
+                        },
+                    })
+                }
+                else {
+                    $('#search_result_container').hide();
+                }
+            }
+       
+        $('.search-box-D').blur(function (e) {
+            $('#search_result_container').hide();
+        })
+        $('.result-delete').click(function () {
+            let resultItem = $(this).parent();
+            let searchBox = resultItem.next('.search-box-D');
+            searchBox.show().val(''); //searchBox
+            $('#' + searchBox.data('avatar-for')).val(0);
+            resultItem.html('').hide();
+        })
+    </script>   
+}

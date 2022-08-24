@@ -1,0 +1,430 @@
+﻿@model Post
+@{
+    ViewBag.Title = "Home Page";
+    var posts = (List<Post>)ViewBag.Post;
+    var postCate = (List<PostCategory>)ViewBag.PostCate;
+    Layout = "~/Views/Shared/_DaoTao.cshtml";
+}
+
+<head>
+    <title>Khóa Học Xây Dựng Chuyên Nghiệp|Ewon Phát Triển Cùng Bạn</title>
+    <meta name="keywords" content="mua khóa học xây,mua khoas hocj ,khóa học , khóa học xây , khóa học xây dựng" />
+    <meta name="description" content="Trang mua bán khóa học chuyên nghiệp nhất về xây dựng" />
+    <meta property="og:description" content="Trang mua bán khóa học chuyên nghiệp nhất về xây dựng" />
+</head>
+<!-- MAIN -->
+<main class="site-main">
+
+    <!--  Popup Newsletter-->
+
+    <div class="block-section-top block-section-top1">
+        <div class="container">
+            <div class="box-section-top">
+
+                <!-- categori -->
+                <div class="block-nav-categori">
+
+                    <div class="block-title">
+                        <span>Categories</span>
+                    </div>
+
+                    <div class="block-content">
+                        @{ foreach (var mn in postCate)
+                            {
+                                <ul class="ui-categori">
+                                    <li class="parent">
+                                        <a @*href="/Trang-Chu/Chi-Tiet/@mn.Alias-@mn.ID"*@ style="font-size:12px">
+                                            <span class="icon"><img src="/Resources/MainPage/images/icon/index1/nav-cat1.png" alt="nav-cat"></span>
+                                            @mn.Name
+                                        </a>
+                                        <span class="toggle-submenu"></span>
+                                        <div class="submenu" style="background-image: url(/Resources/MainPage/images/media/index1/bgmenu.jpg);">
+                                            <ul class="categori-list clearfix">
+                                                <li class="col-sm-3">
+                                                    <strong class="title"><a href="/Trang-Chu/Chi-Tiet/@mn.Alias-@mn.ID">@mn.Name</a></strong>
+                                                    @{ int cCount = 0;
+                                                        foreach (var det in posts.Where(x => x.CategoryID == mn.ID))
+                                                        {
+                                                            if (cCount <= 5)
+                                                            {
+                                                                <ul>
+                                                                    <li><a href="/Trang-Chu/Chi-Tiet/@mn.Alias-@mn.ID">@det.Name</a></li>
+                                                                </ul>
+                                                            }
+                                                            cCount++;
+
+                                                        } }
+                                                </li>
+                                                @{int Count = 0;
+                                                    <li class="col-sm-6">
+                                                        <strong class="title"><a href="/Trang-Chu/Chi-Tiet/@mn.Alias-@mn.ID">@mn.Name</a></strong>
+                                                        @{ foreach (var tp in posts.Where(x => x.CategoryID == mn.ID))
+                                                            {
+                                                                if (Count < 4)
+                                                                {
+                                                                    <ul>
+                                                                        <li>
+                                                                            <div class="row">
+                                                                                <div class="col-sm-3">
+                                                                                    <a href="/Trang-Chu/Chi-Tiet/@mn.Alias-@mn.ID">
+                                                                                        <img class="img-responsive" src="@tp.Image" style="height:80px;width:100% ;border-radius:8px">
+                                                                                    </a>
+                                                                                </div>
+
+                                                                                <div class="col-sm-8">
+                                                                                    <a href="/Trang-Chu/Chi-Tiet/@mn.Alias-@mn.ID"><h5><b>@tp.Name</b></h5></a>
+                                                                                    <div class="product-reviews-summary">
+                                                                                        <div class="rating-summary">
+                                                                                            <div title="80%" class="rating-result">
+                                                                                                <span style="width:90%">
+                                                                                                    <span><span>80</span>% of <span>100</span></span>
+                                                                                                </span>
+                                                                                            </div>
+                                                                                            <b style="padding-left:8px; padding-right:5px;">4.3</b>"(3179)"
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <a href="/Trang-Chu/Chi-Tiet/@mn.Alias-@mn.ID">
+                                                                                        <div class="clearfix" style="font-size:16px">
+                                                                                            <div class="product-item-price">
+                                                                                                <span class="price" style="color:red ">@tp.NewCost</span>
+                                                                                                <del class="old-price">@tp.OldCost</del>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+
+                                                                }
+                                                                Count++;
+                                                            }
+                                                        }
+                                                    </li>
+                                                }
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            }
+                        }
+                        @*<div class="view-all-categori">
+                                <a class="open-cate btn-view-all">All Categories</a>
+                            </div>*@
+                    </div>
+                </div>
+                <!-- categori -->
+                <!-- block slide top -->
+                <div class="block-slide-main slide-opt-1">
+
+                    <!-- slide -->
+                    <div class="owl-carousel dotsData"
+                         data-nav="true"
+                         data-dots="true"
+                         data-margin="0"
+                         data-items='1'
+                         data-autoplayTimeout="700"
+                         data-autoplay="true"
+                         data-loop="true">
+                        <div class="item item2" style="background-image: url('/Resources/MainPage/images/media/index1/F031AE982BDD343E58A098DA6417521E.jpg');" data-dot="1">
+
+                            <div class="description">
+                                <span class="title"><b>Khóa Học Mới Nhất</b> </span>
+                                <span class="subtitle">Định Nghĩa </span>
+                                <span class="des"> <b>Tương Lai Của Bạn</b></span>
+                                <a href="/Home/Login" class="btn" style="background:#df322f">Mua Ngay</a>
+                            </div>
+                        </div>
+
+                        <div class="item item1" style="background-image: url('/Resources/MainPage/images/media/index1/buil-adammuzic-1024x684.jpg');" data-dot="2">
+
+                            <div class="description">
+                                <span class="title"><b>Chúng Tôi Đi Xa Hơn</b></span>
+                                <span class="subtitle">Bạn Nghĩ ? <br></span>
+                                <a href="/Home/Login" class="btn" style="background:#df322f">Mua Ngay</a>
+                            </div>
+                        </div>
+
+                        <div class="item item3" style="background-image: url('/Resources/MainPage/images/media/index1/unnamed.jpg');" data-dot="3">
+
+                            <div class="description">
+                                <span class="title">Xây Dựng </span>
+                                <span class="subtitle">Vươn Tới Tầm Cao </span>
+                                <a href="/Home/Login" class="btn">Hãy Học Ngay</a>
+                            </div>
+                        </div>
+                    </div> <!-- slide -->
+                </div><!-- block slide top -->
+                <!-- banner -->
+                <div class="banner-slide">
+                    <a href="#" class="box-img"><img style="height:200px" src="~/Resources/MainPage/images/media/index1/bất động sản(1).jpg" alt="bất động sản(1)"></a>
+                    <a href="#" class="box-img"><img style="height:200px" src="~/Resources/MainPage/images/media/index1/images (1).jpg" alt="images (1)"></a>
+                </div><!-- banner -->
+            </div>
+        </div>
+    </div>
+
+    <!-- block  service-->
+    <div class="container ">
+        <div class="block-service-opt1">
+            <div class="clearfix">
+                <div class="col-md-3 col-sm-6">
+                    <div class="item">
+                        <span class="icon">
+                            <img src="~/Assets/Client/images/media/index1/service0.png" alt="service">
+                        </span>
+                        <strong class="title">Uy tín 100% </strong>
+                        <span>Đảm bảo kiến thức</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="item">
+                        <span class="icon">
+                            <img src="~/Assets/Client/images/media/index1/service2.png" alt="service">
+                        </span>
+                        <strong class="title">Học nhanh chóng</strong>
+                        <span>Tiết kiệm thời gian</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="item">
+                        <span class="icon">
+                            <img src="~/Assets/Client/images/media/index1/service3.png" alt="service">
+                        </span>
+                        <strong class="title">24/7 Hỗ trợ</strong>
+                        <span>Tư vấn trực tuyến</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="item">
+                        <span class="icon">
+                            <img src="~/Assets/Client/images/media/index1/service4.png" alt="service">
+                        </span>
+                        <strong class="title">Khóa học bảo đảm </strong>
+                        <span>Mua học an toàn</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- block  service-->
+    @*@Html.Partial("_Thuonghieu")*@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="text-align:center; font-size:20px; border-bottom:1px solid #df322f">
+                    <p>Đại Học Kinh Tế Thành Phố Hồ Chí Minh</p>
+                </div>
+                <!-- block tab products -->
+                <div class="block-tab-products-opt1">
+
+                    <div class="block-content tab-content">
+
+                        <!-- tab 1 -->
+
+                        <div role="tabpanel" class="tab-pane active fade in " id="tabproduct1">
+                            <div class="owl-carousel"
+                                 data-nav="true"
+                                 data-dots="false"
+                                 data-margin="30"
+                                 data-responsive='{
+                                        "0":{"items":1},
+                                        "480":{"items":2},
+                                        "480":{"items":2},
+                                        "768":{"items":3},
+                                        "992":{"items":3}
+                                    }'>
+
+                                <div style="margin: 0 auto; width: 1200px">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            @{foreach (var ipost in postCate)
+                                                {
+                                                    if (ipost.FreeCourseStatus == true)
+                                                    {
+                                                        <div class="block-title">
+
+                                                            <ul class="nav" role="tablist">
+                                                                <li role="presentation" class="active">
+                                                                    <a href="#tabproduct1" role="tab" data-toggle="tab">@ipost.Name</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    }
+
+
+
+                                                    @*<div class="col-lg-2 card" style="background-image:url('@ipost.Image');width:422px; height:300px ; border-radius:4px;padding-left: 0px;">
+                                                        </div>*@
+
+                                                    foreach (var sb in posts.Where(x => x.CategoryID == ipost.ID))
+                                                    {
+                                                        <div class="img-responsive" src="" style="height:130px;width:100% ;border-radius:8px" />
+                                                        if (sb.FreeCourseStatus == true)
+                                                        {
+                                                            <div class="col-lg-2 card">
+                                                                <a href="/Trang-Chu/Khoa-Hoc-Mien-Phi/@sb.Alias-@sb.ID">
+                                                                    <img class="img-responsive" src=@sb.Image style="height:130px;width:100% ;border-radius:8px" />
+                                                                </a>
+                                                                <br />
+                                                                <span style="background-color:#17b99f;color:white;border-radius:8px ;margin-left:11px">&nbspMỚI&nbsp</span>
+
+                                                                <div class="col-md-12">
+                                                                    <a href="/Trang-Chu/Khoa-Hoc-Mien-Phi/@sb.Alias-@sb.ID"><h7><b>@sb.Name</b></h7></a>
+                                                                    <div class="clearfix">
+                                                                        <div class="product-item-price">
+                                                                            <span class="price" style="color:red ">
+                                                                                @String.Format("{0:0,0}", double.Parse(sb.NewCost.ToString()))
+                                                                                <span style="text-decoration:underline">đ</span>
+                                                                            </span>
+
+                                                                            <del class="old-price">
+                                                                                @String.Format("{0:0,0}", double.Parse(sb.OldCost + ""))
+                                                                                <span style="text-decoration:underline">đ</span>
+                                                                            </del>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="/Trang-Chu/Khoa-Hoc-Mien-Phi/@sb.Alias-@sb.ID">
+                                                                            <input class="btn btn-danger btn-cart my-cart-btn" data-id="@sb.ID" data-name="@sb.Name" value="Xem Chi Tiết" />
+                                                                        </a>
+
+                                                                    </div>
+                                                                    @*<button class="btn btn-danger btn-cart my-cart-btn" data-id="@sb.ID" data-name="@sb.Name" data-summary="@Html.Raw(sb.Content)" data-price="@sb.Description" data-quantity="1" data-image="@sb.Image">Xem Chi Tiết</button>*@
+
+                                                                </div>
+                                                            </div>
+
+
+                                                        }
+
+                                                    }
+                                                    <div class="clearfix"></div>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div style="text-align:center; font-size:20px; border-bottom:1px solid #df322f;margin-top:20px">
+                    <p>Chứng Chỉ Hành Nghề</p>
+                </div>
+                <!-- block tab products -->
+                <div class="block-tab-products-opt1">
+
+                    <div class="block-content tab-content">
+
+                        <!-- tab 1 -->
+
+                        <div role="tabpanel" class="tab-pane active fade in " id="tabproduct1">
+                            <div class="owl-carousel"
+                                 data-nav="true"
+                                 data-dots="false"
+                                 data-margin="30"
+                                 data-responsive='{
+                                        "0":{"items":1},
+                                        "480":{"items":2},
+                                        "480":{"items":2},
+                                        "768":{"items":3},
+                                        "992":{"items":3}
+                                    }'>
+
+
+
+                                <div style="margin: 0 auto; width: 1200px">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            @{foreach (var ipost in postCate)
+                                                {
+                                                    <div class="block-title">
+                                                        <ul class="nav" role="tablist">
+                                                            <li role="presentation" class="active">
+                                                                <a href="#tabproduct1" role="tab" data-toggle="tab">@ipost.Name</a>
+                                                            </li>
+                                                            @*<li role="presentation">
+                                                                    <a href="#tabproduct2" role="tab" data-toggle="tab">ON SALE</a>
+                                                                </li>
+                                                                <li role="presentation">
+                                                                    <a href="#tabproduct3" role="tab" data-toggle="tab">NEW PRODUCTS</a>
+                                                                </li>*@
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-2 card" style="background-image:url('@ipost.Image');width:422px; height:300px ; border-radius:4px;padding-left: 0px;">
+                                                    </div>
+                                                    foreach (var sb in posts.Where(x => x.CategoryID == ipost.ID))
+                                                    {
+                                                        <div class="img-responsive" src="" style="height:130px;width:100% ;border-radius:8px" />
+
+                                                        <div class="col-lg-2 card">
+                                                            <a href="/Trang-Chu/Chi-Tiet/@sb.Alias-@sb.ID">
+                                                                <img class="img-responsive" src=@sb.Image style="height:130px;width:100% ;border-radius:8px" />
+                                                            </a>
+                                                            <br />
+                                                            <span style="background-color:#17b99f;color:white;border-radius:8px ;margin-left:11px">&nbspMỚI&nbsp</span>
+                                                            @*<div class="product-reviews-summary">
+                                                                    <div class="rating-summary">
+                                                                        <div title="80%" class="rating-result">
+                                                                            <span style="width:80%">
+                                                                                <span><span>80</span>% of <span>100</span></span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>*@
+                                                            <div class="col-md-12">
+                                                                <a href="/Trang-Chu/Chi-Tiet/@sb.Alias-@sb.ID"><h7><b>@sb.Name</b></h7></a>
+
+                                                                <div class="clearfix">
+                                                                    <div class="product-item-price">
+                                                                        <span class="price" style="color:red ">
+                                                                            @String.Format("{0:0,0}", double.Parse(sb.NewCost.ToString()))
+                                                                            <span style="text-decoration:underline">đ</span>
+                                                                        </span>
+
+                                                                        <del class="old-price">
+                                                                            @String.Format("{0:0,0}", double.Parse(sb.OldCost + ""))
+                                                                            <span style="text-decoration:underline">đ</span>
+                                                                        </del>
+                                                                    </div>
+                                                                </div>
+
+                                                                <button class="btn btn-danger btn-cart my-cart-btn" data-id="@sb.ID" data-name="@sb.Name"  data-price="@sb.NewCost" data-quantity="1" data-image="@sb.Image">Mua Khóa Học</button>
+
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    <div class="clearfix"></div>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="clearfix" style="margin-bottom: 40px; padding-top:30px;">
+
+        </div>*@
+</main><!-- end MAIN -->

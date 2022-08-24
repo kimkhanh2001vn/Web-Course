@@ -1,0 +1,638 @@
+﻿@{
+    var posts = (List<Post>)ViewBag.Post;
+    var postCate = (List<PostCategory>)ViewBag.PostCate;
+    
+}
+<script>
+    function checkOut() {
+        localStorage.setItem("UserName", "");
+        
+    }
+
+/**/</script>
+<!-- HEADER -->
+<header class="site-header header-opt-1 cate-show">
+
+    <!-- header-top -->
+    <div class="header-top">
+        <div class="container">
+            <!-- nav-left -->
+            <ul class="nav-left">
+                <li><span><i class="fa fa-phone" aria-hidden="true"></i>00-62-658-658</span></li>
+                <li><span><i class="fa fa-envelope" aria-hidden="true"></i> Liên hệ với chúng tôi hôm nay !</span></li>
+                <li class="dropdown switcher  switcher-currency">
+                    <a data-toggle="dropdown" role="button" href="#" class="dropdown-toggle switcher-trigger"><span>VND</span> <i aria-hidden="true" class="fa fa-angle-down"></i></a>
+                    <ul class="dropdown-menu switcher-options ">
+                        <li class="switcher-option">
+                            <a href="#">
+                                <i class="fa fa-usd" aria-hidden="true"></i> VND
+                            </a>
+                        </li>
+  
+
+                    </ul>
+                </li>
+                <li class="dropdown switcher  switcher-language">
+                    <a data-toggle="dropdown" role="button" href="#" class="dropdown-toggle switcher-trigger" aria-expanded="false">
+                        <img class="switcher-flag" alt="flag" src="~/Assets/Client/images/flags/flag_vn.png">
+                        <span>Vietnam</span>
+                        <i aria-hidden="true" class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu switcher-options ">
+                        <li class="switcher-option">
+                            <a href="#">
+                                <img class="switcher-flag" alt="flag" src="~/Assets/Client/images/flags/flag_vn.png">Vietnam
+                            </a>
+                        </li>
+                     
+                    </ul>
+                </li>
+            </ul><!-- nav-left -->
+            <!-- nav-right -->
+            <ul class=" nav-right">
+                <li class="dropdown setting">
+                    <span> <script>document.write("Tên đăng nhập :"+localStorage.getItem("UserName"))</script></span>
+                    <span><a href="/Dao-Tao" onclick="checkOut();"><script>    var value = localStorage.getItem("UserName"); if (value != "") { document.write("| logout |"); } else {
+        document.write("");
+    }
+        ;
+</script></a></span>
+                    <a data-toggle="dropdown" role="button" href="#" class="dropdown-toggle "><span>Tài khoản </span> <i aria-hidden="true" class="fa fa-angle-down"></i></a>
+                    <div class="dropdown-menu  ">
+                        <ul class="account">
+
+
+                            <li><a href="/Home/Login">Đăng nhập</a></li>
+                            <li><a href="/Home/Registration">Đăng ký</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Dịch vụ</a></li>
+                <li><a href="#">Hỗ trợ </a></li>
+            </ul><!-- nav-right -->
+
+        </div>
+    </div><!-- header-top -->
+    <!-- header-content -->
+
+    <div class="header-content">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-3 nav-left">
+
+                    <!-- logo -->
+                    <strong class="logo" style="margin-left: 70px">
+                        <a href="/Dao-Tao"><img src="~/Assets/Client/images/media/index1/ewon-by-hms-networks-vector-logo.png" alt="logo" height="64"></a>
+                    </strong>
+
+                </div>
+
+                <div class="nav-right">
+
+                    <!-- block mini cart -->
+                    <div class="block-minicart dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                            <span class="cart-icon"></span>
+                            <span class="counter qty">
+                                <span class="cart-text">Giỏ hàng</span>
+                                @*<span class="counter-number my-cart-badge"></span>
+                                <span class="counter-label my-cart-badge"></span><span>Sản phẩm</span>
+                                <span class="counter-price">$75.00</span>*@
+                            </span>
+                        </a>
+                        @*<div class="dropdown-menu">
+                                <form>
+                                    <div class="minicart-content-wrapper">
+                                        <div class="subtitle">
+                                            Bạn có 2 sản phẩm trong giỏ hàng
+                                        </div>
+                                        <div class="minicart-items-wrapper">
+                                            <ol class="minicart-items">
+                                                <li class="product-item">
+                                                    <a class="product-item-photo" href="#" title="Máy ảnh">
+                                                        <img class="product-image-photo" src="~/Assets/Client/images/media/index1/minicart.jpg" alt="The Name Product">
+                                                    </a>
+                                                    <div class="product-item-details">
+                                                        <strong class="product-item-name">
+                                                            <a href="#">Máy ảnh</a>
+                                                        </strong>
+                                                        <div class="product-item-price">
+                                                            <span class="price">61,19 €</span>
+                                                        </div>
+                                                        <div class="product-item-qty">
+                                                            <span class="label">Số lượng: </span><span class="number">1</span>
+                                                        </div>
+                                                        <div class="product-item-actions">
+                                                            <a class="action delete" href="#" title="Hủy sản phẩm">
+                                                                <span>Hủy</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="product-item">
+                                                    <a class="product-item-photo" href="#" title="Lap top dell 5520">
+                                                        <img class="product-image-photo" src="~/Assets/Client/images/media/index1/minicart2.jpg" alt="The Name Product">
+                                                    </a>
+                                                    <div class="product-item-details">
+                                                        <strong class="product-item-name">
+                                                            <a href="#">Lap top dell 5520</a>
+                                                        </strong>
+                                                        <div class="product-item-price">
+                                                            <span class="price">61,19 €</span>
+                                                        </div>
+                                                        <div class="product-item-qty">
+                                                            <span class="label">Số lượng: </span><span class="number">1</span>
+                                                        </div>
+                                                        <div class="product-item-actions">
+                                                            <a class="action delete" href="#" title="Hủy sản phẩm">
+                                                                <span>Hủy</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                        <div class="subtotal">
+                                            <span class="label">Tổng cộng</span>
+                                            <span class="price">$630</span>
+                                        </div>
+                                        <div class="actions">
+                                             <a class="btn btn-viewcart" href="">
+                                                <span>Shopping bag</span>
+                                            </a>
+                                            <a href="/Home/Oder" class="btn btn-checkout" type="button" title="Check Out">
+                                                <span>Đơn hàng</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>*@
+                    </div>
+
+                </div>
+
+                <div class="nav-mind">
+
+                    <!-- block search -->
+                    <div class="block-search">
+                        <div class="block-title">
+                            <span>Tìm kiếm</span>
+                        </div>
+                        <div class="block-content">
+                            <div class="categori-search  ">
+                                <select data-placeholder="All Categories" class="categori-search-option">
+                                    <option>Tất cả danh mục</option>
+                                    <option>Khóa học</option>
+                               
+                                </select>
+                            </div>
+                            <div class="form-search">
+                                <form>
+                                    <div class="box-group">
+                                        <input type="text" class="form-control" placeholder="Tôi đang tìm kiếm...">
+                                        <button class="btn btn-search" type="button" style="margin:0"><span>search</span></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div><!-- header-content -->
+    <!-- header-nav -->
+    <div class="header-nav mid-header">
+        <div class="container">
+
+            <div class="box-header-nav">
+
+                <!-- btn categori mobile -->
+                <span data-action="toggle-nav-cat" class="nav-toggle-menu nav-toggle-cat"><span>Danh mục</span></span>
+
+                <!-- btn menu mobile -->
+                <span data-action="toggle-nav" class="nav-toggle-menu"><span>Menu</span></span>
+
+                <!--categori  -->
+                <div class="block-nav-categori">
+
+                    <div class="block-title">
+                        <span>Danh mục</span>
+                    </div>
+
+                    <div class="block-content">
+                        <div class="clearfix"><span data-action="close-cat" class="close-cate"><span>Danh mục</span></span></div>
+                        <div class="block-nav-categori">
+
+                            @*<div class="block-title">
+                                    <span>Categories</span>
+                                </div>*@
+
+                            <div class="block-content">
+                                @{ foreach (var mn in postCate)
+                                    {
+                                        <ul class="ui-categori">
+                                            <li class="parent">
+                                                <a style="font-size:11px">
+                                                    <span class="icon"><img src="/Resources/MainPage/images/icon/index1/nav-cat1.png" alt="nav-cat"></span>
+                                                    @mn.Name
+                                                </a>
+                                                <span class="toggle-submenu"></span>
+                                                <div class="submenu" style="background-image: url(/Resources/MainPage/images/media/index1/bgmenu.jpg)">
+
+                                                    <ul class="categori-list clearfix">
+                                                        <li class="col-sm-3">
+                                                            <strong class="title"><a href="/Trang-Chu/Chi-Tiet/@mn.Alias-@mn.ID">@mn.Name</a></strong>
+                                                            @{ int kh = 0;
+                                                                foreach (var det in posts.Where(x => x.CategoryID == mn.ID))
+                                                                {
+                                                                    if (kh < 5)
+                                                                    {
+                                                                        <ul>
+                                                                            <li><a href="/Trang-Chu/Chi-Tiet/@mn.Alias-@mn.ID">@det.Name</a></li>
+                                                                        </ul>
+                                                                    }
+                                                                    kh++;
+                                                                }
+                                                            }
+                                                        </li>
+                                                        <li class="col-sm-6">
+                                                            <strong class="title"><a href="/Trang-Chu/Chi-Tiet/@mn.Alias-@mn.ID">@mn.Name</a></strong>
+                                                            @{ int Kcount = 0;
+                                                                foreach (var tp in posts.Where(x => x.CategoryID == mn.ID))
+                                                                {
+                                                                    if (Kcount < 4)
+                                                                    {
+                                                                        <ul>
+                                                                            <li>
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-3">
+                                                                                        <img class="img-responsive" src="@tp.Image" style="height:80px;width:100% ;border-radius:8px">
+                                                                                    </div>
+                                                                                    <div class="col-sm-8">
+                                                                                        <a href="/Trang-Chu/Chi-Tiet/@mn.Alias-@mn.ID"><h5><b>@tp.Name</b></h5></a>
+                                                                                        <div class="product-reviews-summary">
+                                                                                            <div class="rating-summary">
+                                                                                                <div title="80%" class="rating-result">
+                                                                                                    <span style="width:90%">
+                                                                                                        <span><span>80</span>% of <span>100</span></span>
+                                                                                                    </span>
+                                                                                                </div>
+                                                                                                <b style="padding-left:8px; padding-right:5px;">4.3</b>"(3179)"
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="clearfix" style="font-size:16px">
+                                                                                            <div class="product-item-price">
+                                                                                                <span class="price" style="color:red ">@tp.NewCost</span>
+                                                                                                <del class="old-price">@tp.OldCost</del>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    }
+                                                                    Kcount++;
+                                                                }
+                                                            }
+
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    }
+                                }
+
+                                @*<div class="view-all-categori">
+                                        <a class="open-cate btn-view-all">All Categories</a>
+                                    </div>*@
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!--categori  -->
+                <!-- menu -->
+                <div class="block-nav-menu">
+                    <div class="clearfix"><span data-action="close-nav" class="close-nav"><span>close</span></span></div>
+
+                    <ul class="ui-menu">
+                        <li class="parent parent-megamenu active">
+                            <a href="/Home/Index">Trang Chủ</a>
+
+                         
+                        </li>
+                        <li><a href="/Home/Product"></a></li>
+
+                        @*<li><a href="#">Thể thao</a></li>*@
+                        <li class="parent parent-submenu">
+                            <a href="/Home/Sport"></a>
+                            <span class="toggle-submenu"></span>
+                            <div class="submenu drop-menu">
+                                <ul>
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        @*<li class="parent parent-megamenu">
+                            <a href="/Home/Electronics"><span class="label-menu">New</span></a>
+                            <span class="toggle-submenu"></span>
+                            <div class="megamenu drop-menu">
+                                    <ul>
+                                        <li class="col-md-3">
+                                            <div class="img-categori">
+                                                <a href="#"><img alt="img" src="~/Assets/Client/images/media/index1/img-categori1.jpg"></a>
+                                            </div>
+                                            <strong class="title"><a href="#"><span>Women's </span></a></strong>
+                                            <ul class="list-submenu">
+                                                <li><a href="#">Shoes</a></li>
+                                                <li><a href="#">Clothing</a></li>
+                                                <li><a href="#">Accessories</a></li>
+                                                <li><a href="#">Sunglasses</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="col-md-3">
+
+                                            <div class="img-categori">
+                                                <a href="#"><img alt="img" src="~/Assets/Client/images/media/index1/img-categori2.jpg"></a>
+                                            </div>
+                                            <strong class="title"><a href="#"><span>Women's </span></a></strong>
+                                            <ul class="list-submenu">
+                                                <li><a href="#">Shoes</a></li>
+                                                <li><a href="#">Clothing</a></li>
+                                                <li><a href="#">Accessories</a></li>
+                                                <li><a href="#">Sunglasses</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="col-md-3">
+
+                                            <div class="img-categori">
+                                                <a href="#"><img alt="img" src="~/Assets/Client/images/media/index1/img-categori3.jpg"></a>
+                                            </div>
+                                            <strong class="title"><a href="#"> <span>Kid's</span></a></strong>
+                                            <ul class="list-submenu">
+                                                <li><a href="#">Shoes</a></li>
+                                                <li><a href="#">Clothing</a></li>
+                                                <li><a href="#">Accessories</a></li>
+                                                <li><a href="#">Sunglasses</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="col-md-3">
+
+                                            <div class="img-categori">
+                                                <a href="#"><img alt="img" src="~/Assets/Client/images/media/index1/img-categori4.jpg"></a>
+                                            </div>
+                                            <strong class="title"><a href="#"><span>Trending</span> </a></strong>
+                                            <ul class="list-submenu">
+                                                <li><a href="#">Shoes</a></li>
+                                                <li><a href="#">Clothing</a></li>
+                                                <li><a href="#">Accessories</a></li>
+                                                <li><a href="#">Sunglasses</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                        </li>*@
+                        <li class="parent parent-megamenu">
+                            <a href="/Home/Fashion"></a>
+                            @*<span class="toggle-submenu"></span>
+                                <div class="megamenu drop-menu">
+                                    <ul>
+                                        <li class="col-md-3">
+
+                                            <strong class="title"><a href="#"><span>Women's </span></a></strong>
+                                            <ul class="list-submenu">
+                                                <li><a href="#">Shoes</a></li>
+                                                <li><a href="#">Clothing</a></li>
+                                                <li><a href="#">Accessories</a></li>
+                                                <li><a href="#">Sunglasses</a></li>
+                                            </ul>
+
+                                            <strong class="title"><a href="#"><span>Women's </span></a></strong>
+                                            <ul class="list-submenu">
+                                                <li><a href="#">Shoes</a></li>
+                                                <li><a href="#">Clothing</a></li>
+                                                <li><a href="#">Accessories</a></li>
+                                                <li><a href="#">Sunglasses</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="col-md-3">
+                                            <strong class="title"><a href="#"><span>Women's </span></a></strong>
+                                            <ul class="list-submenu">
+                                                <li><a href="#">Shoes</a></li>
+                                                <li><a href="#">Clothing</a></li>
+                                                <li><a href="#">Accessories</a></li>
+                                                <li><a href="#">Sunglasses</a></li>
+                                            </ul>
+
+                                            <strong class="title"><a href="#"><span>Women's </span></a></strong>
+                                            <ul class="list-submenu">
+                                                <li><a href="#">Shoes</a></li>
+                                                <li><a href="#">Clothing</a></li>
+                                                <li><a href="#">Accessories</a></li>
+                                                <li><a href="#">Sunglasses</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="col-md-3">
+
+                                            <strong class="title"><a href="#"> <span>Kid's</span></a></strong>
+                                            <ul class="list-submenu">
+                                                <li><a href="#">Shoes</a></li>
+                                                <li><a href="#">Clothing</a></li>
+                                                <li><a href="#">Accessories</a></li>
+                                                <li><a href="#">Sunglasses</a></li>
+                                            </ul>
+
+                                            <strong class="title"><a href="#"><span>Women's </span></a></strong>
+                                            <ul class="list-submenu">
+                                                <li><a href="#">Shoes</a></li>
+                                                <li><a href="#">Clothing</a></li>
+                                                <li><a href="#">Accessories</a></li>
+                                                <li><a href="#">Sunglasses</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="col-md-3">
+                                            <div class="img-categori">
+                                                <a href="#"><img alt="img" src="~/Assets/Client/images/media/index1/img-categori5.jpg"></a>
+                                            </div>
+
+                                        </li>
+                                    </ul>
+                                </div>*@
+                        </li>
+                        <li><a href="/Home/Furniture"> </a></li>
+                        <li><a href="#"> </a></li>
+                        @*<li><a href="/Home/Blog">Blog</a></li>*@
+                        <li><a href="/Home/Contact"></a></li>
+                    </ul>
+
+                </div><!-- menu -->
+                <!-- mini cart -->
+                <div class="block-minicart dropdown ">
+
+                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                        <span class="cart-icon"></span>
+
+
+                        <span class="counter-number my-cart-badge"></span>
+
+
+                    </a>
+
+                    @*<div class="dropdown-menu">
+                            <form>
+                                <div class="minicart-content-wrapper">
+                                    <div class="subtitle">
+                                        You have 6 item(s) in your cart
+                                    </div>
+                                    <div class="minicart-items-wrapper">
+                                        <ol class="minicart-items">
+                                            <li class="product-item">
+                                                <a class="product-item-photo" href="#" title="The Name Product">
+                                                    <img class="product-image-photo" src="~/Assets/Client/images/media/index1/minicart.jpg" alt="The Name Product">
+                                                </a>
+                                                <div class="product-item-details">
+                                                    <strong class="product-item-name">
+                                                        <a href="#">Donec Ac Tempus</a>
+                                                    </strong>
+                                                    <div class="product-item-price">
+                                                        <span class="price">61,19 €</span>
+                                                    </div>
+                                                    <div class="product-item-qty">
+                                                        <span class="label">Qty: </span><span class="number">1</span>
+                                                    </div>
+                                                    <div class="product-item-actions">
+                                                        <a class="action delete" href="#" title="Remove item">
+                                                            <span>Remove</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="product-item">
+                                                <a class="product-item-photo" href="#" title="The Name Product">
+                                                    <img class="product-image-photo" src="~/Assets/Client/images/media/index1/minicart2.jpg" alt="The Name Product">
+                                                </a>
+                                                <div class="product-item-details">
+                                                    <strong class="product-item-name">
+                                                        <a href="#">Donec Ac Tempus</a>
+                                                    </strong>
+                                                    <div class="product-item-price">
+                                                        <span class="price">61,19 €</span>
+                                                    </div>
+                                                    <div class="product-item-qty">
+                                                        <span class="label">Qty: </span><span class="number">1</span>
+                                                    </div>
+                                                    <div class="product-item-actions">
+                                                        <a class="action delete" href="#" title="Remove item">
+                                                            <span>Remove</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    <div class="subtotal">
+                                        <span class="label">Total</span>
+                                        <span class="price">$630</span>
+                                    </div>
+                                    <div class="actions">
+                                         <a class="btn btn-viewcart" href="">
+                                            <span>Shopping bag</span>
+                                        </a>
+                                        <button class="btn btn-checkout" type="button" title="Check Out">
+                                            <span>Checkout</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>*@
+
+                </div>
+
+                <!-- search -->
+                <div class="block-search">
+                    <div class="block-title">
+                        <span>Search</span>
+                    </div>
+                    <div class="block-content">
+                        <div class="form-search">
+                            <form>
+                                <div class="box-group">
+                                    <input type="text" class="form-control" placeholder="i'm Searching for...">
+                                    <button class="btn btn-search" type="button"><span>search</span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div><!-- search -->
+                <!--setting  -->
+                <div class="dropdown setting">
+                    <a data-toggle="dropdown" role="button" href="#" class="dropdown-toggle "><span>Tài Khoản</span> <i aria-hidden="true" class="fa fa-user"></i></a>
+                    <div class="dropdown-menu  ">
+                        @*<div class="switcher  switcher-language">
+                                <strong class="title">Select language</strong>
+                                <ul class="switcher-options ">
+                                    <li class="switcher-option">
+                                        <a href="#">
+                                            <img class="switcher-flag" alt="flag" src="~/Assets/Client/images/flags/flag_french.png">
+                                        </a>
+                                    </li>
+                                    <li class="switcher-option">
+                                        <a href="#">
+                                            <img class="switcher-flag" alt="flag" src="~/Assets/Client/images/flags/flag_germany.png">
+                                        </a>
+                                    </li>
+                                    <li class="switcher-option">
+                                        <a href="#">
+                                            <img class="switcher-flag" alt="flag" src="~/Assets/Client/images/flags/flag_english.png">
+                                        </a>
+                                    </li>
+                                    <li class="switcher-option switcher-active">
+                                        <a href="#">
+                                            <img class="switcher-flag" alt="flag" src="~/Assets/Client/images/flags/flag_spain.png">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>*@
+                        <div class="switcher  switcher-currency">
+                            <strong class="title">SELECT CURRENCIES</strong>
+                            <ul class="switcher-options ">
+                                <li class="switcher-option">
+                                    <a href="#">
+                                        <i class="fa fa-usd" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="switcher-option switcher-active">
+                                    <a href="#">
+                                        <i class="fa fa-eur" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="switcher-option">
+                                    <a href="#">
+                                        <i class="fa fa-gbp" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <ul class="account">
+                            <li><a href="/Home/Login">Đăng Nhập</a></li>
+                            <li><a href="/Home/Registration">Đăng Kí</a></li>
+                        </ul>
+                    </div>
+                </div><!--setting  -->
+
+            </div>
+        </div>
+    </div><!-- header-nav -->
+
+</header><!-- end HEADER -->

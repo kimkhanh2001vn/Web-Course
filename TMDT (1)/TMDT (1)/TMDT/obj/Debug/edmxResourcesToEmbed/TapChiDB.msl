@@ -1,0 +1,773 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TapChiDBStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="AdSections">
+      <EntityTypeMapping TypeName="TapChiDB.AdSection">
+        <MappingFragment StoreEntitySet="AdSection">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Advertisements">
+      <EntityTypeMapping TypeName="TapChiDB.Advertisement">
+        <MappingFragment StoreEntitySet="Advertisement">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Customer" ColumnName="Customer" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ImageLink" ColumnName="ImageLink" />
+          <ScalarProperty Name="RefererLink" ColumnName="RefererLink" />
+          <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+          <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chapters">
+      <EntityTypeMapping TypeName="TapChiDB.Chapter">
+        <MappingFragment StoreEntitySet="Chapter">
+          <ScalarProperty Name="ChapterID" ColumnName="ChapterID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="ChapterName" ColumnName="ChapterName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="TapChiDB.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="PFFPath" ColumnName="PFFPath" />
+          <ScalarProperty Name="YoutubePath" ColumnName="YoutubePath" />
+          <ScalarProperty Name="Introduction" ColumnName="Introduction" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dacsacs">
+      <EntityTypeMapping TypeName="TapChiDB.dacsac">
+        <MappingFragment StoreEntitySet="dacsac">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dichvuchinhs">
+      <EntityTypeMapping TypeName="TapChiDB.dichvuchinh">
+        <MappingFragment StoreEntitySet="dichvuchinh">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="duangandays">
+      <EntityTypeMapping TypeName="TapChiDB.duanganday">
+        <MappingFragment StoreEntitySet="duanganday">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Major" ColumnName="Major" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailSettings">
+      <EntityTypeMapping TypeName="TapChiDB.EmailSetting">
+        <MappingFragment StoreEntitySet="EmailSetting">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SmtpClient" ColumnName="SmtpClient" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="EnableSsl" ColumnName="EnableSsl" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FooterContents">
+      <EntityTypeMapping TypeName="TapChiDB.FooterContent">
+        <MappingFragment StoreEntitySet="FooterContent">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoogleAPIs">
+      <EntityTypeMapping TypeName="TapChiDB.GoogleAPI">
+        <MappingFragment StoreEntitySet="GoogleAPI">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="GoogleScript" ColumnName="GoogleScript" />
+          <ScalarProperty Name="GoogleJson" ColumnName="GoogleJson" />
+          <ScalarProperty Name="ViewID" ColumnName="ViewID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hinhtruots">
+      <EntityTypeMapping TypeName="TapChiDB.Hinhtruot">
+        <MappingFragment StoreEntitySet="Hinhtruot">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HomePageSections">
+      <EntityTypeMapping TypeName="TapChiDB.HomePageSection">
+        <MappingFragment StoreEntitySet="HomePageSection">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="PostsQuantity" ColumnName="PostsQuantity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="isModable" ColumnName="isModable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HotNewCategories">
+      <EntityTypeMapping TypeName="TapChiDB.HotNewCategory">
+        <MappingFragment StoreEntitySet="HotNewCategory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="PostQuantity" ColumnName="PostQuantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Khachhangs">
+      <EntityTypeMapping TypeName="TapChiDB.Khachhang">
+        <MappingFragment StoreEntitySet="Khachhang">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dacsacContent" ColumnName="dacsacContent" />
+          <ScalarProperty Name="Introduce" ColumnName="Introduce" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Major" ColumnName="Major" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogTestApplications">
+      <EntityTypeMapping TypeName="TapChiDB.LogTestApplication">
+        <MappingFragment StoreEntitySet="LogTestApplication">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="InstanceID" ColumnName="InstanceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogUserActivities">
+      <EntityTypeMapping TypeName="TapChiDB.LogUserActivity">
+        <MappingFragment StoreEntitySet="LogUserActivity">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ManagerPages">
+      <EntityTypeMapping TypeName="TapChiDB.ManagerPage">
+        <MappingFragment StoreEntitySet="ManagerPages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Địa_Chỉ" ColumnName="Địa Chỉ" />
+          <ScalarProperty Name="Hotline" ColumnName="Hotline" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Introduce" ColumnName="Introduce" />
+          <ScalarProperty Name="DichVu" ColumnName="DichVu" />
+          <ScalarProperty Name="LienKet" ColumnName="LienKet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="TapChiDB.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="TapChiDB.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+          <ScalarProperty Name="CustomerMobile" ColumnName="CustomerMobile" />
+          <ScalarProperty Name="CustomerMessage" ColumnName="CustomerMessage" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PageDatas">
+      <EntityTypeMapping TypeName="TapChiDB.PageData">
+        <MappingFragment StoreEntitySet="PageData">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="lng" ColumnName="lng" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="MetaKeywordDefault" ColumnName="MetaKeywordDefault" />
+          <ScalarProperty Name="MetaDescriptionDefault" ColumnName="MetaDescriptionDefault" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pages">
+      <EntityTypeMapping TypeName="TapChiDB.Page">
+        <MappingFragment StoreEntitySet="Pages">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerLogoes">
+      <EntityTypeMapping TypeName="TapChiDB.PartnerLogo">
+        <MappingFragment StoreEntitySet="PartnerLogo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostCategories">
+      <EntityTypeMapping TypeName="TapChiDB.PostCategory">
+        <MappingFragment StoreEntitySet="PostCategories">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="FreeCourseStatus" ColumnName="FreeCourseStatus" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="TapChiDB.Post">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="NewCost" ColumnName="NewCost" />
+          <ScalarProperty Name="FreeCourseStatus" ColumnName="FreeCourseStatus" />
+          <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="ActiveDate" ColumnName="ActiveDate" />
+          <ScalarProperty Name="OldCost" ColumnName="OldCost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SelectivePosts">
+      <EntityTypeMapping TypeName="TapChiDB.SelectivePost">
+        <MappingFragment StoreEntitySet="SelectivePosts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="IsHot" ColumnName="IsHot" />
+          <ScalarProperty Name="IsAd" ColumnName="IsAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shops">
+      <EntityTypeMapping TypeName="TapChiDB.Shop">
+        <MappingFragment StoreEntitySet="Shop">
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="ShopName" ColumnName="ShopName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShopManagements">
+      <EntityTypeMapping TypeName="TapChiDB.ShopManagement">
+        <MappingFragment StoreEntitySet="ShopManagement">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserTime" ColumnName="UserTime" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SliderTops">
+      <EntityTypeMapping TypeName="TapChiDB.SliderTop">
+        <MappingFragment StoreEntitySet="SliderTop">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscribedEmails">
+      <EntityTypeMapping TypeName="TapChiDB.SubscribedEmail">
+        <MappingFragment StoreEntitySet="SubscribedEmails">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tags">
+      <EntityTypeMapping TypeName="TapChiDB.Tag">
+        <MappingFragment StoreEntitySet="Tags">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="taisaochontois">
+      <EntityTypeMapping TypeName="TapChiDB.taisaochontoi">
+        <MappingFragment StoreEntitySet="taisaochontoi">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Introduce" ColumnName="Introduce" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempAdSections">
+      <EntityTypeMapping TypeName="TapChiDB.TempAdSection">
+        <MappingFragment StoreEntitySet="TempAdSection">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="ImageLink" ColumnName="ImageLink" />
+          <ScalarProperty Name="RefererLink" ColumnName="RefererLink" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ImageAltInfo" ColumnName="ImageAltInfo" />
+          <ScalarProperty Name="Page" ColumnName="Page" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="thues">
+      <EntityTypeMapping TypeName="TapChiDB.thue">
+        <MappingFragment StoreEntitySet="thue">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="LoaiThue" ColumnName="LoaiThue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TinTucNews">
+      <EntityTypeMapping TypeName="TapChiDB.TinTucNew">
+        <MappingFragment StoreEntitySet="TinTucNew">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Topmenus">
+      <EntityTypeMapping TypeName="TapChiDB.Topmenu">
+        <MappingFragment StoreEntitySet="Topmenu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tenduong" ColumnName="tenduong" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="giolamviec" ColumnName="giolamviec" />
+          <ScalarProperty Name="hotline" ColumnName="hotline" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TuVans">
+      <EntityTypeMapping TypeName="TapChiDB.TuVan">
+        <MappingFragment StoreEntitySet="TuVan">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="TapChiDB.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAdministrators">
+      <EntityTypeMapping TypeName="TapChiDB.UserAdministrator">
+        <MappingFragment StoreEntitySet="UserAdministrator">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="Allowed" ColumnName="Allowed" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAdministratorRoles">
+      <EntityTypeMapping TypeName="TapChiDB.UserAdministratorRole">
+        <MappingFragment StoreEntitySet="UserAdministratorRole">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserBusinesses">
+      <EntityTypeMapping TypeName="TapChiDB.UserBusiness">
+        <MappingFragment StoreEntitySet="UserBusiness">
+          <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCategories">
+      <EntityTypeMapping TypeName="TapChiDB.UserCategory">
+        <MappingFragment StoreEntitySet="UserCategory">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGrantPermissions">
+      <EntityTypeMapping TypeName="TapChiDB.UserGrantPermission">
+        <MappingFragment StoreEntitySet="UserGrantPermission">
+          <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPermissions">
+      <EntityTypeMapping TypeName="TapChiDB.UserPermission">
+        <MappingFragment StoreEntitySet="UserPermission">
+          <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+          <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPosts">
+      <EntityTypeMapping TypeName="TapChiDB.UserPost">
+        <MappingFragment StoreEntitySet="UserPost">
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Brief" ColumnName="Brief" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="ViewNo" ColumnName="ViewNo" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="TapChiDB.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VatLieux">
+      <EntityTypeMapping TypeName="TapChiDB.VatLieu">
+        <MappingFragment StoreEntitySet="VatLieu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="LoaiVatLieu" ColumnName="LoaiVatLieu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="TapChiDB.Video">
+        <MappingFragment StoreEntitySet="Video">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="VideoURL" ColumnName="VideoURL" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+          <ScalarProperty Name="SourceURL" ColumnName="SourceURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitorStatistics">
+      <EntityTypeMapping TypeName="TapChiDB.VisitorStatistic">
+        <MappingFragment StoreEntitySet="VisitorStatistics">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VisitedDate" ColumnName="VisitedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChapterDetails">
+      <EntityTypeMapping TypeName="TapChiDB.ChapterDetail">
+        <MappingFragment StoreEntitySet="ChapterDetails">
+          <ScalarProperty Name="ChapterDetailsID" ColumnName="ChapterDetailsID" />
+          <ScalarProperty Name="ChapterID" ColumnName="ChapterID" />
+          <ScalarProperty Name="ChapterDetailsName" ColumnName="ChapterDetailsName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="TapChiDB.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oldActiveDates">
+      <EntityTypeMapping TypeName="TapChiDB.oldActiveDate">
+        <MappingFragment StoreEntitySet="oldActiveDate">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ActiveDate" ColumnName="ActiveDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PostTags" TypeName="TapChiDB.PostTags" StoreEntitySet="PostTags">
+      <EndProperty Name="Posts">
+        <ScalarProperty Name="ID" ColumnName="PostID" />
+      </EndProperty>
+      <EndProperty Name="Tags">
+        <ScalarProperty Name="ID" ColumnName="TagID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="CollectTags" FunctionName="TapChiDB.Store.CollectTags" />
+    <FunctionImportMapping FunctionImportName="getAd" FunctionName="TapChiDB.Store.getAd" />
+    <FunctionImportMapping FunctionImportName="getCategoryBranch" FunctionName="TapChiDB.Store.getCategoryBranch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TapChiDB.getCategoryBranch_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="FreeCourseStatus" ColumnName="FreeCourseStatus" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getHotPosts" FunctionName="TapChiDB.Store.getHotPosts" />
+    <FunctionImportMapping FunctionImportName="getNext4PostsBU" FunctionName="TapChiDB.Store.getNext4PostsBU">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TapChiDB.getNext4PostsBU_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="NewCost" ColumnName="NewCost" />
+          <ScalarProperty Name="FreeCourseStatus" ColumnName="FreeCourseStatus" />
+          <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="ActiveDate" ColumnName="ActiveDate" />
+          <ScalarProperty Name="OldCost" ColumnName="OldCost" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getNextSameCategoryPost" FunctionName="TapChiDB.Store.getNextSameCategoryPost">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TapChiDB.getNextSameCategoryPost_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="NewCost" ColumnName="NewCost" />
+          <ScalarProperty Name="FreeCourseStatus" ColumnName="FreeCourseStatus" />
+          <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="ActiveDate" ColumnName="ActiveDate" />
+          <ScalarProperty Name="OldCost" ColumnName="OldCost" />
+          <ScalarProperty Name="ID1" ColumnName="ID1" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="Name1" ColumnName="Name1" />
+          <ScalarProperty Name="Alias1" ColumnName="Alias1" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Status1" ColumnName="Status1" />
+          <ScalarProperty Name="Image1" ColumnName="Image1" />
+          <ScalarProperty Name="FreeCourseStatus1" ColumnName="FreeCourseStatus1" />
+          <ScalarProperty Name="CreatedDate1" ColumnName="CreatedDate1" />
+          <ScalarProperty Name="CreatedBy1" ColumnName="CreatedBy1" />
+          <ScalarProperty Name="UpdatedDate1" ColumnName="UpdatedDate1" />
+          <ScalarProperty Name="UpdatedBy1" ColumnName="UpdatedBy1" />
+          <ScalarProperty Name="MetaKeyword1" ColumnName="MetaKeyword1" />
+          <ScalarProperty Name="MetaDescription1" ColumnName="MetaDescription1" />
+          <ScalarProperty Name="MetaTitle1" ColumnName="MetaTitle1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getNextSameCategoryPostBU" FunctionName="TapChiDB.Store.getNextSameCategoryPostBU">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TapChiDB.getNextSameCategoryPostBU_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="NewCost" ColumnName="NewCost" />
+          <ScalarProperty Name="FreeCourseStatus" ColumnName="FreeCourseStatus" />
+          <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="ActiveDate" ColumnName="ActiveDate" />
+          <ScalarProperty Name="OldCost" ColumnName="OldCost" />
+          <ScalarProperty Name="ID1" ColumnName="ID1" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="Name1" ColumnName="Name1" />
+          <ScalarProperty Name="Alias1" ColumnName="Alias1" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Status1" ColumnName="Status1" />
+          <ScalarProperty Name="Image1" ColumnName="Image1" />
+          <ScalarProperty Name="FreeCourseStatus1" ColumnName="FreeCourseStatus1" />
+          <ScalarProperty Name="CreatedDate1" ColumnName="CreatedDate1" />
+          <ScalarProperty Name="CreatedBy1" ColumnName="CreatedBy1" />
+          <ScalarProperty Name="UpdatedDate1" ColumnName="UpdatedDate1" />
+          <ScalarProperty Name="UpdatedBy1" ColumnName="UpdatedBy1" />
+          <ScalarProperty Name="MetaKeyword1" ColumnName="MetaKeyword1" />
+          <ScalarProperty Name="MetaDescription1" ColumnName="MetaDescription1" />
+          <ScalarProperty Name="MetaTitle1" ColumnName="MetaTitle1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

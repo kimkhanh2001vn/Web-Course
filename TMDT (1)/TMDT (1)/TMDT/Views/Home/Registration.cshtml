@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Đăng ký tài khoản";
+        Layout = "~/Views/Shared/_DaoTao.cshtml";
+}
+
+
+<script src="~/js/jquery-2.2.3.min.js"></script>
+<main class="site-main">
+
+    <div class="columns container">
+        <!-- Block  Breadcrumb-->
+        @*<ol class="breadcrumb no-hide">
+                <li><a href="#">Home    </a></li>
+                <li><a href="#">Blog    </a></li>
+                <li class="active">Ut pharetra augue nec augue integer rutrum ante eu lacus</li>
+            </ol> Block  Breadcrumb*@
+        <br />
+        <br />
+
+
+
+    </div>
+    <div class="container">
+        <!-- end MAIN -->
+        <form method="post" id="form1" action="~/Home/CreateAccount">
+            <div style="max-width: 400px;">
+                <h2 class="form-signin-heading">
+                    Tạo tài khoản
+                </h2>
+                <label for="txtUsername">
+                    Địa chỉ Email
+                </label>
+                <input name="txtUsername" id="txtUsername" class="form-control" type="email" placeholder="Nhập địa chỉ Email"
+                       required />
+                <br />
+                <label for="txtPassword">
+                    Mật khẩu
+                </label>
+                <input name="txtPassword" type="password" id="txtPassword" title="Mật khẩu phải chứa tối thiểu 8 ký tự  1 chữ cái and 1 số"
+                       class="form-control" placeholder="Nhập mật khẩu" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" />
+                <br />
+                <label for="txtConfirmPassword">
+                    Nhập lại mật khẩu
+                </label>
+                <input name="txtConfirmPassword" type="password" id="txtConfirmPassword" class="form-control"
+                       placeholder="Nhập lại mật khẩu lần nữa" />
+                <br />
+
+
+                <hr />
+                <br />
+
+                @{ string value = ViewBag.Success;
+
+                }
+                <label for="giatri">
+                    <span style="color:red;font-size:30pt"> @value </span>
+                </label>
+                <hr />
+                <input type="submit" name="btnSignup" value="Tạo tài khoản" id="btnSignup" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</main>
+<script type="text/javascript">
+    window.onload = function () {
+        var txtPassword = document.getElementById("txtPassword");
+        var txtConfirmPassword = document.getElementById("txtConfirmPassword");
+        txtPassword.onchange = ConfirmPassword;
+        txtConfirmPassword.onkeyup = ConfirmPassword;
+        function ConfirmPassword() {
+            txtConfirmPassword.setCustomValidity("");
+            if (txtPassword.value != txtConfirmPassword.value) {
+                txtConfirmPassword.setCustomValidity("Mật khẩu không trùng nhau");
+            }
+        }
+    }
+</script>
+<br />
+<br />
+<br />
+<br />

@@ -1,0 +1,52 @@
+﻿@model TMDT.GoogleAPI
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="content">
+    <!-- COLOR PALETTE -->
+    <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-tag"></i> Chỉnh sửa thông tin GoogleAPI
+            </h3>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.id)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.GoogleScript, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        @Html.TextAreaFor(model => model.GoogleScript, new { @class = "form-control", style = "height:200px; width:800px" })
+                        @Html.ValidationMessageFor(model => model.GoogleScript, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.GoogleJson, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        @Html.TextAreaFor(model => model.GoogleJson, new { @class = "form-control", style = "height:200px; width:800px;" })
+                        @Html.ValidationMessageFor(model => model.GoogleJson, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ViewID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.ViewID, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ViewID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Lưu" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        }
+        <br/>
+        <br/>
+    </div>
+</section>

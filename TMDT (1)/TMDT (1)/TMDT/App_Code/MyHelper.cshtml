@@ -1,0 +1,30 @@
+﻿@*// Using's are needed to ensure helpers function correctly.*@
+@*Have modified the helper variable names to lowercase as I have had some conflicts with the built in helpers names.
+    I have modified the html helper to be generic which allows use of TextBoxFor etc helpers*@
+@using System.Web.Mvc;
+@using System.Web.Mvc.Html;
+@using System.Web.Mvc.Routing;
+@using System.Web.Mvc.Razor;
+@using TMDT;
+
+@functions {
+    //private static System.Web.Mvc.HtmlHelper<dynamic> html { get { return page.Html; } }
+    //private static dynamic viewBag { get { return page.ViewBag; } }
+    private static WebViewPage page { get { return PageContext.Page as WebViewPage; } }
+    private static UrlHelper url { get { return page.Url; } }
+}
+
+@*Ad helper*@
+@helper AdHtml(TempAdSection ad)
+{
+    <a href="@ad.RefererLink" target="_blank">
+        <img style="width:100%" src="@ad.ImageLink" alt="@ad.ImageAltInfo" />
+    </a>
+}
+
+@helper AdHtml_AdChild(TempAdSection ad)
+{
+    <a href="@ad.RefererLink" target="_blank">
+        <img class="ad-child" src="@ad.ImageLink" alt="@ad.ImageAltInfo" />
+    </a>
+}

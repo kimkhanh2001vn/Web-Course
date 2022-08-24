@@ -1,0 +1,132 @@
+﻿@model TMDT.Video
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<section class="content">
+    <!-- COLOR PALETTE -->
+    <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-tag"></i> Thêm mới
+            </h3>
+        </div>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ImageURL, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-3">
+                    <div id="content"></div>
+                    @Html.EditorFor(model => model.ImageURL, new { htmlAttributes = new { @class = "form-control textbox-control hidden" } })
+                    @Html.ValidationMessageFor(model => model.ImageURL, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3">
+                    <input class="btn btn-default" id="Browse" value="Chọn ảnh" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.TextAreaFor(model => model.Description, new{ @class = "form-control",style="height:100px" })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.VideoURL, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-9">
+                    <input type="text" id="embedCode" style="width:100%" />
+                    <iframe id="video_sample" style="display:none;margin-top:20px" width="600" height="337" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    @Html.EditorFor(model => model.VideoURL, new { htmlAttributes = new { @class = "hidden form-control" } })
+                    @Html.ValidationMessageFor(model => model.VideoURL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SourceName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.SourceName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SourceName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SourceURL, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.SourceURL, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SourceURL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.CheckBox("Status", true)
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-6">
+                    <input type="submit" value="Thêm mới" class="btn btn-primary" />
+                    <p class="btn btn-default">@Html.ActionLink("Trở lại", "Index")</p>
+                </div>
+            </div>
+        </div>
+        }
+        <br />
+        <br />
+    </div>
+</section>
+@section scripts{
+    <script src="~/Areas/Admin/Resources/js/colorpicker.js"></script>
+    <script type="text/javascript">
+        $("#Browse").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                //Lấy file ảnh cuối cùng
+                $("#ImageURL").val(fileUrl);
+                document.getElementById("content").innerHTML = '<img class="img-thumbnail" style="width:200px" type="type/html" src="' + fileUrl + '" ></img>';
+            };
+            finder.popup();
+        });       
+        $('#embedCode').on('input', function () {
+            var Url = $('' + $(this).val()).attr('src');            
+            if (Url.length > 0) {
+                $('#video_sample').attr('src', Url).show();
+                $('#VideoURL').val(Url);
+            }
+        })
+    </script>
+}

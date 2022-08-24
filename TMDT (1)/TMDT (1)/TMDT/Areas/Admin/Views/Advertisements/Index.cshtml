@@ -1,0 +1,178 @@
+﻿@model IEnumerable<TMDT.Models.CustomModel.AdvertisementCustomAdmin>
+
+@{
+    ViewBag.Title = "Index";
+}
+@section styles{
+    <style>
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 5000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: auto;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            text-align: center
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            text-align: left
+        }
+    </style>
+}
+
+<section class="content" data-category="@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"></h3>
+                    <a href="@Url.Action("Create")" class="btn btn-success btn-lg" style="cursor: pointer">
+                        Thêm mới
+                    </a>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="search-table" class="table table-bordered table-striped">   
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SectionName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Customer)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ImageLink)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.RefererLink)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreatedDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EndDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Status)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Description)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {                                
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SectionName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Customer)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>                               
+                                <td>
+                                    <img class="img-thumb" src="@item.ImageLink" style="width:100px;height:75px;cursor:pointer" />
+                                </td>
+                                <td style="max-width:200px;word-wrap:break-word">
+                                    <a href="@item.RefererLink"> @item.RefererLink</a>
+                                </td>
+                                <td>
+                                    @item.CreatedDate.ToString("dd/MM/yyyy")
+                                </td>
+                                <td>
+                                    @item.EndDate.ToString("dd/MM/yyyy")
+                                </td>
+                                <td class="text-center btn-active" data-id="@item.ID" style="cursor:pointer">
+                                    @if (item.Status == true)
+                                    {
+                                        <span class="label label-success">Actived</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label label-danger">Locked</span>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("Edit",new { id = item.ID })" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-edit"></i></a> &nbsp;
+                                    <a href="@Url.Action("Details",new { id = item.ID })" data-toggle="tooltip" data-placement="top" title="Chi tiết"><i class="fa fa-list-alt"></i></a> &nbsp;
+                                    <span class="Delete" style="cursor:pointer" data-id="@item.ID" data-toggle="tooltip" data-placement="top" title="Xóa">
+                                        <i class="fa fa-times-circle"></i>
+                                    </span> &nbsp;
+                                </td>
+                            </tr>
+                            }
+                            </tbody>
+                        </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    <!-- The Modal -->
+    <!--  -------------------------  --->
+</section>
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="display:inline-block">
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        /*document ready*/
+        $(function () {
+            var modal = document.getElementById('myModal');           
+
+            $('.img-thumb').click(function () {
+                $('#myModal .modal-content').css('display', 'flex').html('<img src="' + $(this).prop('src') + '" />');
+                modal.style.display = "block";
+            });
+
+            $(window).click(function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+            $('#search-table').DataTable({
+                "order": [[8, 'asc'], [7, 'desc']],
+                "columnDefs": [
+                    { "type": "date-uk", targets: 6 },
+                    { "type": "date-uk", targets: 7 }
+                    ]
+            });
+        })
+    </script>
+}

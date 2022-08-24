@@ -1,0 +1,144 @@
+﻿@model Post
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    TMDT.Models.CustomModel.UserInfo userInfo = (TMDT.Models.CustomModel.UserInfo)Session["UserInfo"];
+}
+<link href="~/Areas/Admin/Resources/css/colorpicker.css" rel="stylesheet" />
+<style>
+    @@media (max-width:991px) {
+        label[for=Tags].control-label {
+            text-align: left;
+        }
+    }
+
+    #btn_col {
+        max-width: 15px;
+        min-width: 15px;
+    }
+
+        #btn_col > span {
+            width: 100%;
+            padding: 10px 12px;
+        }
+
+            #btn_col > span:before {
+                cursor: pointer;
+            }
+
+            #btn_col > span.fa-plus {
+                color: green;
+            }
+
+            #btn_col > span.fa-close {
+                color: red;
+            }
+
+            #input_col > input + input,
+            #btn_col > span + span {
+                margin-top: 10px;
+            }
+</style>
+<section class="content">
+    <!-- COLOR PALETTE -->
+    <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-tag"></i> Thêm mới
+            </h3>
+        </div>
+        <br />
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active tab-btn" data-page="main_info"><a href="#">Thông tin chính</a></li>
+         </ul>
+        @using (Html.BeginForm("Create", "Posts", FormMethod.Post, new { autocomplete = "off" }))
+        {
+            @Html.AntiForgeryToken()
+            <br />
+
+            <div class="form-horizontal">
+                <div id="main_info" class="tab-page">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, null, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @AdminHelper.CategorySelectElement("CategoryID", ViewBag.ID)
+                            @Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, null, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-3 PostImageContainer">
+                            <img style="width:200px" />
+                            @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control textbox-control hidden" } })
+                            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3">
+                            <input class="btn btn-default BrowseImagePost" value="Chọn ảnh" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OldCost, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-3 PostImageContainer">
+                            <div class="editor-field">
+                                @Html.TextAreaFor(model => model.OldCost, new { @class = "form-control", style = "width:530px;height:150px" })
+                                @Html.ValidationMessageFor(model => model.OldCost, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NewCost, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            <div class="editor-field">
+                                @Html.TextAreaFor(model => model.NewCost, new { @class = "form-control", style = "width:530px;height:150px" })
+                                @Html.ValidationMessageFor(model => model.NewCost, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @Html.CheckBoxFor(model => model.Status)
+
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FreeCourseStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @Html.CheckBoxFor(model => model.FreeCourseStatus)
+
+                            @Html.ValidationMessageFor(model => model.FreeCourseStatus, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                </div>
+                <div class="col-md-offset-2 col-md-6">
+                    <input type="submit" value="Thêm mới" class="btn btn-primary" />
+                    <p class="btn btn-default">@Html.ActionLink("Trở lại", "Index")</p>
+                </div>
+            </div>
+        }
+        <br />
+        <br />
+    </div>
+</section>
+@section scripts{
+   <script src="~/Areas/Admin/Resources/js/PostView/PostCreateEdit.js"></script>
+}

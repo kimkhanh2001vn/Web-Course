@@ -1,0 +1,180 @@
+﻿@model IEnumerable<TMDT.Video>
+
+@{
+    ViewBag.Title = "Index";
+}
+@section styles{
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 5000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: auto;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            text-align: center
+        }
+
+        .modal-content {
+            border: 0 !important;
+            background-color: transparent;
+            box-shadow: unset;
+            margin: auto;
+            padding: 20px;
+            border: 0;
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            text-align: center
+        }
+    </style>
+}
+@Html.AntiForgeryToken()
+<section class="content" data-category="@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"></h3>
+                    <a href="@Url.Action("Create",HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(),new {})" class="btn btn-success btn-lg" style="cursor: pointer">
+                        Thêm mới
+                    </a>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="search-table" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Title)
+                                </th>
+                                <th class="hidden">
+                                    @Html.DisplayNameFor(model => model.Alias)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ImageURL)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.VideoURL)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Duration)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Category)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SourceName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SourceURL)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreatedDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Status)
+                                </th>
+
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>
+                                <td class="hidden">
+                                    @Html.DisplayFor(modelItem => item.Alias)
+                                </td>
+                                <td>
+                                    <img src="@Html.DisplayFor(modelItem => item.ImageURL)" id="img_@item.ID" class="img-thumbnail" style="cursor:pointer"
+                                         alt="Alternate Text" width="100" onclick="selectImage('Videos/ChangeImage/@item.ID',this.id)" />
+                                </td>
+                                <td>
+                                    <i class="fa fa-eye"></i>
+                                    <div class="hidden" data-src="@item.VideoURL"></div>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Duration)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Category)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SourceName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SourceURL)
+                                </td>
+                                <td>
+                                    @item.CreatedDate.Value.ToString("dd/MM/yyyy")
+                                </td>
+                                <td class="text-center btn-active" data-id="@item.ID" style="cursor:pointer">
+                                    @if (item.Status == true)
+                                    {
+                                        <span class="label label-success">Actived</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label label-danger">Locked</span>
+                                    }
+                                </td>
+
+                                <td>
+                                    <a href="@Url.Action("Edit",HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(),new { id = item.ID })" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-edit"></i></a> &nbsp;
+                                    <span class="Delete" data-id="@item.ID" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="Xóa">
+                                        <i class="fa fa-times-circle"></i>
+                                    </span> &nbsp;
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+</section>
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content" style="display:inline-block">
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        /*document ready*/
+        $(function () {
+            var modal = document.getElementById('myModal');
+            $('.fa.fa-eye').click(function () {
+                var iframeElement = '<iframe src="' + $(this).next().data('src')  +'" width="600" height="337" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+                $('#myModal .modal-content').css('display', 'flex').html(iframeElement);
+                modal.style.display = "block";
+            });
+       
+            $(window).click(function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+
+            $('#search-table').DataTable({
+                "order": [8, 'desc'],
+                "columnDefs": [
+                    { "type": "date-uk", targets: 8 }
+                ]
+            });
+        })
+
+    </script>
+}

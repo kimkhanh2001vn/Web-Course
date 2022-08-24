@@ -1,0 +1,141 @@
+﻿@model TMDT.Advertisement
+@{
+    ViewBag.Title = "Edit";
+}
+
+<section class="content">
+    <!-- COLOR PALETTE -->
+    <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-tag"></i> Sửa
+            </h3>
+        </div>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">                
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Customer, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Customer, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Customer, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImageLink, htmlAttributes: new { @class = "control-label col-md-2" })
+                    
+                    <div class="col-md-8">
+                        <div id="img-content" style="display:inline-block"></div>
+                        @Html.EditorFor(model => model.ImageLink, new { htmlAttributes = new { @class = "form-control textbox-control " } })
+                        <div class="btn btn-default" id="Browse">Chọn ảnh</div>
+                        @Html.ValidationMessageFor(model => model.ImageLink, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                    
+                <div class="form-group">
+                        @Html.LabelFor(model => model.RefererLink, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.RefererLink, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.RefererLink, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    
+                <div class="form-group">
+                        @Html.LabelFor(model => model.CreatedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            <input name="CreatedDate" id="CreatedDate"value="@Model.CreatedDate.ToString("dd/MM/yyyy")" class="form-control"/>
+                            @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            <input id="EndDate"name="EndDate" value="@Model.EndDate.ToString("dd/MM/yyyy")" class="form-control" />
+                            @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.Status)
+                                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>                   
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", style = "width:600px;height:200px;" } )
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SectionID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.SectionID, null, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SectionID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-6">
+                            <input type="submit" value="Lưu" class="btn btn-success" />
+                            <p class="btn btn-default">@Html.ActionLink("Trở lại", "Index")</p>                            
+                        </div>
+                    </div>
+                </div>               
+        }
+        <br /><br />
+    </div>
+</section>
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#Browse").click(function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (fileUrl) {
+                    //Lấy file ảnh cuối cùng
+                    $("#ImageLink").val(fileUrl).trigger('change');                    
+                };
+                finder.popup();
+            });           
+            $('#CreatedDate,#EndDate').datepicker({ format: "dd/mm/yyyy" });
+            $('input[type=submit]').click(function () {
+                $('#CreatedDate,#EndDate').each(function () {
+                    $(this).val($.datepicker.formatDate("mm/dd/yy", $(this).datepicker('getDate')));                    
+                })
+            })
+            $('#ImageLink').on('change', function () {
+                document.getElementById("img-content").innerHTML = '<img class="img-thumbnail" style="width:200px;height:150px" type="type/html" src="' + $(this).val() + '" ></img>';
+            })
+            $("#ImageLink").trigger('change')
+        });
+        
+    </script>
+}

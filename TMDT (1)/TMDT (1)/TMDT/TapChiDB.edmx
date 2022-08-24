@@ -1,0 +1,2863 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TapChiDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdSection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SectionName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Advertisement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer" Type="nvarchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="ImageLink" Type="varchar(max)" />
+          <Property Name="RefererLink" Type="varchar(max)" />
+          <Property Name="ViewCount" Type="int" />
+          <Property Name="ClickCount" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="SectionID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Chapter">
+          <Key>
+            <PropertyRef Name="ChapterID" />
+          </Key>
+          <Property Name="ChapterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="ChapterName" Type="nvarchar(max)" />
+          <Property Name="id" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'khxaydung.dbo.ChapterDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ChapterDetails">
+          <Key>
+            <PropertyRef Name="ChapterDetailsID" />
+          </Key>
+          <Property Name="ChapterDetailsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChapterID" Type="int" />
+          <Property Name="ChapterDetailsName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseName" Type="nvarchar(max)" />
+          <Property Name="PFFPath" Type="nvarchar(max)" />
+          <Property Name="YoutubePath" Type="nvarchar(max)" />
+          <Property Name="Introduction" Type="nvarchar(max)" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="dacsac">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="content" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="dichvuchinh">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Images" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="duanganday">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Images" Type="nvarchar(max)" />
+          <Property Name="Major" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="EmailSetting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="SmtpClient" Type="varchar" MaxLength="100" />
+          <Property Name="Port" Type="int" />
+          <Property Name="EnableSsl" Type="bit" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Password" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="FooterContent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GoogleAPI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="GoogleScript" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GoogleJson" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ViewID" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hinhtruot">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Images" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="HomePageSection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SectionName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="PostsQuantity" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="isModable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HotNewCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostQuantity" Type="int" />
+        </EntityType>
+        <EntityType Name="Khachhang">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dacsacContent" Type="nvarchar(max)" />
+          <Property Name="Introduce" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Major" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LogTestApplication">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="InstanceID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LogUserActivity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Action" Type="nvarchar" MaxLength="100" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ManagerPages">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Địa Chỉ" Type="nvarchar(max)" />
+          <Property Name="Hotline" Type="int" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Introduce" Type="nvarchar(max)" />
+          <Property Name="DichVu" Type="nvarchar(max)" />
+          <Property Name="LienKet" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'khxaydung.dbo.Menu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Alias" Type="nvarchar(max)" />
+          <Property Name="ParentID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'khxaydung.dbo.oldActiveDate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="oldActiveDate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActiveDate" Type="date" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ColorId" Type="int" Nullable="false" />
+          <Property Name="SizeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="256" />
+          <Property Name="CustomerAddress" Type="nvarchar" MaxLength="256" />
+          <Property Name="CustomerEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="CustomerMobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerMessage" Type="nvarchar" MaxLength="256" />
+          <Property Name="PaymentMethod" Type="nvarchar" MaxLength="256" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="PaymentStatus" Type="nvarchar(max)" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="TeacherID" Type="int" />
+        </EntityType>
+        <EntityType Name="PageData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Time" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="float" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="lat" Type="float" />
+          <Property Name="lng" Type="float" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="MetaKeywordDefault" Type="nvarchar(max)" />
+          <Property Name="MetaDescriptionDefault" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Pages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Alias" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="MetaKeyword" Type="nvarchar" MaxLength="256" />
+          <Property Name="MetaDescription" Type="nvarchar" MaxLength="256" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PartnerLogo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostCategories">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Alias" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="DisplayOrder" Type="int" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="256" />
+          <Property Name="FreeCourseStatus" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="MetaKeyword" Type="nvarchar" MaxLength="256" />
+          <Property Name="MetaDescription" Type="nvarchar" MaxLength="256" />
+          <Property Name="MetaTitle" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="Alias" Type="varchar" MaxLength="512" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="256" />
+          <Property Name="NewCost" Type="nvarchar(max)" />
+          <Property Name="FreeCourseStatus" Type="bit" />
+          <Property Name="ViewCount" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="MetaTitle" Type="nvarchar" MaxLength="256" />
+          <Property Name="MetaKeyword" Type="nvarchar" MaxLength="256" />
+          <Property Name="MetaDescription" Type="nvarchar" MaxLength="256" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Tags" Type="nvarchar(max)" />
+          <Property Name="ActiveDate" Type="datetime" />
+          <Property Name="OldCost" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PostTags">
+          <Key>
+            <PropertyRef Name="PostID" />
+            <PropertyRef Name="TagID" />
+          </Key>
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="TagID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SelectivePosts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="IsHot" Type="bit" Nullable="false" />
+          <Property Name="IsAd" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="StoreID" />
+          </Key>
+          <Property Name="StoreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShopName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ShopManagement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar" MaxLength="256" />
+          <Property Name="Url" Type="nvarchar" MaxLength="256" />
+          <Property Name="DisplayOrder" Type="int" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserTime" Type="datetime" />
+          <Property Name="Payment" Type="bit" />
+          <Property Name="Money" Type="float" />
+        </EntityType>
+        <EntityType Name="SliderTop">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="256" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubscribedEmails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="taisaochontoi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Introduce" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TempAdSection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SectionName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Size" Type="varchar" MaxLength="50" />
+          <Property Name="ImageLink" Type="varchar(max)" />
+          <Property Name="RefererLink" Type="varchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="ImageAltInfo" Type="nvarchar(max)" />
+          <Property Name="Page" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="thue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="LoaiThue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TinTucNew">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Images" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Topmenu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenduong" Type="nvarchar(max)" />
+          <Property Name="diachi" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="giolamviec" Type="nvarchar(max)" />
+          <Property Name="hotline" Type="int" />
+        </EntityType>
+        <EntityType Name="TuVan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Images" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserAdministrator">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="Avatar" Type="varchar" MaxLength="256" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="Allowed" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserAdministratorRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserBusiness">
+          <Key>
+            <PropertyRef Name="BusinessId" />
+          </Key>
+          <Property Name="BusinessId" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="BusinessName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="OrderNo" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="32" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="UserGrantPermission">
+          <Key>
+            <PropertyRef Name="PermissionId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="PermissionId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="UserPermission">
+          <Key>
+            <PropertyRef Name="PermissionId" />
+          </Key>
+          <Property Name="PermissionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PermissionName" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="BusinessId" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserPost">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="Brief" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="Content" Type="ntext" Nullable="false" />
+          <Property Name="Picture" Type="nvarchar" MaxLength="256" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Tags" Type="nvarchar" MaxLength="128" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="ViewNo" Type="int" />
+          <Property Name="Status" Type="nvarchar" MaxLength="32" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="VatLieu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Images" Type="nvarchar(max)" />
+          <Property Name="LoaiVatLieu" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="Alias" Type="varchar" MaxLength="210" />
+          <Property Name="VideoURL" Type="varchar(max)" />
+          <Property Name="ImageURL" Type="varchar(max)" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Color" Type="varchar" MaxLength="50" />
+          <Property Name="ViewCount" Type="int" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="Duration" Type="varchar" MaxLength="50" />
+          <Property Name="SourceName" Type="nvarchar" MaxLength="200" />
+          <Property Name="SourceURL" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="VisitorStatistics">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VisitedDate" Type="datetime" Nullable="false" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_dbo_OrderDetails_dbo_Orders_OrderID">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Posts_dbo_PostCategories_CategoryID">
+          <End Role="PostCategories" Type="Self.PostCategories" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostCategories">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Posts">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PostTags_dbo_Posts_PostID">
+          <End Role="Posts" Type="Self.Posts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PostTags" Type="Self.PostTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PostTags">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PostTags_dbo_Tags_TagID">
+          <End Role="Tags" Type="Self.Tags" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PostTags" Type="Self.PostTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PostTags">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserCategory_dbo_UserAdministrator_UserId">
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="0..1" />
+          <End Role="UserCategory" Type="Self.UserCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAdministrator">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserGrantPermission_dbo_UserAdministrator_UserId">
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserGrantPermission" Type="Self.UserGrantPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAdministrator">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserGrantPermission">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserGrantPermission_dbo_UserPermission_PermissionId">
+          <End Role="UserPermission" Type="Self.UserPermission" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserGrantPermission" Type="Self.UserGrantPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserPermission">
+              <PropertyRef Name="PermissionId" />
+            </Principal>
+            <Dependent Role="UserGrantPermission">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserPermission_dbo_UserBusiness_BusinessId">
+          <End Role="UserBusiness" Type="Self.UserBusiness" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserPermission" Type="Self.UserPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserBusiness">
+              <PropertyRef Name="BusinessId" />
+            </Principal>
+            <Dependent Role="UserPermission">
+              <PropertyRef Name="BusinessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserPost_dbo_UserAdministrator_UserId">
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="0..1" />
+          <End Role="UserPost" Type="Self.UserPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAdministrator">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserPost">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserPost_dbo_UserCategory_CategoryId">
+          <End Role="UserCategory" Type="Self.UserCategory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserPost" Type="Self.UserPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="UserPost">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LogUserActivity_UserAdministrator">
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="1" />
+          <End Role="LogUserActivity" Type="Self.LogUserActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAdministrator">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="LogUserActivity">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_OrderDetails">
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="1" />
+          <End Role="OrderDetails1" Type="Self.OrderDetails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OrderDetails">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OrderDetails1">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Post">
+          <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Posts_Posts">
+          <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+          <End Role="Posts1" Type="Self.Posts" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Posts1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopManagement_Shop">
+          <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
+          <End Role="ShopManagement" Type="Self.ShopManagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="StoreID" />
+            </Principal>
+            <Dependent Role="ShopManagement">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserAdministrator_Role">
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="1" />
+          <End Role="UserAdministrator1" Type="Self.UserAdministrator" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserAdministrator">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserAdministrator1">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserAdministrator_UserAdministrator">
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="1" />
+          <End Role="UserAdministrator1" Type="Self.UserAdministrator" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserAdministrator">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserAdministrator1">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserAdministrator_UserRole">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserAdministrator">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="CollectTags" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tagsString" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="getAd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getCategoryBranch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="categoryAlias" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getHotPosts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getNext4PostsBU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="alias" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getNextSameCategoryPost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="alias" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="getNextSameCategoryPostBU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="alias" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="TapChiDBStoreContainer">
+          <EntitySet Name="AdSection" EntityType="Self.AdSection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Advertisement" EntityType="Self.Advertisement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chapter" EntityType="Self.Chapter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dacsac" EntityType="Self.dacsac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dichvuchinh" EntityType="Self.dichvuchinh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="duanganday" EntityType="Self.duanganday" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailSetting" EntityType="Self.EmailSetting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FooterContent" EntityType="Self.FooterContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GoogleAPI" EntityType="Self.GoogleAPI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hinhtruot" EntityType="Self.Hinhtruot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomePageSection" EntityType="Self.HomePageSection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HotNewCategory" EntityType="Self.HotNewCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Khachhang" EntityType="Self.Khachhang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogTestApplication" EntityType="Self.LogTestApplication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogUserActivity" EntityType="Self.LogUserActivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ManagerPages" EntityType="Self.ManagerPages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PageData" EntityType="Self.PageData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pages" EntityType="Self.Pages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartnerLogo" EntityType="Self.PartnerLogo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostCategories" EntityType="Self.PostCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostTags" EntityType="Self.PostTags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SelectivePosts" EntityType="Self.SelectivePosts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shop" EntityType="Self.Shop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShopManagement" EntityType="Self.ShopManagement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SliderTop" EntityType="Self.SliderTop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubscribedEmails" EntityType="Self.SubscribedEmails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="taisaochontoi" EntityType="Self.taisaochontoi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TempAdSection" EntityType="Self.TempAdSection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="thue" EntityType="Self.thue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TinTucNew" EntityType="Self.TinTucNew" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Topmenu" EntityType="Self.Topmenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TuVan" EntityType="Self.TuVan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAdministrator" EntityType="Self.UserAdministrator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAdministratorRole" EntityType="Self.UserAdministratorRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserBusiness" EntityType="Self.UserBusiness" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCategory" EntityType="Self.UserCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserGrantPermission" EntityType="Self.UserGrantPermission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPermission" EntityType="Self.UserPermission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPost" EntityType="Self.UserPost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VatLieu" EntityType="Self.VatLieu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VisitorStatistics" EntityType="Self.VisitorStatistics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChapterDetails" EntityType="Self.ChapterDetails" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ChapterDetails].[ChapterDetailsID] AS [ChapterDetailsID], 
+    [ChapterDetails].[ChapterID] AS [ChapterID], 
+    [ChapterDetails].[ChapterDetailsName] AS [ChapterDetailsName]
+    FROM [dbo].[ChapterDetails] AS [ChapterDetails]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Menu" EntityType="Self.Menu" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Menu].[id] AS [id], 
+    [Menu].[Name] AS [Name], 
+    [Menu].[Alias] AS [Alias], 
+    [Menu].[ParentID] AS [ParentID]
+    FROM [dbo].[Menu] AS [Menu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="oldActiveDate" EntityType="Self.oldActiveDate" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [oldActiveDate].[ID] AS [ID], 
+    [oldActiveDate].[ActiveDate] AS [ActiveDate]
+    FROM [dbo].[oldActiveDate] AS [oldActiveDate]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_dbo_OrderDetails_dbo_Orders_OrderID" Association="Self.FK_dbo_OrderDetails_dbo_Orders_OrderID">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Posts_dbo_PostCategories_CategoryID" Association="Self.FK_dbo_Posts_dbo_PostCategories_CategoryID">
+            <End Role="PostCategories" EntitySet="PostCategories" />
+            <End Role="Posts" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PostTags_dbo_Posts_PostID" Association="Self.FK_dbo_PostTags_dbo_Posts_PostID">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="PostTags" EntitySet="PostTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PostTags_dbo_Tags_TagID" Association="Self.FK_dbo_PostTags_dbo_Tags_TagID">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="PostTags" EntitySet="PostTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserCategory_dbo_UserAdministrator_UserId" Association="Self.FK_dbo_UserCategory_dbo_UserAdministrator_UserId">
+            <End Role="UserAdministrator" EntitySet="UserAdministrator" />
+            <End Role="UserCategory" EntitySet="UserCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserGrantPermission_dbo_UserAdministrator_UserId" Association="Self.FK_dbo_UserGrantPermission_dbo_UserAdministrator_UserId">
+            <End Role="UserAdministrator" EntitySet="UserAdministrator" />
+            <End Role="UserGrantPermission" EntitySet="UserGrantPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserGrantPermission_dbo_UserPermission_PermissionId" Association="Self.FK_dbo_UserGrantPermission_dbo_UserPermission_PermissionId">
+            <End Role="UserPermission" EntitySet="UserPermission" />
+            <End Role="UserGrantPermission" EntitySet="UserGrantPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserPermission_dbo_UserBusiness_BusinessId" Association="Self.FK_dbo_UserPermission_dbo_UserBusiness_BusinessId">
+            <End Role="UserBusiness" EntitySet="UserBusiness" />
+            <End Role="UserPermission" EntitySet="UserPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserPost_dbo_UserAdministrator_UserId" Association="Self.FK_dbo_UserPost_dbo_UserAdministrator_UserId">
+            <End Role="UserAdministrator" EntitySet="UserAdministrator" />
+            <End Role="UserPost" EntitySet="UserPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserPost_dbo_UserCategory_CategoryId" Association="Self.FK_dbo_UserPost_dbo_UserCategory_CategoryId">
+            <End Role="UserCategory" EntitySet="UserCategory" />
+            <End Role="UserPost" EntitySet="UserPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LogUserActivity_UserAdministrator" Association="Self.FK_LogUserActivity_UserAdministrator">
+            <End Role="UserAdministrator" EntitySet="UserAdministrator" />
+            <End Role="LogUserActivity" EntitySet="LogUserActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_OrderDetails" Association="Self.FK_OrderDetails_OrderDetails">
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+            <End Role="OrderDetails1" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Post" Association="Self.FK_OrderDetails_Post">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Posts_Posts" Association="Self.FK_Posts_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="Posts1" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopManagement_Shop" Association="Self.FK_ShopManagement_Shop">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="ShopManagement" EntitySet="ShopManagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserAdministrator_Role" Association="Self.FK_UserAdministrator_Role">
+            <End Role="UserAdministrator" EntitySet="UserAdministrator" />
+            <End Role="UserAdministrator1" EntitySet="UserAdministrator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserAdministrator_UserAdministrator" Association="Self.FK_UserAdministrator_UserAdministrator">
+            <End Role="UserAdministrator" EntitySet="UserAdministrator" />
+            <End Role="UserAdministrator1" EntitySet="UserAdministrator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserAdministrator_UserRole" Association="Self.FK_UserAdministrator_UserRole">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="UserAdministrator" EntitySet="UserAdministrator" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TapChiDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdSection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SectionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Advertisement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ImageLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RefererLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ViewCount" Type="Int32" />
+          <Property Name="ClickCount" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SectionID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Chapter">
+          <Key>
+            <PropertyRef Name="ChapterID" />
+          </Key>
+          <Property Name="ChapterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="ChapterName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PFFPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="YoutubePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Introduction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dacsac">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="dichvuchinh">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="duanganday">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Major" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EmailSetting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="SmtpClient" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Port" Type="Int32" />
+          <Property Name="EnableSsl" Type="Boolean" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FooterContent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GoogleAPI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="GoogleScript" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GoogleJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ViewID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hinhtruot">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HomePageSection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SectionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="PostsQuantity" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isModable" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HotNewCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostQuantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Khachhang">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dacsacContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Introduce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Major" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LogTestApplication">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InstanceID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LogUserActivity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserAdministrator" Relationship="Self.FK_LogUserActivity_UserAdministrator" FromRole="LogUserActivity" ToRole="UserAdministrator" />
+        </EntityType>
+        <EntityType Name="ManagerPage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Địa_Chỉ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hotline" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Introduce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DichVu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LienKet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" />
+          <Property Name="SizeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_dbo_OrderDetails_dbo_Orders_OrderID" FromRole="OrderDetails" ToRole="Orders" />
+          <NavigationProperty Name="OrderDetails1" Relationship="Self.FK_OrderDetails_OrderDetails" FromRole="OrderDetails" ToRole="OrderDetails1" />
+          <NavigationProperty Name="OrderDetail1" Relationship="Self.FK_OrderDetails_OrderDetails" FromRole="OrderDetails1" ToRole="OrderDetails" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_OrderDetails_Post" FromRole="OrderDetails" ToRole="Posts" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerMessage" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="TeacherID" Type="Int32" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_dbo_OrderDetails_dbo_Orders_OrderID" FromRole="Orders" ToRole="OrderDetails" />
+        </EntityType>
+        <EntityType Name="PageData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="Double" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lat" Type="Double" />
+          <Property Name="lng" Type="Double" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="MetaKeywordDefault" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MetaDescriptionDefault" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Alias" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MetaKeyword" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MetaDescription" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PartnerLogo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoreID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Alias" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="DisplayOrder" Type="Int32" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="FreeCourseStatus" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MetaKeyword" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MetaDescription" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MetaTitle" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Posts" Relationship="Self.FK_dbo_Posts_dbo_PostCategories_CategoryID" FromRole="PostCategories" ToRole="Posts" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Alias" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="NewCost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FreeCourseStatus" Type="Boolean" />
+          <Property Name="ViewCount" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MetaTitle" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MetaKeyword" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MetaDescription" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ActiveDate" Type="DateTime" Precision="3" />
+          <Property Name="OldCost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Post" FromRole="Posts" ToRole="OrderDetails" />
+          <NavigationProperty Name="PostCategory" Relationship="Self.FK_dbo_Posts_dbo_PostCategories_CategoryID" FromRole="Posts" ToRole="PostCategories" />
+          <NavigationProperty Name="Posts1" Relationship="Self.FK_Posts_Posts" FromRole="Posts" ToRole="Posts1" />
+          <NavigationProperty Name="Post1" Relationship="Self.FK_Posts_Posts" FromRole="Posts1" ToRole="Posts" />
+          <NavigationProperty Name="Tags1" Relationship="Self.PostTags" FromRole="Posts" ToRole="Tags" />
+        </EntityType>
+        <EntityType Name="SelectivePost">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostID" Type="Int32" Nullable="false" />
+          <Property Name="IsHot" Type="Boolean" Nullable="false" />
+          <Property Name="IsAd" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="StoreID" />
+          </Key>
+          <Property Name="StoreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShopName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ShopManagements" Relationship="Self.FK_ShopManagement_Shop" FromRole="Shop" ToRole="ShopManagement" />
+        </EntityType>
+        <EntityType Name="ShopManagement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoreID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayOrder" Type="Int32" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserTime" Type="DateTime" Precision="3" />
+          <Property Name="Payment" Type="Boolean" />
+          <Property Name="Money" Type="Double" />
+          <NavigationProperty Name="Shop" Relationship="Self.FK_ShopManagement_Shop" FromRole="ShopManagement" ToRole="Shop" />
+        </EntityType>
+        <EntityType Name="SliderTop">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubscribedEmail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Posts" Relationship="Self.PostTags" FromRole="Tags" ToRole="Posts" />
+        </EntityType>
+        <EntityType Name="taisaochontoi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Introduce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TempAdSection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SectionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImageLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RefererLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="ImageAltInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Page" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="thue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LoaiThue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TinTucNew">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Topmenu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenduong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="giolamviec" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hotline" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TuVan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UserAdministrator">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Avatar" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="Allowed" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="LogUserActivities" Relationship="Self.FK_LogUserActivity_UserAdministrator" FromRole="UserAdministrator" ToRole="LogUserActivity" />
+          <NavigationProperty Name="UserCategories" Relationship="Self.FK_dbo_UserCategory_dbo_UserAdministrator_UserId" FromRole="UserAdministrator" ToRole="UserCategory" />
+          <NavigationProperty Name="UserGrantPermissions" Relationship="Self.FK_dbo_UserGrantPermission_dbo_UserAdministrator_UserId" FromRole="UserAdministrator" ToRole="UserGrantPermission" />
+          <NavigationProperty Name="UserPosts" Relationship="Self.FK_dbo_UserPost_dbo_UserAdministrator_UserId" FromRole="UserAdministrator" ToRole="UserPost" />
+          <NavigationProperty Name="UserAdministrator1" Relationship="Self.FK_UserAdministrator_Role" FromRole="UserAdministrator" ToRole="UserAdministrator1" />
+          <NavigationProperty Name="UserAdministrator2" Relationship="Self.FK_UserAdministrator_Role" FromRole="UserAdministrator1" ToRole="UserAdministrator" />
+          <NavigationProperty Name="UserAdministrator11" Relationship="Self.FK_UserAdministrator_UserAdministrator" FromRole="UserAdministrator" ToRole="UserAdministrator1" />
+          <NavigationProperty Name="UserAdministrator3" Relationship="Self.FK_UserAdministrator_UserAdministrator" FromRole="UserAdministrator1" ToRole="UserAdministrator" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK_UserAdministrator_UserRole" FromRole="UserAdministrator" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="UserAdministratorRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserBusiness">
+          <Key>
+            <PropertyRef Name="BusinessId" />
+          </Key>
+          <Property Name="BusinessId" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BusinessName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="UserPermissions" Relationship="Self.FK_dbo_UserPermission_dbo_UserBusiness_BusinessId" FromRole="UserBusiness" ToRole="UserPermission" />
+        </EntityType>
+        <EntityType Name="UserCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="UserAdministrator" Relationship="Self.FK_dbo_UserCategory_dbo_UserAdministrator_UserId" FromRole="UserCategory" ToRole="UserAdministrator" />
+          <NavigationProperty Name="UserPosts" Relationship="Self.FK_dbo_UserPost_dbo_UserCategory_CategoryId" FromRole="UserCategory" ToRole="UserPost" />
+        </EntityType>
+        <EntityType Name="UserGrantPermission">
+          <Key>
+            <PropertyRef Name="PermissionId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="PermissionId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserAdministrator" Relationship="Self.FK_dbo_UserGrantPermission_dbo_UserAdministrator_UserId" FromRole="UserGrantPermission" ToRole="UserAdministrator" />
+          <NavigationProperty Name="UserPermission" Relationship="Self.FK_dbo_UserGrantPermission_dbo_UserPermission_PermissionId" FromRole="UserGrantPermission" ToRole="UserPermission" />
+        </EntityType>
+        <EntityType Name="UserPermission">
+          <Key>
+            <PropertyRef Name="PermissionId" />
+          </Key>
+          <Property Name="PermissionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PermissionName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BusinessId" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="UserBusiness" Relationship="Self.FK_dbo_UserPermission_dbo_UserBusiness_BusinessId" FromRole="UserPermission" ToRole="UserBusiness" />
+          <NavigationProperty Name="UserGrantPermissions" Relationship="Self.FK_dbo_UserGrantPermission_dbo_UserPermission_PermissionId" FromRole="UserPermission" ToRole="UserGrantPermission" />
+        </EntityType>
+        <EntityType Name="UserPost">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Brief" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Picture" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="Tags" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="ViewNo" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="UserAdministrator" Relationship="Self.FK_dbo_UserPost_dbo_UserAdministrator_UserId" FromRole="UserPost" ToRole="UserAdministrator" />
+          <NavigationProperty Name="UserCategory" Relationship="Self.FK_dbo_UserPost_dbo_UserCategory_CategoryId" FromRole="UserPost" ToRole="UserCategory" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserAdministrators" Relationship="Self.FK_UserAdministrator_UserRole" FromRole="UserRole" ToRole="UserAdministrator" />
+        </EntityType>
+        <EntityType Name="VatLieu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LoaiVatLieu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Alias" Type="String" MaxLength="210" FixedLength="false" Unicode="false" />
+          <Property Name="VideoURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ViewCount" Type="Int32" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SourceName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SourceURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VisitorStatistic">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="VisitedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ChapterDetail">
+          <Key>
+            <PropertyRef Name="ChapterDetailsID" />
+          </Key>
+          <Property Name="ChapterDetailsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChapterID" Type="Int32" />
+          <Property Name="ChapterDetailsName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ParentID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="oldActiveDate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActiveDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <Association Name="FK_LogUserActivity_UserAdministrator">
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="1" />
+          <End Role="LogUserActivity" Type="Self.LogUserActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAdministrator">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="LogUserActivity">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_OrderDetails_dbo_Orders_OrderID">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_OrderDetails">
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="1" />
+          <End Role="OrderDetails1" Type="Self.OrderDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OrderDetails">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OrderDetails1">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Post">
+          <End Role="Posts" Type="Self.Post" Multiplicity="1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Posts_dbo_PostCategories_CategoryID">
+          <End Role="PostCategories" Type="Self.PostCategory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Posts" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostCategories">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Posts">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Posts_Posts">
+          <End Role="Posts" Type="Self.Post" Multiplicity="1" />
+          <End Role="Posts1" Type="Self.Post" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Posts1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopManagement_Shop">
+          <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
+          <End Role="ShopManagement" Type="Self.ShopManagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="StoreID" />
+            </Principal>
+            <Dependent Role="ShopManagement">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserCategory_dbo_UserAdministrator_UserId">
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="0..1" />
+          <End Role="UserCategory" Type="Self.UserCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAdministrator">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserGrantPermission_dbo_UserAdministrator_UserId">
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserGrantPermission" Type="Self.UserGrantPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAdministrator">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserGrantPermission">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserPost_dbo_UserAdministrator_UserId">
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="0..1" />
+          <End Role="UserPost" Type="Self.UserPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAdministrator">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserPost">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserAdministrator_Role">
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="1" />
+          <End Role="UserAdministrator1" Type="Self.UserAdministrator" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserAdministrator">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserAdministrator1">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserAdministrator_UserAdministrator">
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="1" />
+          <End Role="UserAdministrator1" Type="Self.UserAdministrator" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserAdministrator">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserAdministrator1">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserAdministrator_UserRole">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="UserAdministrator" Type="Self.UserAdministrator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserAdministrator">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserPermission_dbo_UserBusiness_BusinessId">
+          <End Role="UserBusiness" Type="Self.UserBusiness" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserPermission" Type="Self.UserPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserBusiness">
+              <PropertyRef Name="BusinessId" />
+            </Principal>
+            <Dependent Role="UserPermission">
+              <PropertyRef Name="BusinessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserPost_dbo_UserCategory_CategoryId">
+          <End Role="UserCategory" Type="Self.UserCategory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserPost" Type="Self.UserPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="UserPost">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserGrantPermission_dbo_UserPermission_PermissionId">
+          <End Role="UserPermission" Type="Self.UserPermission" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserGrantPermission" Type="Self.UserGrantPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserPermission">
+              <PropertyRef Name="PermissionId" />
+            </Principal>
+            <Dependent Role="UserGrantPermission">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PostTags">
+          <End Role="Posts" Type="Self.Post" Multiplicity="*" />
+          <End Role="Tags" Type="Self.Tag" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdSections" EntityType="Self.AdSection" />
+          <EntitySet Name="Advertisements" EntityType="Self.Advertisement" />
+          <EntitySet Name="Chapters" EntityType="Self.Chapter" />
+          <EntitySet Name="Courses" EntityType="Self.Course" />
+          <EntitySet Name="dacsacs" EntityType="Self.dacsac" />
+          <EntitySet Name="dichvuchinhs" EntityType="Self.dichvuchinh" />
+          <EntitySet Name="duangandays" EntityType="Self.duanganday" />
+          <EntitySet Name="EmailSettings" EntityType="Self.EmailSetting" />
+          <EntitySet Name="FooterContents" EntityType="Self.FooterContent" />
+          <EntitySet Name="GoogleAPIs" EntityType="Self.GoogleAPI" />
+          <EntitySet Name="Hinhtruots" EntityType="Self.Hinhtruot" />
+          <EntitySet Name="HomePageSections" EntityType="Self.HomePageSection" />
+          <EntitySet Name="HotNewCategories" EntityType="Self.HotNewCategory" />
+          <EntitySet Name="Khachhangs" EntityType="Self.Khachhang" />
+          <EntitySet Name="LogTestApplications" EntityType="Self.LogTestApplication" />
+          <EntitySet Name="LogUserActivities" EntityType="Self.LogUserActivity" />
+          <EntitySet Name="ManagerPages" EntityType="Self.ManagerPage" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="PageDatas" EntityType="Self.PageData" />
+          <EntitySet Name="Pages" EntityType="Self.Page" />
+          <EntitySet Name="PartnerLogoes" EntityType="Self.PartnerLogo" />
+          <EntitySet Name="PostCategories" EntityType="Self.PostCategory" />
+          <EntitySet Name="Posts" EntityType="Self.Post" />
+          <EntitySet Name="SelectivePosts" EntityType="Self.SelectivePost" />
+          <EntitySet Name="Shops" EntityType="Self.Shop" />
+          <EntitySet Name="ShopManagements" EntityType="Self.ShopManagement" />
+          <EntitySet Name="SliderTops" EntityType="Self.SliderTop" />
+          <EntitySet Name="SubscribedEmails" EntityType="Self.SubscribedEmail" />
+          <EntitySet Name="Tags" EntityType="Self.Tag" />
+          <EntitySet Name="taisaochontois" EntityType="Self.taisaochontoi" />
+          <EntitySet Name="TempAdSections" EntityType="Self.TempAdSection" />
+          <EntitySet Name="thues" EntityType="Self.thue" />
+          <EntitySet Name="TinTucNews" EntityType="Self.TinTucNew" />
+          <EntitySet Name="Topmenus" EntityType="Self.Topmenu" />
+          <EntitySet Name="TuVans" EntityType="Self.TuVan" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserAdministrators" EntityType="Self.UserAdministrator" />
+          <EntitySet Name="UserAdministratorRoles" EntityType="Self.UserAdministratorRole" />
+          <EntitySet Name="UserBusinesses" EntityType="Self.UserBusiness" />
+          <EntitySet Name="UserCategories" EntityType="Self.UserCategory" />
+          <EntitySet Name="UserGrantPermissions" EntityType="Self.UserGrantPermission" />
+          <EntitySet Name="UserPermissions" EntityType="Self.UserPermission" />
+          <EntitySet Name="UserPosts" EntityType="Self.UserPost" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+          <EntitySet Name="VatLieux" EntityType="Self.VatLieu" />
+          <EntitySet Name="Videos" EntityType="Self.Video" />
+          <EntitySet Name="VisitorStatistics" EntityType="Self.VisitorStatistic" />
+          <EntitySet Name="ChapterDetails" EntityType="Self.ChapterDetail" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="oldActiveDates" EntityType="Self.oldActiveDate" />
+          <AssociationSet Name="FK_LogUserActivity_UserAdministrator" Association="Self.FK_LogUserActivity_UserAdministrator">
+            <End Role="UserAdministrator" EntitySet="UserAdministrators" />
+            <End Role="LogUserActivity" EntitySet="LogUserActivities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_OrderDetails_dbo_Orders_OrderID" Association="Self.FK_dbo_OrderDetails_dbo_Orders_OrderID">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_OrderDetails" Association="Self.FK_OrderDetails_OrderDetails">
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+            <End Role="OrderDetails1" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Post" Association="Self.FK_OrderDetails_Post">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Posts_dbo_PostCategories_CategoryID" Association="Self.FK_dbo_Posts_dbo_PostCategories_CategoryID">
+            <End Role="PostCategories" EntitySet="PostCategories" />
+            <End Role="Posts" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Posts_Posts" Association="Self.FK_Posts_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="Posts1" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopManagement_Shop" Association="Self.FK_ShopManagement_Shop">
+            <End Role="Shop" EntitySet="Shops" />
+            <End Role="ShopManagement" EntitySet="ShopManagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserCategory_dbo_UserAdministrator_UserId" Association="Self.FK_dbo_UserCategory_dbo_UserAdministrator_UserId">
+            <End Role="UserAdministrator" EntitySet="UserAdministrators" />
+            <End Role="UserCategory" EntitySet="UserCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserGrantPermission_dbo_UserAdministrator_UserId" Association="Self.FK_dbo_UserGrantPermission_dbo_UserAdministrator_UserId">
+            <End Role="UserAdministrator" EntitySet="UserAdministrators" />
+            <End Role="UserGrantPermission" EntitySet="UserGrantPermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserPost_dbo_UserAdministrator_UserId" Association="Self.FK_dbo_UserPost_dbo_UserAdministrator_UserId">
+            <End Role="UserAdministrator" EntitySet="UserAdministrators" />
+            <End Role="UserPost" EntitySet="UserPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserAdministrator_Role" Association="Self.FK_UserAdministrator_Role">
+            <End Role="UserAdministrator" EntitySet="UserAdministrators" />
+            <End Role="UserAdministrator1" EntitySet="UserAdministrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserAdministrator_UserAdministrator" Association="Self.FK_UserAdministrator_UserAdministrator">
+            <End Role="UserAdministrator" EntitySet="UserAdministrators" />
+            <End Role="UserAdministrator1" EntitySet="UserAdministrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserAdministrator_UserRole" Association="Self.FK_UserAdministrator_UserRole">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="UserAdministrator" EntitySet="UserAdministrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserPermission_dbo_UserBusiness_BusinessId" Association="Self.FK_dbo_UserPermission_dbo_UserBusiness_BusinessId">
+            <End Role="UserBusiness" EntitySet="UserBusinesses" />
+            <End Role="UserPermission" EntitySet="UserPermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserPost_dbo_UserCategory_CategoryId" Association="Self.FK_dbo_UserPost_dbo_UserCategory_CategoryId">
+            <End Role="UserCategory" EntitySet="UserCategories" />
+            <End Role="UserPost" EntitySet="UserPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserGrantPermission_dbo_UserPermission_PermissionId" Association="Self.FK_dbo_UserGrantPermission_dbo_UserPermission_PermissionId">
+            <End Role="UserPermission" EntitySet="UserPermissions" />
+            <End Role="UserGrantPermission" EntitySet="UserGrantPermissions" />
+          </AssociationSet>
+          <AssociationSet Name="PostTags" Association="Self.PostTags">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="Tags" EntitySet="Tags" />
+          </AssociationSet>
+          <FunctionImport Name="CollectTags">
+            <Parameter Name="tagsString" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getAd" />
+          <FunctionImport Name="getCategoryBranch" ReturnType="Collection(TapChiDB.getCategoryBranch_Result)">
+            <Parameter Name="categoryAlias" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getHotPosts" />
+          <FunctionImport Name="getNext4PostsBU" ReturnType="Collection(TapChiDB.getNext4PostsBU_Result)">
+            <Parameter Name="alias" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getNextSameCategoryPost" ReturnType="Collection(TapChiDB.getNextSameCategoryPost_Result)">
+            <Parameter Name="alias" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getNextSameCategoryPostBU" ReturnType="Collection(TapChiDB.getNextSameCategoryPostBU_Result)">
+            <Parameter Name="alias" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="getCategoryBranch_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="StoreID" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Alias" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="ParentID" Nullable="true" />
+          <Property Type="Int32" Name="DisplayOrder" Nullable="true" />
+          <Property Type="Boolean" Name="Status" Nullable="false" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="256" />
+          <Property Type="Boolean" Name="FreeCourseStatus" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="256" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaKeyword" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaDescription" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaTitle" Nullable="true" MaxLength="256" />
+        </ComplexType>
+        <ComplexType Name="getNext4PostsBU_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="512" />
+          <Property Type="String" Name="Alias" Nullable="false" MaxLength="512" />
+          <Property Type="Int32" Name="CategoryID" Nullable="false" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="NewCost" Nullable="true" />
+          <Property Type="Boolean" Name="FreeCourseStatus" Nullable="true" />
+          <Property Type="Int32" Name="ViewCount" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="256" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaTitle" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaKeyword" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaDescription" Nullable="true" MaxLength="256" />
+          <Property Type="Boolean" Name="Status" Nullable="false" />
+          <Property Type="String" Name="Tags" Nullable="true" />
+          <Property Type="DateTime" Name="ActiveDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="OldCost" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getNextSameCategoryPost_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="512" />
+          <Property Type="String" Name="Alias" Nullable="false" MaxLength="512" />
+          <Property Type="Int32" Name="CategoryID" Nullable="false" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="NewCost" Nullable="true" />
+          <Property Type="Boolean" Name="FreeCourseStatus" Nullable="true" />
+          <Property Type="Int32" Name="ViewCount" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="256" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaTitle" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaKeyword" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaDescription" Nullable="true" MaxLength="256" />
+          <Property Type="Boolean" Name="Status" Nullable="false" />
+          <Property Type="String" Name="Tags" Nullable="true" />
+          <Property Type="DateTime" Name="ActiveDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="OldCost" Nullable="true" />
+          <Property Type="Int32" Name="ID1" Nullable="false" />
+          <Property Type="Int32" Name="StoreID" Nullable="true" />
+          <Property Type="String" Name="Name1" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Alias1" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="ParentID" Nullable="true" />
+          <Property Type="Int32" Name="DisplayOrder" Nullable="true" />
+          <Property Type="Boolean" Name="Status1" Nullable="false" />
+          <Property Type="String" Name="Image1" Nullable="true" MaxLength="256" />
+          <Property Type="Boolean" Name="FreeCourseStatus1" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate1" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy1" Nullable="true" MaxLength="256" />
+          <Property Type="DateTime" Name="UpdatedDate1" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy1" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaKeyword1" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaDescription1" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaTitle1" Nullable="true" MaxLength="256" />
+        </ComplexType>
+        <ComplexType Name="getNextSameCategoryPostBU_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="512" />
+          <Property Type="String" Name="Alias" Nullable="false" MaxLength="512" />
+          <Property Type="Int32" Name="CategoryID" Nullable="false" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="NewCost" Nullable="true" />
+          <Property Type="Boolean" Name="FreeCourseStatus" Nullable="true" />
+          <Property Type="Int32" Name="ViewCount" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="256" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaTitle" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaKeyword" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaDescription" Nullable="true" MaxLength="256" />
+          <Property Type="Boolean" Name="Status" Nullable="false" />
+          <Property Type="String" Name="Tags" Nullable="true" />
+          <Property Type="DateTime" Name="ActiveDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="OldCost" Nullable="true" />
+          <Property Type="Int32" Name="ID1" Nullable="false" />
+          <Property Type="Int32" Name="StoreID" Nullable="true" />
+          <Property Type="String" Name="Name1" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Alias1" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="ParentID" Nullable="true" />
+          <Property Type="Int32" Name="DisplayOrder" Nullable="true" />
+          <Property Type="Boolean" Name="Status1" Nullable="false" />
+          <Property Type="String" Name="Image1" Nullable="true" MaxLength="256" />
+          <Property Type="Boolean" Name="FreeCourseStatus1" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate1" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy1" Nullable="true" MaxLength="256" />
+          <Property Type="DateTime" Name="UpdatedDate1" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy1" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaKeyword1" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaDescription1" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="MetaTitle1" Nullable="true" MaxLength="256" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TapChiDBStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="AdSections">
+            <EntityTypeMapping TypeName="TapChiDB.AdSection">
+              <MappingFragment StoreEntitySet="AdSection">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advertisements">
+            <EntityTypeMapping TypeName="TapChiDB.Advertisement">
+              <MappingFragment StoreEntitySet="Advertisement">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ImageLink" ColumnName="ImageLink" />
+                <ScalarProperty Name="RefererLink" ColumnName="RefererLink" />
+                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+                <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chapters">
+            <EntityTypeMapping TypeName="TapChiDB.Chapter">
+              <MappingFragment StoreEntitySet="Chapter">
+                <ScalarProperty Name="ChapterID" ColumnName="ChapterID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="ChapterName" ColumnName="ChapterName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="TapChiDB.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="PFFPath" ColumnName="PFFPath" />
+                <ScalarProperty Name="YoutubePath" ColumnName="YoutubePath" />
+                <ScalarProperty Name="Introduction" ColumnName="Introduction" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dacsacs">
+            <EntityTypeMapping TypeName="TapChiDB.dacsac">
+              <MappingFragment StoreEntitySet="dacsac">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dichvuchinhs">
+            <EntityTypeMapping TypeName="TapChiDB.dichvuchinh">
+              <MappingFragment StoreEntitySet="dichvuchinh">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="duangandays">
+            <EntityTypeMapping TypeName="TapChiDB.duanganday">
+              <MappingFragment StoreEntitySet="duanganday">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailSettings">
+            <EntityTypeMapping TypeName="TapChiDB.EmailSetting">
+              <MappingFragment StoreEntitySet="EmailSetting">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SmtpClient" ColumnName="SmtpClient" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="EnableSsl" ColumnName="EnableSsl" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FooterContents">
+            <EntityTypeMapping TypeName="TapChiDB.FooterContent">
+              <MappingFragment StoreEntitySet="FooterContent">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoogleAPIs">
+            <EntityTypeMapping TypeName="TapChiDB.GoogleAPI">
+              <MappingFragment StoreEntitySet="GoogleAPI">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="GoogleScript" ColumnName="GoogleScript" />
+                <ScalarProperty Name="GoogleJson" ColumnName="GoogleJson" />
+                <ScalarProperty Name="ViewID" ColumnName="ViewID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hinhtruots">
+            <EntityTypeMapping TypeName="TapChiDB.Hinhtruot">
+              <MappingFragment StoreEntitySet="Hinhtruot">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomePageSections">
+            <EntityTypeMapping TypeName="TapChiDB.HomePageSection">
+              <MappingFragment StoreEntitySet="HomePageSection">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="PostsQuantity" ColumnName="PostsQuantity" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="isModable" ColumnName="isModable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotNewCategories">
+            <EntityTypeMapping TypeName="TapChiDB.HotNewCategory">
+              <MappingFragment StoreEntitySet="HotNewCategory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="PostQuantity" ColumnName="PostQuantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Khachhangs">
+            <EntityTypeMapping TypeName="TapChiDB.Khachhang">
+              <MappingFragment StoreEntitySet="Khachhang">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dacsacContent" ColumnName="dacsacContent" />
+                <ScalarProperty Name="Introduce" ColumnName="Introduce" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogTestApplications">
+            <EntityTypeMapping TypeName="TapChiDB.LogTestApplication">
+              <MappingFragment StoreEntitySet="LogTestApplication">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="InstanceID" ColumnName="InstanceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogUserActivities">
+            <EntityTypeMapping TypeName="TapChiDB.LogUserActivity">
+              <MappingFragment StoreEntitySet="LogUserActivity">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ManagerPages">
+            <EntityTypeMapping TypeName="TapChiDB.ManagerPage">
+              <MappingFragment StoreEntitySet="ManagerPages">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Địa_Chỉ" ColumnName="Địa Chỉ" />
+                <ScalarProperty Name="Hotline" ColumnName="Hotline" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Introduce" ColumnName="Introduce" />
+                <ScalarProperty Name="DichVu" ColumnName="DichVu" />
+                <ScalarProperty Name="LienKet" ColumnName="LienKet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="TapChiDB.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="TapChiDB.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+                <ScalarProperty Name="CustomerMobile" ColumnName="CustomerMobile" />
+                <ScalarProperty Name="CustomerMessage" ColumnName="CustomerMessage" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PageDatas">
+            <EntityTypeMapping TypeName="TapChiDB.PageData">
+              <MappingFragment StoreEntitySet="PageData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lng" ColumnName="lng" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MetaKeywordDefault" ColumnName="MetaKeywordDefault" />
+                <ScalarProperty Name="MetaDescriptionDefault" ColumnName="MetaDescriptionDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pages">
+            <EntityTypeMapping TypeName="TapChiDB.Page">
+              <MappingFragment StoreEntitySet="Pages">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartnerLogoes">
+            <EntityTypeMapping TypeName="TapChiDB.PartnerLogo">
+              <MappingFragment StoreEntitySet="PartnerLogo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostCategories">
+            <EntityTypeMapping TypeName="TapChiDB.PostCategory">
+              <MappingFragment StoreEntitySet="PostCategories">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="FreeCourseStatus" ColumnName="FreeCourseStatus" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="TapChiDB.Post">
+              <MappingFragment StoreEntitySet="Posts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="NewCost" ColumnName="NewCost" />
+                <ScalarProperty Name="FreeCourseStatus" ColumnName="FreeCourseStatus" />
+                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+                <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="ActiveDate" ColumnName="ActiveDate" />
+                <ScalarProperty Name="OldCost" ColumnName="OldCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SelectivePosts">
+            <EntityTypeMapping TypeName="TapChiDB.SelectivePost">
+              <MappingFragment StoreEntitySet="SelectivePosts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="IsHot" ColumnName="IsHot" />
+                <ScalarProperty Name="IsAd" ColumnName="IsAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shops">
+            <EntityTypeMapping TypeName="TapChiDB.Shop">
+              <MappingFragment StoreEntitySet="Shop">
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="ShopName" ColumnName="ShopName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopManagements">
+            <EntityTypeMapping TypeName="TapChiDB.ShopManagement">
+              <MappingFragment StoreEntitySet="ShopManagement">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserTime" ColumnName="UserTime" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Money" ColumnName="Money" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SliderTops">
+            <EntityTypeMapping TypeName="TapChiDB.SliderTop">
+              <MappingFragment StoreEntitySet="SliderTop">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscribedEmails">
+            <EntityTypeMapping TypeName="TapChiDB.SubscribedEmail">
+              <MappingFragment StoreEntitySet="SubscribedEmails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="TapChiDB.Tag">
+              <MappingFragment StoreEntitySet="Tags">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="taisaochontois">
+            <EntityTypeMapping TypeName="TapChiDB.taisaochontoi">
+              <MappingFragment StoreEntitySet="taisaochontoi">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Introduce" ColumnName="Introduce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TempAdSections">
+            <EntityTypeMapping TypeName="TapChiDB.TempAdSection">
+              <MappingFragment StoreEntitySet="TempAdSection">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="ImageLink" ColumnName="ImageLink" />
+                <ScalarProperty Name="RefererLink" ColumnName="RefererLink" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ImageAltInfo" ColumnName="ImageAltInfo" />
+                <ScalarProperty Name="Page" ColumnName="Page" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="thues">
+            <EntityTypeMapping TypeName="TapChiDB.thue">
+              <MappingFragment StoreEntitySet="thue">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="LoaiThue" ColumnName="LoaiThue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TinTucNews">
+            <EntityTypeMapping TypeName="TapChiDB.TinTucNew">
+              <MappingFragment StoreEntitySet="TinTucNew">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Topmenus">
+            <EntityTypeMapping TypeName="TapChiDB.Topmenu">
+              <MappingFragment StoreEntitySet="Topmenu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tenduong" ColumnName="tenduong" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="giolamviec" ColumnName="giolamviec" />
+                <ScalarProperty Name="hotline" ColumnName="hotline" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TuVans">
+            <EntityTypeMapping TypeName="TapChiDB.TuVan">
+              <MappingFragment StoreEntitySet="TuVan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TapChiDB.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAdministrators">
+            <EntityTypeMapping TypeName="TapChiDB.UserAdministrator">
+              <MappingFragment StoreEntitySet="UserAdministrator">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Allowed" ColumnName="Allowed" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAdministratorRoles">
+            <EntityTypeMapping TypeName="TapChiDB.UserAdministratorRole">
+              <MappingFragment StoreEntitySet="UserAdministratorRole">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserBusinesses">
+            <EntityTypeMapping TypeName="TapChiDB.UserBusiness">
+              <MappingFragment StoreEntitySet="UserBusiness">
+                <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCategories">
+            <EntityTypeMapping TypeName="TapChiDB.UserCategory">
+              <MappingFragment StoreEntitySet="UserCategory">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGrantPermissions">
+            <EntityTypeMapping TypeName="TapChiDB.UserGrantPermission">
+              <MappingFragment StoreEntitySet="UserGrantPermission">
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPermissions">
+            <EntityTypeMapping TypeName="TapChiDB.UserPermission">
+              <MappingFragment StoreEntitySet="UserPermission">
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPosts">
+            <EntityTypeMapping TypeName="TapChiDB.UserPost">
+              <MappingFragment StoreEntitySet="UserPost">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Brief" ColumnName="Brief" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="ViewNo" ColumnName="ViewNo" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="TapChiDB.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VatLieux">
+            <EntityTypeMapping TypeName="TapChiDB.VatLieu">
+              <MappingFragment StoreEntitySet="VatLieu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="LoaiVatLieu" ColumnName="LoaiVatLieu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="TapChiDB.Video">
+              <MappingFragment StoreEntitySet="Video">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="VideoURL" ColumnName="VideoURL" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+                <ScalarProperty Name="SourceURL" ColumnName="SourceURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VisitorStatistics">
+            <EntityTypeMapping TypeName="TapChiDB.VisitorStatistic">
+              <MappingFragment StoreEntitySet="VisitorStatistics">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="VisitedDate" ColumnName="VisitedDate" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChapterDetails">
+            <EntityTypeMapping TypeName="TapChiDB.ChapterDetail">
+              <MappingFragment StoreEntitySet="ChapterDetails">
+                <ScalarProperty Name="ChapterDetailsID" ColumnName="ChapterDetailsID" />
+                <ScalarProperty Name="ChapterID" ColumnName="ChapterID" />
+                <ScalarProperty Name="ChapterDetailsName" ColumnName="ChapterDetailsName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="TapChiDB.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oldActiveDates">
+            <EntityTypeMapping TypeName="TapChiDB.oldActiveDate">
+              <MappingFragment StoreEntitySet="oldActiveDate">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ActiveDate" ColumnName="ActiveDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PostTags" TypeName="TapChiDB.PostTags" StoreEntitySet="PostTags">
+            <EndProperty Name="Posts">
+              <ScalarProperty Name="ID" ColumnName="PostID" />
+            </EndProperty>
+            <EndProperty Name="Tags">
+              <ScalarProperty Name="ID" ColumnName="TagID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="CollectTags" FunctionName="TapChiDB.Store.CollectTags" />
+          <FunctionImportMapping FunctionImportName="getAd" FunctionName="TapChiDB.Store.getAd" />
+          <FunctionImportMapping FunctionImportName="getCategoryBranch" FunctionName="TapChiDB.Store.getCategoryBranch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TapChiDB.getCategoryBranch_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="FreeCourseStatus" ColumnName="FreeCourseStatus" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getHotPosts" FunctionName="TapChiDB.Store.getHotPosts" />
+          <FunctionImportMapping FunctionImportName="getNext4PostsBU" FunctionName="TapChiDB.Store.getNext4PostsBU">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TapChiDB.getNext4PostsBU_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="NewCost" ColumnName="NewCost" />
+                <ScalarProperty Name="FreeCourseStatus" ColumnName="FreeCourseStatus" />
+                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+                <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="ActiveDate" ColumnName="ActiveDate" />
+                <ScalarProperty Name="OldCost" ColumnName="OldCost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getNextSameCategoryPost" FunctionName="TapChiDB.Store.getNextSameCategoryPost">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TapChiDB.getNextSameCategoryPost_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="NewCost" ColumnName="NewCost" />
+                <ScalarProperty Name="FreeCourseStatus" ColumnName="FreeCourseStatus" />
+                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+                <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="ActiveDate" ColumnName="ActiveDate" />
+                <ScalarProperty Name="OldCost" ColumnName="OldCost" />
+                <ScalarProperty Name="ID1" ColumnName="ID1" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="Name1" ColumnName="Name1" />
+                <ScalarProperty Name="Alias1" ColumnName="Alias1" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Status1" ColumnName="Status1" />
+                <ScalarProperty Name="Image1" ColumnName="Image1" />
+                <ScalarProperty Name="FreeCourseStatus1" ColumnName="FreeCourseStatus1" />
+                <ScalarProperty Name="CreatedDate1" ColumnName="CreatedDate1" />
+                <ScalarProperty Name="CreatedBy1" ColumnName="CreatedBy1" />
+                <ScalarProperty Name="UpdatedDate1" ColumnName="UpdatedDate1" />
+                <ScalarProperty Name="UpdatedBy1" ColumnName="UpdatedBy1" />
+                <ScalarProperty Name="MetaKeyword1" ColumnName="MetaKeyword1" />
+                <ScalarProperty Name="MetaDescription1" ColumnName="MetaDescription1" />
+                <ScalarProperty Name="MetaTitle1" ColumnName="MetaTitle1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getNextSameCategoryPostBU" FunctionName="TapChiDB.Store.getNextSameCategoryPostBU">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TapChiDB.getNextSameCategoryPostBU_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="NewCost" ColumnName="NewCost" />
+                <ScalarProperty Name="FreeCourseStatus" ColumnName="FreeCourseStatus" />
+                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+                <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="ActiveDate" ColumnName="ActiveDate" />
+                <ScalarProperty Name="OldCost" ColumnName="OldCost" />
+                <ScalarProperty Name="ID1" ColumnName="ID1" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="Name1" ColumnName="Name1" />
+                <ScalarProperty Name="Alias1" ColumnName="Alias1" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Status1" ColumnName="Status1" />
+                <ScalarProperty Name="Image1" ColumnName="Image1" />
+                <ScalarProperty Name="FreeCourseStatus1" ColumnName="FreeCourseStatus1" />
+                <ScalarProperty Name="CreatedDate1" ColumnName="CreatedDate1" />
+                <ScalarProperty Name="CreatedBy1" ColumnName="CreatedBy1" />
+                <ScalarProperty Name="UpdatedDate1" ColumnName="UpdatedDate1" />
+                <ScalarProperty Name="UpdatedBy1" ColumnName="UpdatedBy1" />
+                <ScalarProperty Name="MetaKeyword1" ColumnName="MetaKeyword1" />
+                <ScalarProperty Name="MetaDescription1" ColumnName="MetaDescription1" />
+                <ScalarProperty Name="MetaTitle1" ColumnName="MetaTitle1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

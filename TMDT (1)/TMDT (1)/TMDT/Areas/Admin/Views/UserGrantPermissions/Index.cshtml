@@ -1,0 +1,76 @@
+﻿@model IEnumerable<UserGrantPermission>
+@{
+    ViewBag.Title = "Cấp quyền cho người dùng";
+    TMDT.Models.CustomModel.UserInfo userInfo = (TMDT.Models.CustomModel.UserInfo)Session["UserInfo"];
+}
+@section admin_section
+{
+    <section class="content-header">
+        <h1>
+            Quản trị viên
+            <small>@userInfo.FullName</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/Admin/UserAdministrators"><i class="fa fa-dashboard"></i> Quản lý người dùng</a></li>
+            <li class="active">Cấp quyền người dùng</li>
+        </ol>
+    </section>
+}
+<section class="content">
+    <!-- COLOR PALETTE -->
+    <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-tag"></i> Cấp quyền cho người dùng<b style="color:blue;">@ViewBag.usergrant</b>
+            </h3>
+        </div>
+    </div>
+    <div class="form-horizontal">
+        @*<div id="msg"></div>*@
+        <div class="col-xs-6 col-md-6">
+            <h4>Danh sách nghiệp vụ</h4>
+            @Html.DropDownList("businessesController", (IEnumerable<SelectListItem>)ViewBag.items, new { size = 20, onchange = "getPermissions('/UserGrantPermissions/getPermissions/'+this.value,'" + ViewData["userGrantID"] + "');" })
+        </div>
+        <div class="col-xs-4 col-md-4">
+            <h4>Danh sách quyền hạn</h4>
+            <div id="listaction"></div>
+        </div>
+        <br /><br />
+    </div>
+</section>
+@section scripts{
+    <script>
+    function getPermissions(action, usergrant) {
+        $.ajax({
+            method:"GET",
+            url:action,
+            data: {
+                usertemp:usergrant
+            },
+            success: function (data) {
+                $('#listaction').html('');
+                $.each(data, function (index, value) {
+                    var htmlCheck = '';
+                    if (value.IsGranted) {
+                        htmlCheck = 'checked';
+                    }
+                    $('#listaction').append("<input type='CheckBox' " + htmlCheck + " onchange='updatePermission(" + "\"/UserGrantPermissions/updatePermission/\"+this.value,\"@ViewData["userGrantID"]\")' value='" + value.PermissionId + "'> " + value.Description + "<br/>");
+                });
+            }
+        })
+    }
+
+    function updatePermission(action,usergrant) {
+        $.ajax({
+            method:"GET",
+            url:action,
+            data: {
+                usertemp:usergrant
+            },
+            success: function (data) {
+                $('#msg').html(data);
+            }
+        })
+    }
+    </script>
+}

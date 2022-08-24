@@ -1,0 +1,137 @@
+﻿@{
+    Layout = null;
+}
+@model UserAdministrator
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Đăng kí</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> <!-- Tell the browser to be responsive to screen width -->
+    <link rel="stylesheet" href="/Areas/Admin/Resources//bootstrap/css/bootstrap.min.css"> <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> <!-- Ionicons -->
+    <link rel="stylesheet" href="/Areas/Admin/Resources//dist/css/AdminLTE.min.css"> <!-- Theme style -->
+    <link rel="stylesheet" href="/Areas/Admin/Resources//plugins/iCheck/square/blue.css"> <!-- iCheck -->
+</head>r
+<body class="hold-transition login-page">
+    <style>
+        .has-feedback label ~ .form-control-feedback {
+            top: 0;
+        }
+        label.error, .field-validation-error {
+            color: #ff5959;
+            text-align: right;
+            font-size: 12px;
+            padding-left: 10px;
+        }
+    </style>
+    <div class="login-box">
+        <div class="login-logo">
+            <a href=""><b>Magazine</b>Website</a>
+        </div>
+        <!-- /.login-logo -->
+        
+        <div class="login-box-body">
+            <p class="login-box-msg" style="font-size: 20px;padding: 0;color: #3c8dbc;margin-bottom:20px">Đăng kí</p>
+            @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { id = "register_form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group has-feedback">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "Tên đăng nhập(User Name)" } })
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group has-feedback">
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Mật khẩu" })
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group has-feedback">
+                    <input id="re_password" name="re_password" type="password" class="form-control" placeholder="Xác nhận Mật khẩu" />
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                    <span class="glyphicon glyphicon-envelope   form-control-feedback"></span>
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group has-feedback">
+                    @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", placeholder = "Họ và tên" } })
+                    <span class="glyphicon glyphicon-text-background form-control-feedback"></span>
+                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="row">
+                    <!-- /.col -->
+                    <div class="col-xs-4 col-xs-offset-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng kí</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            }
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+    <!-- /.login-box -->
+    <script src="/Areas/Admin/Resources//plugins/jQuery/jquery-2.2.3.min.js"></script><!-- jQuery 2.2.3 -->
+    <script src="/Areas/Admin/Resources//bootstrap/js/bootstrap.min.js"></script><!-- Bootstrap 3.3.6 -->
+    <script src="/Areas/Admin/Resources//plugins/iCheck/icheck.min.js"></script><!-- iCheck -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#remember').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+            });
+            $('#register_form').validate({
+                rules: {
+                    "UserName": {
+                        required: true
+                    },
+                    "Password": {
+                        required: true,
+                        minlength: 8
+                    },
+                    "re_password": {
+                        equalTo: "#Password"
+                    },
+                    "Email": {
+                        email: true,
+                        required: true
+                    },
+                    "FullName": {
+                        required: true
+                    }
+                },
+                messages: {
+                    "UserName": {
+                        required: "* Chưa nhập Tên đăng nhập"
+                    },
+                    "Password": {
+                        required: "* Chưa nhập Mật khẩu",
+                        minlength: "* Mật khẩu chứa ít nhất 8 kí tự"
+                    },
+                    "re_password": {
+                        equalTo: "* Xác nhận Mật khẩu không đúng"
+                    },
+                    "Email": {
+                        email: "* Chưa đúng định dạng Email",
+                        required: "* Chưa nhập Email"
+                    },
+                    "FullName": {
+                        required: "* Chưa nhập Họ và tên"
+                    }
+                }
+            })
+        });
+
+
+    </script>
+</body>
+</html>

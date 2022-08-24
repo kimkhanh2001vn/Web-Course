@@ -1,0 +1,85 @@
+﻿@{ 
+      TapChiDB db = new TapChiDB();
+
+    var menu = db.Menus.ToList();
+}
+
+<div class="header-lower">
+    <div class="auto-container">
+        <div class="nav-outer clearfix">
+            <!-- Main Menu -->
+            <nav class="main-menu">
+                <div class="navbar-header">
+                    <!-- Toggle Button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            
+                        <div class="navbar-collapse collapse clearfix">
+                            <ul class="navigation clearfix">
+                                <li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-11 current">
+                                    <a title="Trang Chủ" href="~/Trang-Chu" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Trang chủ</a>
+
+                                </li>
+                                <li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a title="About us" href="~/Trang-Chu/ve-chung-toi" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Về Chúng Tôi</a></li>
+                                <li id="menu-item-37" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-37 ">
+                                    <a title="Đào Tạo" href="~/Dao-Tao" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Đào Tạo</a>
+
+                                </li>
+                                <li id="menu-item-60" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-60 ">
+                                    <a title="Projects" href="~/Trang-Chu/Tu-Van" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Tư Vấn</a>
+
+
+                                </li>
+                                <li id="menu-item-358" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-358 dropdown">
+                                    <a title="Thue" href="#" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Thuê</a>
+                                    <ul role="menu" class="submenu">
+                                        <li id="menu-item-355" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-355"><a title="Shop" href="~/Trang-Chu/Thue-Co-So"> Cho Thuê Cơ Sở</a></li>
+                                        <li id="menu-item-359" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-359"><a title="Single Proudcts" href="~/Trang-Chu/Thue-Can-Ho"> Cho Thuê Căn Hộ</a></li>
+
+                                    </ul>
+                                </li>
+                                <li id="menu-item-178" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-178 dropdown">
+                                    <a title="Blog" href="#" data-toggle="dropdown1" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Vật liệu</a>
+                                    <ul role="menu" class="submenu">
+                                        <li id="menu-item-179" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-179"><a title="Our Blog" href="~/Trang-Chu/Vat-Lieu-Xay-Dung">Vật Liệu xây Dựng</a></li>
+                                        <li id="menu-item-179" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-179"><a title="Our Blog" href="~/Trang-Chu/Vat-Lieu-Da">Đá xây Dựng</a></li>
+                                    </ul>
+                                </li>
+                                <li id="menu-item-68" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68"><a title="Contact Us" href="~/Trang-Chu/Co-Van" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Cố Vấn</a></li>
+                            </ul>
+                        </div>
+                  
+            </nav>
+            <!-- Main Menu End-->
+            <div class="outer-box clearfix">
+                <!--Search Box-->
+                <div class="search-box-outer">
+                    <div class="dropdown">
+                        <button class="search-box-btn dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-search"></span></button>
+                        <ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu3">
+                            <li class="panel-outer">
+                                <div class="form-container">
+                                    <form action="http://wp.efforttech.net/newwp/konstructo/" method="get">
+                                        <div class="form-group">
+                                            <input type="search" name="s" value="" placeholder="Search Here" required>
+                                            <button type="submit" class="search-btn"><span class="fa fa-search"></span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="advisor-box">
+                    <a href="/Trang-Chu/Co-Van" class="theme-btn advisor-btn">Tìm Cố Vấn <span class="fa fa-long-arrow-right"></span></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

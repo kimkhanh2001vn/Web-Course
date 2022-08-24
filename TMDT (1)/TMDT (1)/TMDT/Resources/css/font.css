@@ -1,0 +1,76 @@
+﻿@font-face {
+    font-family: "opensans";
+    src: url(/Resources/fonts/OpenSans-Regular.ttf ) format("opentype"); /* IE */
+    font-weight: 400
+}
+
+@font-face {
+    font-family: "roboto";
+    src: url(/Resources/fonts/Roboto-Regular.ttf ) format("opentype"); /* IE */
+    font-weight: 400
+}
+
+@font-face {
+    font-family: NotoSans-Bold;
+    src: url(/Resources/fonts/NotoSans-Bold.ttf) format("opentype");
+    font-weight: 400
+}
+
+@font-face {
+    font-family: NotoSans-Italic;
+    src: url(/Resources/fonts/NotoSans-Italic.ttf) format("opentype");
+    font-weight: 400
+}
+
+@font-face {
+    font-family: NotoSans-Regular;
+    src: url(/Resources/fonts/NotoSans-Regular.ttf) format("opentype");
+    font-weight: 400
+}
+
+@font-face {
+    font-family: GothamVnu-Book;
+    src: url(/Resources/fonts/GothamVnu-Book.otf) format("opentype");
+    font-weight: 400
+}
+
+@font-face {
+    font-family: GothamVnu;
+    src: url(/Resources/fonts/GothamVnu-Bold.otf) format("opentype");
+    font-weight: 700
+}
+
+@font-face {
+    font-family: 'GothamVnu-Bold';
+    src: url(GothamVnu-Bold.eot?#iefix) format("embedded-opentype"),url(fonts/GothamVnu-Bold.otf) format("opentype"),url(fonts/GothamVnu-Bold.woff) format("woff"),url(fonts/GothamVnu-Bold.ttf) format("truetype"),url(fonts/GothamVnu-Bold.svg#GothamVnu-Bold) format("svg");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: HCPChronicleDisBoldItalic;
+    src: url(/Resources/fonts/HCPChronicleDisBoldItalic.ttf) format("opentype")
+}
+
+@font-face {
+    font-family: HCPChronicleDispCompItalicItalic;
+    src: url(/Resources/fonts//HCPChronicleDispCompItalicItalic.otf) format("opentype");
+    font-weight: 400
+}
+
+@font-face {
+    font-family: GothamHTFThin;
+    src: url(/Resources/fonts/GothamHTFThin.otf) format("opentype")
+}
+
+@font-face {
+    font-family: GothamXNarrowBold;
+    src: url(/Resources/fonts/GothamXNarrowBold.ttf) format("opentype");
+    font-weight: 700
+}
+
+@font-face {
+    font-family: GillSans-Light;
+    src: url(/Resources/fonts/GillSans-Light.otf) format("opentype");
+    font-weight: 400
+}

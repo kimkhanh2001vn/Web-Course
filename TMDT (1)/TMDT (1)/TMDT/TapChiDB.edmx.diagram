@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5208f4b3bb3a4e24ab3d111b0b5119f7" Name="Diagram1" ZoomLevel="125">
+        <EntityTypeShape EntityType="TapChiDB.AdSection" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.Advertisement" Width="1.5" PointX="12.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.Chapter" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.Course" Width="1.5" PointX="14.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.dacsac" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.dichvuchinh" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.duanganday" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.EmailSetting" Width="1.5" PointX="4.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.FooterContent" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.GoogleAPI" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.Hinhtruot" Width="1.5" PointX="14.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.HomePageSection" Width="1.5" PointX="6.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.HotNewCategory" Width="1.5" PointX="8.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.Khachhang" Width="1.5" PointX="14.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.LogTestApplication" Width="1.5" PointX="16.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.LogUserActivity" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.ManagerPage" Width="1.5" PointX="16.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.OrderDetail" Width="1.5" PointX="12.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.Order" Width="1.5" PointX="9.875" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.PageData" Width="1.5" PointX="16.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.Page" Width="1.5" PointX="16.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.PartnerLogo" Width="1.5" PointX="16.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.PostCategory" Width="1.5" PointX="7.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.Post" Width="1.5" PointX="10" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.SelectivePost" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.Shop" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.ShopManagement" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.SliderTop" Width="1.5" PointX="2.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.SubscribedEmail" Width="1.5" PointX="10.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.Tag" Width="1.5" PointX="12.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.taisaochontoi" Width="1.5" PointX="18.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.TempAdSection" Width="1.5" PointX="18.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.thue" Width="1.5" PointX="4.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.TinTucNew" Width="1.5" PointX="6.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.Topmenu" Width="1.5" PointX="18.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.TuVan" Width="1.5" PointX="18.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.User" Width="1.5" PointX="12.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.UserAdministrator" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.UserAdministratorRole" Width="1.5" PointX="18.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.UserBusiness" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.UserCategory" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.UserGrantPermission" Width="1.5" PointX="8.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.UserPermission" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.UserPost" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.UserRole" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.VatLieu" Width="1.5" PointX="18.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.Video" Width="1.5" PointX="14.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.VisitorStatistic" Width="1.5" PointX="20.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.ChapterDetail" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.Menu" Width="1.5" PointX="20.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChiDB.oldActiveDate" Width="1.5" PointX="20.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="TapChiDB.FK_LogUserActivity_UserAdministrator" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_dbo_OrderDetails_dbo_Orders_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_OrderDetails_OrderDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_OrderDetails_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_dbo_Posts_dbo_PostCategories_CategoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_Posts_Posts" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_ShopManagement_Shop" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_dbo_UserCategory_dbo_UserAdministrator_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_dbo_UserGrantPermission_dbo_UserAdministrator_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_dbo_UserPost_dbo_UserAdministrator_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_UserAdministrator_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_UserAdministrator_UserAdministrator" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_UserAdministrator_UserRole" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_dbo_UserPermission_dbo_UserBusiness_BusinessId" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_dbo_UserPost_dbo_UserCategory_CategoryId" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.FK_dbo_UserGrantPermission_dbo_UserPermission_PermissionId" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChiDB.PostTags" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

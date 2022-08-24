@@ -1,0 +1,75 @@
+﻿@model TMDT.TempAdSection
+@{
+    ViewBag.Title = "Edit";  
+}
+<section class="content">
+    <!-- COLOR PALETTE -->
+    <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-tag"></i> Sửa
+            </h3>
+        </div>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ImageLink, htmlAttributes: new { @class = "control-label col-md-2" }) 
+                <div class="col-md-3">
+                    <div id="content"><img class="img-thumbnail" style="width:200px" type="type/html" src="@Model.ImageLink" /></div>
+                    @Html.EditorFor(model => model.ImageLink, new { htmlAttributes = new { @class = "form-control textbox-control hidden" } })
+                    @Html.ValidationMessageFor(model => model.ImageLink, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3">
+                    <input class="btn btn-default" id="Browse" value="Chọn ảnh (@Model.Size)" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RefererLink, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RefererLink, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RefererLink, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ImageAltInfo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ImageAltInfo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ImageAltInfo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-6">
+                    <input type="submit" value="Lưu" class="btn btn-success" />
+                    <p class="btn btn-default">@Html.ActionLink("Trở lại", "Index")</p>
+                </div>
+            </div>
+        </div>
+        }
+        <br /><br />
+    </div>
+</section>
+@section scripts{    
+    <script type="text/javascript">
+        $(function () {
+            $("#Browse").click(function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (fileUrl) {
+                    //Lấy file ảnh cuối cùng
+                    $("#ImageLink").val(fileUrl);
+                    document.getElementById("content").innerHTML = '<img class="img-thumbnail" style="width:200px" type="type/html" src="' + fileUrl + '" >';
+                };
+                finder.popup();
+            });
+        })
+    </script>
+}

@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Đăng nhập";
+        Layout = "~/Views/Shared/_DaoTao.cshtml";
+}
+
+<!-- MAIN -->
+
+<main class="site-main">
+
+    <div class="columns container">
+        <!-- Block  Breadcrumb-->
+        @*<ol class="breadcrumb no-hide">
+                <li><a href="#">Home    </a></li>
+                <li><a href="#">Blog    </a></li>
+                <li class="active">Ut pharetra augue nec augue integer rutrum ante eu lacus</li>
+            </ol> Block  Breadcrumb*@
+        <br />
+        <br />
+        <br />
+        <h2 class="page-heading">
+            <span class="page-heading-title2">Đăng nhập</span>
+        </h2>
+        <br />
+        <br />
+        <br />
+        <div class="container">
+            <form class="form-horizontal" action="~/Home/Login" method="post">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" name="txtEmail" for="txtEmail">Địa chỉ email:</label>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" name="txtPass" for="txtPass">Mật khẩu:</label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control" id="txtPass" name="txtPass" placeholder="Mật khẩu">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-2">
+                        <button type="submit" class="btn btn-default" style="width: 200px;">Đăng nhập</button>
+
+                    </div>
+
+                    <div class="col-sm-offset-4 col-sm-2">
+                        <button type="button" class="btn btn-default" onclick="registration();" style="width: 200px">Đăng ký</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</main><!-- end MAIN -->
+<script>
+    function registration() {
+
+        location.href="/Home/Registration"
+
+    }
+</script>
